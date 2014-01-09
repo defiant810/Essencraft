@@ -1,0 +1,15 @@
+[
+{
+  "modid": "essencraft",
+  "name": "Essencraft",
+  "description": "Adds new content in the food and farming areas.",
+  "version": "${version}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["defiant810"],
+  "credits": "The Colorado Coders team: defiant810, iLaptop, Bunzlin8tr, 400321",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
