@@ -1,8 +1,15 @@
 package com.co2.essencraft.config;
 
-import net.minecraftforge.common.Configuration;
-
 import java.io.File;
+import java.util.logging.Level;
+
+import com.co2.essencraft.lib.BlockIds;
+import com.co2.essencraft.lib.ItemIds;
+import com.co2.essencraft.lib.Reference;
+import com.co2.essencraft.lib.StringLib;
+
+import net.minecraftforge.common.Configuration;
+import cpw.mods.fml.common.FMLLog;
 
 public class ConfigHandler 
 {
@@ -21,10 +28,11 @@ public class ConfigHandler
 			con.load();
 			
 			//Load ids here
+			BlockIds.SALT_BLOCK = con.getBlock(StringLib.SALT_BLOCK_NAME, BlockIds.SALT_BLOCK_DEFAULT).getInt(BlockIds.SALT_BLOCK_DEFAULT);
 		}
 		catch (Exception e)
 		{
-			
+			FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " cannot load its block properties configuration file.");
 		}
 		finally
 		{
@@ -41,10 +49,11 @@ public class ConfigHandler
 			con.load();
 			
 			//Load ids here
+			ItemIds.RAW_SALT_PILE = con.getItem(StringLib.RAW_SALT_PILE_NAME, ItemIds.RAW_SALT_PILE_DEFAULT).getInt(ItemIds.RAW_SALT_PILE_DEFAULT);
 		}
 		catch (Exception e)
 		{
-			
+			FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " cannot load its item properties configuration file.");
 		}
 		finally
 		{
