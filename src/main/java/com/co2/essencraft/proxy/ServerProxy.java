@@ -1,6 +1,6 @@
 package com.co2.essencraft.proxy;
 
-public abstract class ServerProxy extends CommonProxy 
+public class ServerProxy extends CommonProxy 
 {
 	@Override
 	public void registerRenderers() 
