@@ -1,5 +1,8 @@
 package com.co2.essencraft;
 
+import java.io.File;
+
+import com.co2.essencraft.config.ConfigHandler;
 import com.co2.essencraft.lib.Reference;
 import com.co2.essencraft.proxy.IProxy;
 
@@ -27,6 +30,9 @@ public class Essencraft
 	{
 		//Set version number
 		event.getModMetadata().version = Reference.MOD_VERSION;
+		
+		//Init config
+		ConfigHandler.init(event.getModConfigurationDirectory() + File.separator + Reference.MOD_ID.toLowerCase() + File.separator);
 	}
 	
 	@EventHandler
