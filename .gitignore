@@ -30,6 +30,7 @@ ops.txt
 banned-ips.txt
 banned-players.txt
 server.properties
+/crash-reports
 
 #################
 ## Eclipse
