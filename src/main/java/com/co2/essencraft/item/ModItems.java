@@ -25,17 +25,10 @@ public class ModItems
 		 
 		 GameRegistry.registerItem(rawSaltPile, "item." + StringLib.RAW_SALT_PILE_NAME);
 		 GameRegistry.registerItem(coconut, "item." + StringLib.COCONUT_NAME);
-<<<<<<< HEAD
 		 GameRegistry.registerItem(fish, "item.fish");
 		 GameRegistry.registerItem(kiwi, "item." + StringLib.KIWI_NAME);
 		 GameRegistry.registerItem(rye, "item." + StringLib.RYE_NAME);
-
-=======
-		 GameRegistry.registerItem(fish, "item." + StringLib.FISH_NAME);
-		 GameRegistry.registerItem(kiwi, "item." + StringLib.KIWI_NAME);
-		 GameRegistry.registerItem(rye, "item." + StringLib.RYE_NAME);
 		 
->>>>>>> 5e6af695367fa22c9c53223d13faaa48626f59d7
 		 LanguageRegistry.addName(rawSaltPile, "Large Salt Pile");
 		 LanguageRegistry.addName(coconut, "Coconut");
 		 LanguageRegistry.addName(fish, "Fish");
