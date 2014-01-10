@@ -30,6 +30,7 @@ server.properties
 /crash-reports
 ForgeModLoader*
 output*
+options*
 
 #################
 ## Eclipse
