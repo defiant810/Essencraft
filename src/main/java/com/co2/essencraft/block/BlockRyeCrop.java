@@ -25,7 +25,7 @@ public class BlockRyeCrop extends BlockESC
 	{
 		super(id, Material.plants);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F);
-		setTickRandomly(true);		
+		setTickRandomly(true);
 	}
 	
 	/**

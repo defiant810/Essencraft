@@ -8,11 +8,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModBlocks 
 {
 	public static BlockESC saltBlock;
+	public static BlockESC ryeCrop;
 	
 	public static void init()
 	{
+		ryeCrop = new BlockRyeCrop(BlockIds.RYE_CROP);
 		saltBlock = new BlockSaltBlock(BlockIds.SALT_BLOCK);
 		
 		GameRegistry.registerBlock(saltBlock, "tile." + StringLib.SALT_BLOCK_NAME);
+		GameRegistry.registerBlock(ryeCrop, "tile." + StringLib.RYE_CROP_NAME);
 	}
 }

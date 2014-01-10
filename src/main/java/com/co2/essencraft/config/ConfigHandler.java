@@ -29,6 +29,7 @@ public class ConfigHandler
 			
 			//Load ids here
 			BlockIds.SALT_BLOCK = con.getBlock(StringLib.SALT_BLOCK_NAME, BlockIds.SALT_BLOCK_DEFAULT).getInt(BlockIds.SALT_BLOCK_DEFAULT);
+			BlockIds.RYE_CROP = con.getBlock(StringLib.RYE_CROP_NAME, BlockIds.RYE_CROP_DEFAULT).getInt(BlockIds.RYE_CROP_DEFAULT);
 		}
 		catch (Exception e)
 		{
@@ -54,6 +55,7 @@ public class ConfigHandler
 			ItemIds.FISH = con.getItem("fish", ItemIds.FISH_DEFAULT).getInt(ItemIds.FISH_DEFAULT);
 			ItemIds.KIWI = con.getItem(StringLib.KIWI_NAME, ItemIds.KIWI_DEFAULT).getInt(ItemIds.KIWI_DEFAULT);
 			ItemIds.RYE = con.getItem(StringLib.RYE_NAME, ItemIds.RYE_DEFAULT).getInt(ItemIds.RYE_DEFAULT);
+			ItemIds.FRUIT = con.getItem("fruit", ItemIds.FRUIT_DEFAULT).getInt(ItemIds.FRUIT_DEFAULT);
 		}
 		catch (Exception e)
 		{

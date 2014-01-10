@@ -21,4 +21,8 @@ public class ItemIds
 	//Rye
 	public static final int RYE_DEFAULT = 19504;
 	public static int RYE;
+	
+	//Fruit
+	public static final int FRUIT_DEFAULT = 19505;
+	public static int FRUIT;
 }
