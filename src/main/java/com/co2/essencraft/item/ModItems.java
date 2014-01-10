@@ -11,8 +11,8 @@ public class ModItems
 	public static ItemESC rawSaltPile;
 	public static ItemESC coconut;
 	public static ItemESC rye;
-	public static ItemESC fruit;
 	
+	public static ItemFoodESC fruit;
 	public static ItemFoodESC fish;
 	public static ItemFoodESC kiwi;
 	

@@ -10,7 +10,7 @@ import com.co2.essencraft.lib.StringLib;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFruit extends ItemESC
+public class ItemFruit extends ItemFoodESC
 {
 	private static final int NUM_FRUIT = 3;
 	
@@ -19,7 +19,7 @@ public class ItemFruit extends ItemESC
 	
 	public ItemFruit(int id)
 	{
-		super(id);
+		super(id, 2, false);
 		this.setHasSubtypes(true);
 		this.setUnlocalizedName("fruit");
 		this.setMaxDamage(0);
