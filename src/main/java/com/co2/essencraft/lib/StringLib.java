@@ -16,4 +16,6 @@ public class StringLib
 	
 	public static final String[] FISH_NAMES = { "fishHalibut", "fishSalmon", "fishTrout" };
 	public static final String[] FRUIT_NAMES = { "fruitBanana", "fruitPineapple", "fruitBlueberries" };
+	public static final String[] HERB_NAMES = { "itemHerbBasil", "itemHerbCilantro", "itemHerbGarlicClove", "itemHerbOregano", "itemHerbParsley",
+												"itemHerbRawBlackPepper", "itemHerbRosemary", "itemHerbSage", "itemHerbThyme", "itemHerbVanillaBean"};
 }

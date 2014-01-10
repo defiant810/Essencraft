@@ -56,6 +56,7 @@ public class ConfigHandler
 			ItemIds.KIWI = con.getItem(StringLib.KIWI_NAME, ItemIds.KIWI_DEFAULT).getInt(ItemIds.KIWI_DEFAULT);
 			ItemIds.RYE = con.getItem(StringLib.RYE_NAME, ItemIds.RYE_DEFAULT).getInt(ItemIds.RYE_DEFAULT);
 			ItemIds.FRUIT = con.getItem("fruit", ItemIds.FRUIT_DEFAULT).getInt(ItemIds.FRUIT_DEFAULT);
+			ItemIds.HERB = con.getItem("herb", ItemIds.HERB_DEFAULT).getInt(ItemIds.HERB_DEFAULT);
 		}
 		catch (Exception e)
 		{

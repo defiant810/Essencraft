@@ -25,4 +25,8 @@ public class ItemIds
 	//Fruit
 	public static final int FRUIT_DEFAULT = 19505;
 	public static int FRUIT;
+	
+	//Herb/Spice refered to as Herb in code
+	public static final int HERB_DEFAULT = 19506;
+	public static int HERB;
 }

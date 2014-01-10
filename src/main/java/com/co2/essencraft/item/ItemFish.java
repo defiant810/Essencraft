@@ -29,7 +29,7 @@ public class ItemFish extends ItemFoodESC
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		return super.getUnlocalizedName() + 
-				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)];
+				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)];//Num 2 needs to be fixed 
 	}
 	
 	@Override
