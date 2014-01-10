@@ -4,6 +4,7 @@ import java.io.File;
 
 import com.co2.essencraft.block.ModBlocks;
 import com.co2.essencraft.config.ConfigHandler;
+import com.co2.essencraft.crafting.CraftingHandler;
 import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.Reference;
 import com.co2.essencraft.proxy.IProxy;
@@ -45,9 +46,12 @@ public class Essencraft
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
+	{	
 		//Initialize custom rendering (client only)
 		proxy.registerRenderers();
+		
+		//Initialize recipes and crafting handlers
+		CraftingHandler.init();
 	}
 	
 	@EventHandler
