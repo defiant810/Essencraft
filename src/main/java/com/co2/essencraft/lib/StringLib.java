@@ -15,7 +15,8 @@ public class StringLib
 	public static final String RYE_NAME = "ryeStalk";
 	
 	public static final String[] FISH_NAMES = { "fishHalibut", "fishSalmon", "fishTrout" };
-	public static final String[] FRUIT_NAMES = { "fruitBanana", "fruitPineapple", "fruitBlueberries" };
-	public static final String[] HERB_NAMES = { "itemHerbBasil", "itemHerbCilantro", "itemHerbGarlicClove", "itemHerbOregano", "itemHerbParsley",
-												"itemHerbRawBlackPepper", "itemHerbRosemary", "itemHerbSage", "itemHerbThyme", "itemHerbVanillaBean"};
+	public static final String[] FISH_NAMES_HUMAN = { "Halibut", "Salmon", "Trout" };
+	public static final String[] FRUIT_NAMES = { "fruitBanana", "fruitBlackBerries", "fruitBlueBerries", "fruitCoconut", "fruit", "fruit", "fruit", "fruit",
+		 "fruit", "fruit", "fruit", "fruit", "fruit", "fruit", "fruit", "fruit",};
+	public static final String[] FRUIT_NAMES_HUMAN = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 }

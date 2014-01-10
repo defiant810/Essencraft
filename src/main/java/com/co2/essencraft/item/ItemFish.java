@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemFish extends ItemFoodESC
 {
-	private static final int NUM_FISH = 3;
+	private static final int NUM_FISH = StringLib.FISH_NAMES.length;
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -28,8 +28,8 @@ public class ItemFish extends ItemFoodESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + 
-				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)];//Num 2 needs to be fixed 
+		return super.getUnlocalizedName() + "." +
+				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)];
 	}
 	
 	@Override
@@ -38,6 +38,18 @@ public class ItemFish extends ItemFoodESC
 	{
 		return icons[damage];
 	}
+	
+	//Example of how to make some foods editable but others not
+	/*@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
+		int meta = par1ItemStack.getItemDamage();
+		
+		if (!(meta >= 2))
+			par3EntityPlayer.setItemInUse(par1ItemStack, par1ItemStack.getMaxItemUseDuration());
+		
+		return par1ItemStack;
+	}*/
 	
 	@Override
 	@SideOnly(Side.CLIENT)

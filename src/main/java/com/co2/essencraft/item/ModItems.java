@@ -1,5 +1,7 @@
 package com.co2.essencraft.item;
 
+import net.minecraft.item.ItemStack;
+
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.StringLib;
 
@@ -8,18 +10,29 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems 
 {
-	public static ItemESC rawSaltPile;
+	/*public static ItemESC rawSaltPile;
 	public static ItemESC coconut;
 	public static ItemESC rye;
 	public static ItemESC herb;
 	
 	public static ItemFoodESC fruit;
+	public static ItemFoodESC kiwi;*/
+	
 	public static ItemFoodESC fish;
-	public static ItemFoodESC kiwi;
 	
 	public static void init()
 	{
-		 rawSaltPile = new ItemRawSaltPile(ItemIds.RAW_SALT_PILE);
+		//Init items
+		fish = new ItemFish(ItemIds.FISH);
+		
+		//Register items
+		GameRegistry.registerItem(fish, "item.fish");
+		
+		//Add names to language registry
+		for (int i = 0; i < StringLib.FISH_NAMES_HUMAN.length; i++)
+			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES_HUMAN[i]);
+		
+		 /*rawSaltPile = new ItemRawSaltPile(ItemIds.RAW_SALT_PILE);
 		 coconut = new ItemCoconut(ItemIds.COCONUT);
 		 fish = new ItemFish(ItemIds.FISH);
 		 kiwi = new ItemKiwi(ItemIds.KIWI);
@@ -32,15 +45,14 @@ public class ModItems
 		 GameRegistry.registerItem(fish, "item.fish");
 		 GameRegistry.registerItem(kiwi, "item." + StringLib.KIWI_NAME);
 		 GameRegistry.registerItem(rye, "item." + StringLib.RYE_NAME);
-		 GameRegistry.registerItem(fruit, "item." + StringLib.FRUIT_NAMES);
-		 GameRegistry.registerItem(herb, "item." + StringLib.HERB_NAMES);
+		 GameRegistry.registerItem(fruit, "item.fruit");
+		 GameRegistry.registerItem(herb, "item.herb");
 		 
 		 LanguageRegistry.addName(rawSaltPile, "Large Salt Pile");
 		 LanguageRegistry.addName(coconut, "Coconut");
-		 LanguageRegistry.addName(fish, "Fish");
+		 for(int i = 0; i < StringLib.HUMAN_FISH_NAMES.length; i++)
+			 LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.HUMAN_FISH_NAMES[i]);
 		 LanguageRegistry.addName(kiwi, "Kiwi");
-		 LanguageRegistry.addName(rye, "Rye");
-		 LanguageRegistry.addName(fruit, "Fruit");
-		 LanguageRegistry.addName(herb, "Herb");
+		 LanguageRegistry.addName(rye, "Rye");*/
 	}
 }

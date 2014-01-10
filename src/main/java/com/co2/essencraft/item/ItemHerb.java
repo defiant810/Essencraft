@@ -28,8 +28,8 @@ public class ItemHerb extends ItemESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + 
-				StringLib.HERB_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 9)];
+		return super.getUnlocalizedName();// + 
+				//StringLib.HERB_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 9)];
 		//without 9 being scaled to one less the length of herb[] the items in icons[] aren't named correctly in game
 		//crashes when (NUM_HERB -1) results in a negative number though
 	}

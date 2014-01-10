@@ -28,8 +28,8 @@ public class ItemFruit extends ItemFoodESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + 
-				StringLib.FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)]; //num 2 needs to be fixed
+		return super.getUnlocalizedName();// + 
+				//StringLib.FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)]; //num 2 needs to be fixed
 	}
 	
 	@Override
