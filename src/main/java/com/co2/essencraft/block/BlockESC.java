@@ -31,7 +31,7 @@ public class BlockESC extends Block
 	public void registerIcons(IconRegister iconRegister)
 	{
 		//Get the name with a capital first letter
-		String file = this.getSimpleName().toUpperCase().charAt(0) + this.getSimpleName().substring(1);
+		String file = this.getSimpleName().toUpperCase().charAt(0) + this.getSimpleName().substring(1, this.getSimpleName().length() - 5);
 		this.blockIcon = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "block" + file);
 	}
 }
