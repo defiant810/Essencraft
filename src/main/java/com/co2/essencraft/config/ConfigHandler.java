@@ -53,6 +53,7 @@ public class ConfigHandler
 			ItemIds.COCONUT = con.getItem(StringLib.COCONUT_NAME, ItemIds.COCONUT_DEFAULT).getInt(ItemIds.COCONUT_DEFAULT);
 			ItemIds.FISH = con.getItem(StringLib.FISH_NAME, ItemIds.FISH_DEFAULT).getInt(ItemIds.FISH_DEFAULT);
 			ItemIds.KIWI = con.getItem(StringLib.KIWI_NAME, ItemIds.KIWI_DEFAULT).getInt(ItemIds.KIWI_DEFAULT);
+			ItemIds.RYE = con.getItem(StringLib.RYE_NAME, ItemIds.RYE_DEFAULT).getInt(ItemIds.RYE_DEFAULT);
 		}
 		catch (Exception e)
 		{

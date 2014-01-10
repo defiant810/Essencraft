@@ -10,6 +10,8 @@ public class ModItems
 {
 	public static ItemESC rawSaltPile;
 	public static ItemESC coconut;
+	public static ItemESC rye;
+	
 	public static ItemFoodESC fish;
 	public static ItemFoodESC kiwi;
 	
@@ -19,15 +21,18 @@ public class ModItems
 		 coconut = new ItemCoconut(ItemIds.COCONUT);
 		 fish = new ItemFish(ItemIds.FISH);
 		 kiwi = new ItemFish(ItemIds.KIWI);
+		 rye = new ItemRye(ItemIds.RYE);
 		 
 		 GameRegistry.registerItem(rawSaltPile, "item." + StringLib.RAW_SALT_PILE_NAME);
 		 GameRegistry.registerItem(coconut, "item." + StringLib.COCONUT_NAME);
 		 GameRegistry.registerItem(fish, "item." + StringLib.FISH_NAME);
 		 GameRegistry.registerItem(kiwi, "item." + StringLib.KIWI_NAME);
+		 GameRegistry.registerItem(rye, "item." + StringLib.RYE_NAME);
 		 
 		 LanguageRegistry.addName(rawSaltPile, "Large Salt Pile");
 		 LanguageRegistry.addName(coconut, "Coconut");
 		 LanguageRegistry.addName(fish, "Fish");
 		 LanguageRegistry.addName(kiwi, "Kiwi");
+		 LanguageRegistry.addName(rye, "Rye");
 	}
 }
