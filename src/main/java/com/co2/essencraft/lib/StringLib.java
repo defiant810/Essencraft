@@ -9,4 +9,5 @@ public class StringLib
 	
 	/* Item name constants */
 	public static final String RAW_SALT_PILE_NAME = "rawSaltPile";
+	public static final String COCONUT_NAME = "coconut";
 }
