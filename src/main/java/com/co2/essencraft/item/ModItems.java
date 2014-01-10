@@ -20,7 +20,7 @@ public class ModItems
 		 rawSaltPile = new ItemRawSaltPile(ItemIds.RAW_SALT_PILE);
 		 coconut = new ItemCoconut(ItemIds.COCONUT);
 		 fish = new ItemFish(ItemIds.FISH);
-		 kiwi = new ItemFish(ItemIds.KIWI);
+		 kiwi = new ItemKiwi(ItemIds.KIWI);
 		 rye = new ItemRye(ItemIds.RYE);
 		 
 		 GameRegistry.registerItem(rawSaltPile, "item." + StringLib.RAW_SALT_PILE_NAME);

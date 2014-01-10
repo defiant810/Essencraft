@@ -12,5 +12,5 @@ public class StringLib
 	public static final String COCONUT_NAME = "coconut";
 	public static final String[] FISH_NAMES = { "fishHalibut", "fishSalmon", "fishTrout" };
 	public static final String KIWI_NAME = "kiwi";
-	public static final String RYE_NAME = "rye";
+	public static final String RYE_NAME = "ryeStalk";
 }
