@@ -51,6 +51,7 @@ public class ConfigHandler
 			//Load ids here
 			ItemIds.RAW_SALT_PILE = con.getItem(StringLib.RAW_SALT_PILE_NAME, ItemIds.RAW_SALT_PILE_DEFAULT).getInt(ItemIds.RAW_SALT_PILE_DEFAULT);
 			ItemIds.COCONUT = con.getItem(StringLib.COCONUT_NAME, ItemIds.COCONUT_DEFAULT).getInt(ItemIds.COCONUT_DEFAULT);
+			ItemIds.FISH = con.getItem(StringLib.FISH_NAME, ItemIds.FISH_DEFAULT).getInt(ItemIds.FISH_DEFAULT);
 		}
 		catch (Exception e)
 		{
