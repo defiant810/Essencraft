@@ -8,7 +8,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModItems 
 {
 	public static ItemESC rawSaltPile;
-	public static ItemESC coconut;
+	public static ItemFoodESC coconut;
 	
 	public static void init()
 	{
