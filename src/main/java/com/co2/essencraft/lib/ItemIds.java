@@ -9,4 +9,8 @@ public class ItemIds
 	//Coconut
 	public static final int COCONUT_DEFAULT = 19501;
 	public static int COCONUT;
+	
+	//Fish
+	public static final int FISH_DEFAULT = 19502;
+	public static int FISH;
 }
