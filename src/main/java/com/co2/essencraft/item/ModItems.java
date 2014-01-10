@@ -10,27 +10,27 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems 
 {
-	/*public static ItemESC rawSaltPile;
-	public static ItemESC coconut;
-	public static ItemESC rye;
-	public static ItemESC herb;
-	
-	public static ItemFoodESC fruit;
-	public static ItemFoodESC kiwi;*/
+	/*public static ItemESC rye;
+	public static ItemESC herb;*/
 	
 	public static ItemFoodESC fish;
+	public static ItemFoodESC fruit;
 	
 	public static void init()
 	{
 		//Init items
 		fish = new ItemFish(ItemIds.FISH);
+		fruit = new ItemFruit(ItemIds.FRUIT);
 		
 		//Register items
 		GameRegistry.registerItem(fish, "item.fish");
+		GameRegistry.registerItem(fruit, "item.fruit");
 		
 		//Add names to language registry
 		for (int i = 0; i < StringLib.FISH_NAMES_HUMAN.length; i++)
 			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES_HUMAN[i]);
+		for (int i = 0; i < StringLib.FRUIT_NAMES_HUMAN.length; i++)
+			LanguageRegistry.addName(new ItemStack(fruit.itemID, 1, i), StringLib.FRUIT_NAMES_HUMAN[i]);
 		
 		 /*rawSaltPile = new ItemRawSaltPile(ItemIds.RAW_SALT_PILE);
 		 coconut = new ItemCoconut(ItemIds.COCONUT);

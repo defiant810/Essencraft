@@ -21,7 +21,6 @@ public class ItemFish extends ItemFoodESC
 	{
 		super(id, 2, true);
 		this.setHasSubtypes(true);
-		this.setUnlocalizedName("fish");
 		this.setMaxDamage(0);
 	}
 	

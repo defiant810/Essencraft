@@ -10,14 +10,14 @@ import com.co2.essencraft.lib.StringLib;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemHerb extends ItemESC 
+public class ItemSeasoning extends ItemESC 
 {
 	private static final int NUM_HERB = 10;
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
 	
-	public ItemHerb(int id)
+	public ItemSeasoning(int id)
 	{
 		super(id);
 		this.setHasSubtypes(true);
