@@ -15,7 +15,7 @@ public class ModItems
 		 rawSaltPile = new ItemRawSaltPile(ItemIds.RAW_SALT_PILE);
 		 coconut = new ItemCoconut(ItemIds.COCONUT);
 		 
-		 GameRegistry.registerItem(coconut, "item." + StringLib.COCONUT_NAME);
 		 GameRegistry.registerItem(rawSaltPile, "item." + StringLib.RAW_SALT_PILE_NAME);
+		 GameRegistry.registerItem(coconut, "item." + StringLib.COCONUT_NAME);
 	}
 }
