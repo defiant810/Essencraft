@@ -8,12 +8,13 @@ import com.co2.essencraft.lib.StringLib;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFoodESC extends ItemFood{
+public class ItemFoodESC extends ItemFood
+{
 	public static final int ID_SHIFT_CORRECTION = 256;
 	
-	public ItemFoodESC(int id, int hungerRegen, boolean wolf)
+	public ItemFoodESC(int id, int hungerRegen, float saturation, boolean wolf)
 	{
-		super(id - ID_SHIFT_CORRECTION, hungerRegen, wolf);
+		super(id - ID_SHIFT_CORRECTION, hungerRegen, saturation, wolf);
 		this.setMaxStackSize(64);
 		//TODO set proper creative tab
 	}

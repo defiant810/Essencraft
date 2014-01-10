@@ -13,15 +13,15 @@ import com.co2.essencraft.util.ArrayUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFruit extends ItemFoodESC
+public class ItemVegetable extends ItemFoodESC
 {
-	private static final int NUM_FRUIT = StringLib.FRUIT_NAMES.length;
-	private static final Integer[] EATING_BLACKLIST = { 3, 11, 13 };
+	private static final int NUM_VEG = StringLib.VEG_NAMES.length;
+	private static final Integer[] EATING_BLACKLIST = { };
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
 	
-	public ItemFruit(int id)
+	public ItemVegetable(int id)
 	{
 		super(id, 2, 0.3f, false);
 		this.setHasSubtypes(true);
@@ -32,14 +32,14 @@ public class ItemFruit extends ItemFoodESC
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		return super.getUnlocalizedName() + "." +
-				StringLib.FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_FRUIT - 1)];
+				StringLib.VEG_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_VEG - 1)];
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[MathHelper.clamp_int(damage, 0, NUM_FRUIT - 1)];
+		return icons[MathHelper.clamp_int(damage, 0, NUM_VEG - 1)];
 	}
 	
 	@Override
@@ -57,10 +57,10 @@ public class ItemFruit extends ItemFoodESC
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{	
-		icons = new Icon[NUM_FRUIT];
+		icons = new Icon[NUM_VEG];
 		for (int i = 0; i < icons.length; i++)
 		{
-			String file = StringLib.FRUIT_NAMES[i].toUpperCase().charAt(0) + StringLib.FRUIT_NAMES[i].substring(1);
+			String file = StringLib.VEG_NAMES[i].toUpperCase().charAt(0) + StringLib.VEG_NAMES[i].substring(1);
 			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
 		}
 	}

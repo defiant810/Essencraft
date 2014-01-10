@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSeasoning extends ItemESC 
 {
-	private static final int NUM_HERB = 10;
+	private static final int NUM_SEASONINGS = StringLib.SEASONING_NAMES.length;
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -21,40 +21,32 @@ public class ItemSeasoning extends ItemESC
 	{
 		super(id);
 		this.setHasSubtypes(true);
-		this.setUnlocalizedName("herb/spice");
 		this.setMaxDamage(0);
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName();// + 
-				//StringLib.HERB_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 9)];
-		//without 9 being scaled to one less the length of herb[] the items in icons[] aren't named correctly in game
-		//crashes when (NUM_HERB -1) results in a negative number though
+		return super.getUnlocalizedName() + "." + 
+				StringLib.SEASONING_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_SEASONINGS - 1)];
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[damage];
+		return icons[MathHelper.clamp_int(damage, 0, NUM_SEASONINGS - 1)];
 	}
 	 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{	
-		icons = new Icon[NUM_HERB];
-		icons[0] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbBasil");
-		icons[1] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbCilantro");
-		icons[2] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbGarlicClove");
-		icons[3] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbOregano");
-		icons[4] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbParsley");
-		icons[5] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbRawBlackPepper");
-		icons[6] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbRosemary");
-		icons[7] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbSage");
-		icons[8] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbThyme");
-		icons[9] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemHerbVanillaBean");
+		icons = new Icon[NUM_SEASONINGS];
+		for (int i = 0; i < icons.length; i++)
+		{
+			String file = StringLib.SEASONING_NAMES[i].toUpperCase().charAt(0) + StringLib.SEASONING_NAMES[i].substring(1);
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
+		}
 	}
 }

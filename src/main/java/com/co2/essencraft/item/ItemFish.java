@@ -19,7 +19,7 @@ public class ItemFish extends ItemFoodESC
 	
 	public ItemFish(int id)
 	{
-		super(id, 2, true);
+		super(id, 2, 0.4f, true);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
@@ -28,35 +28,25 @@ public class ItemFish extends ItemFoodESC
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		return super.getUnlocalizedName() + "." +
-				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, 2)];
+				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, StringLib.FISH_NAMES.length - 1)];
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[damage];
+		return icons[MathHelper.clamp_int(damage, 0, icons.length - 1)];
 	}
-	
-	//Example of how to make some foods editable but others not
-	/*@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-	{
-		int meta = par1ItemStack.getItemDamage();
-		
-		if (!(meta >= 2))
-			par3EntityPlayer.setItemInUse(par1ItemStack, par1ItemStack.getMaxItemUseDuration());
-		
-		return par1ItemStack;
-	}*/
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
 		icons = new Icon[NUM_FISH];
-		icons[0] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemFishHalibut");
-		icons[1] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemFishSalmon");
-		icons[2] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemFishTrout");
+		for (int i = 0; i < icons.length; i++)
+		{
+			String file = StringLib.FISH_NAMES[i].toUpperCase().charAt(0) + StringLib.FISH_NAMES[i].substring(1);
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
+		}
 	}
 }
