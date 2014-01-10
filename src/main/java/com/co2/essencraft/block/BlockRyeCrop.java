@@ -10,57 +10,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-
-import com.co2.essencraft.lib.ItemIds;
-
+import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockRyeCrop extends BlockESC
+public class BlockRyeCrop extends BlockCropESC
 {
-	@SideOnly(Side.CLIENT)
-	private Icon[] iconArray;
-	
-	public BlockRyeCrop(int id)
+	public BlockRyeCrop(int id, float growthRate)
 	{
-		super(id, Material.plants);
-		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F);
-		setTickRandomly(true);
-	}
-	
-	/**
-     * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of
-     * blockID passed in. Args: blockID
-     */
-	public boolean canThisPlantGrowThisBlockID(int par1)
-	{
-		return par1 == Block.tilledField.blockID;
-	}
-	
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
-	{
-		super.updateTick(par1World, par2, par3, par4, par5Random);
-		
-		if(par1World.getBlockLightValue(par2, par3 + 1, par4) >= 0)
-		{
-			int l = par1World.getBlockMetadata(par2, par3, par4);
-			
-			if(l < 7)
-			{
-				float f = this.getGrowthRate(par1World, par2, par3, par4);
-				if(par5Random.nextInt((int)(25.0F / f) + 1) == 0)
-				{
-					++l;
-					par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-				}
-			}
-		}
-	}
-	
-	private float getGrowthRate(World par1World, int par2, int par3, int par4)
-	{
-		float f = 1.0F;
-		return f;
+		super(id, growthRate);
 	}
     
 	/**
