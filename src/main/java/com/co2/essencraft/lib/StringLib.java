@@ -11,4 +11,5 @@ public class StringLib
 	public static final String RAW_SALT_PILE_NAME = "rawSaltPile";
 	public static final String COCONUT_NAME = "coconut";
 	public static final String FISH_NAME = "fish";
+	public static final String KIWI_NAME = "kiwi";
 }

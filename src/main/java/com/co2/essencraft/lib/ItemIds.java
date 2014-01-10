@@ -13,4 +13,8 @@ public class ItemIds
 	//Fish
 	public static final int FISH_DEFAULT = 19502;
 	public static int FISH;
+	
+	//Kiwi
+	public static final int KIWI_DEFAULT = 19503;
+	public static int KIWI; 
 }
