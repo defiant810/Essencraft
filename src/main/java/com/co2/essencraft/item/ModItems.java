@@ -4,6 +4,7 @@ import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.StringLib;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItems 
 {
@@ -17,5 +18,8 @@ public class ModItems
 		 
 		 GameRegistry.registerItem(rawSaltPile, "item." + StringLib.RAW_SALT_PILE_NAME);
 		 GameRegistry.registerItem(coconut, "item." + StringLib.COCONUT_NAME);
+		 
+		 LanguageRegistry.addName(rawSaltPile, "Large Salt Pile");
+		 LanguageRegistry.addName(coconut, "Coconut");
 	}
 }
