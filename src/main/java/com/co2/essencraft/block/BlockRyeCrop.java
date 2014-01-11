@@ -3,6 +3,8 @@ package com.co2.essencraft.block;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.co2.essencraft.lib.ItemIds;
+
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -44,7 +46,7 @@ public class BlockRyeCrop extends BlockCropESC
      */
 	public int getSeedItem()
 	{
-		return Item.seeds.itemID;
+		return ItemIds.RYE_SEED;
 	}
 	
 	/**

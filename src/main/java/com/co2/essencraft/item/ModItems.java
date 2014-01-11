@@ -27,10 +27,10 @@ public class ModItems
 		fruit = new ItemFruit(ItemIds.FRUIT);
 		vegetable = new ItemVegetable(ItemIds.VEGETABLE);
 		seasoning = new ItemSeasoning(ItemIds.SEASONING);
-		ryeSeed = new ItemSeedESC(ItemIds.RYE_SEED, Item.wheat.itemID);
-		oatSeed = new ItemSeedESC(ItemIds.OAT_SEED, Item.wheat.itemID);
-		barleySeed = new ItemSeedESC(ItemIds.BARLEY_SEED, Item.wheat.itemID);		
-		cornSeed = new ItemSeedESC(ItemIds.CORN_SEED, Item.wheat.itemID);
+		ryeSeed = (ItemSeedESC) new ItemSeedESC(ItemIds.RYE_SEED, Item.wheat.itemID).setUnlocalizedName("seedRye");
+		oatSeed = (ItemSeedESC) new ItemSeedESC(ItemIds.OAT_SEED, Item.wheat.itemID).setUnlocalizedName("seedOat");
+		barleySeed = (ItemSeedESC) new ItemSeedESC(ItemIds.BARLEY_SEED, Item.wheat.itemID).setUnlocalizedName("seedBarley");		
+		cornSeed = (ItemSeedESC) new ItemSeedESC(ItemIds.CORN_SEED, Item.wheat.itemID).setUnlocalizedName("seedCorn");	
 		
 		//Register items
 		GameRegistry.registerItem(fish, "item.fish");

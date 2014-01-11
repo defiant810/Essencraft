@@ -7,6 +7,9 @@ public class StringLib
 	
 	/* Block name constants */
 	public static final String RYE_CROP_NAME = "ryeCrop";
+	public static final String OAT_CROP_NAME = "oatCrop";
+	public static final String BARLEY_CROP_NAME = "barleyCrop";
+	public static final String CORN_CROP_NAME = "cornCrop";
 	
 	/* Item name constants */
 	public static final String RYE_NAME = "ryeStalk";

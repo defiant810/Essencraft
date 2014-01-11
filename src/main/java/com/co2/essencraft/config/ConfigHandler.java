@@ -5,6 +5,7 @@ import java.util.logging.Level;
 
 import net.minecraftforge.common.Configuration;
 
+import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.Reference;
 
@@ -27,6 +28,10 @@ public class ConfigHandler
 			con.load();
 			
 			//Load ids here
+			BlockIds.RYE_CROP = con.getBlock("Rye Crop", BlockIds.RYE_CROP_DEFAULT).getInt(BlockIds.RYE_CROP_DEFAULT);
+			BlockIds.OAT_CROP = con.getBlock("Oat Crop", BlockIds.OAT_CROP_DEFAULT).getInt(BlockIds.OAT_CROP_DEFAULT);
+			BlockIds.BARLEY_CROP = con.getBlock("Barley Crop", BlockIds.BARLEY_CROP_DEFAULT).getInt(BlockIds.BARLEY_CROP_DEFAULT);
+			BlockIds.CORN_CROP = con.getBlock("Corn Crop", BlockIds.CORN_CROP_DEFAULT).getInt(BlockIds.CORN_CROP_DEFAULT);
 		}
 		catch (Exception e)
 		{
