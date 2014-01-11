@@ -1,10 +1,8 @@
 package com.co2.essencraft.item;
 
 import net.minecraft.item.ItemStack;
-
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.StringLib;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
