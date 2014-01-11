@@ -23,7 +23,7 @@ public class ItemVegetable extends ItemFoodESC
 	
 	public ItemVegetable(int id)
 	{
-		super(id, 2, 0.3f, false);
+		super(id, 1, 0.1f, false);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}

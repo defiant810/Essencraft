@@ -19,11 +19,11 @@ public class ItemFish extends ItemFoodESC
 	
 	public ItemFish(int id)
 	{
-		super(id, 2, 0.4f, true);
+		super(id, 2, 0.3f, true);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
-	
+	  
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
