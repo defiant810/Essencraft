@@ -1,6 +1,5 @@
 package com.co2.essencraft.item;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.co2.essencraft.lib.ItemIds;
@@ -15,10 +14,7 @@ public class ModItems
 	public static ItemFoodESC fruit;
 	public static ItemFoodESC vegetable;
 	public static ItemESC seasoning;
-	public static ItemSeedESC ryeSeed;
-	public static ItemSeedESC oatSeed;
-	public static ItemSeedESC barleySeed;
-	public static ItemSeedESC cornSeed;
+	public static ItemSeedESC seed;
 	
 	public static void init()
 	{
@@ -27,35 +23,25 @@ public class ModItems
 		fruit = new ItemFruit(ItemIds.FRUIT);
 		vegetable = new ItemVegetable(ItemIds.VEGETABLE);
 		seasoning = new ItemSeasoning(ItemIds.SEASONING);
-		ryeSeed = (ItemSeedESC) new ItemSeedESC(ItemIds.RYE_SEED, Item.wheat.itemID).setUnlocalizedName("seedRye");
-		oatSeed = (ItemSeedESC) new ItemSeedESC(ItemIds.OAT_SEED, Item.wheat.itemID).setUnlocalizedName("seedOat");
-		barleySeed = (ItemSeedESC) new ItemSeedESC(ItemIds.BARLEY_SEED, Item.wheat.itemID).setUnlocalizedName("seedBarley");		
-		cornSeed = (ItemSeedESC) new ItemSeedESC(ItemIds.CORN_SEED, Item.wheat.itemID).setUnlocalizedName("seedCorn");	
+		seed = new ItemSeedESC(ItemIds.SEED);
 		
 		//Register items
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");
 		GameRegistry.registerItem(vegetable, "item.vegetable");
 		GameRegistry.registerItem(seasoning, "item.seasoning");
-		GameRegistry.registerItem(ryeSeed, "item.ryeSeed");
-		GameRegistry.registerItem(oatSeed, "item.oatSeed");
-		GameRegistry.registerItem(barleySeed, "item.barleySeed");
-		GameRegistry.registerItem(cornSeed, "item.cornSeed");
-		
-		//Add names to language registry
-		LanguageRegistry.addName(ryeSeed, "Rye Seed");
-		LanguageRegistry.addName(oatSeed, "Oat Seed");
-		LanguageRegistry.addName(barleySeed, "Barley Seed");
-		LanguageRegistry.addName(cornSeed, "Corn Seed");
+		GameRegistry.registerItem(seed, "item.seed");
 		
 		//Add names to language registry from items with metadata
-		for (int i = 0; i < StringLib.FISH_NAMES_HUMAN.length; i++)
-			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES_HUMAN[i]);
-		for (int i = 0; i < StringLib.FRUIT_NAMES_HUMAN.length; i++)
-			LanguageRegistry.addName(new ItemStack(fruit.itemID, 1, i), StringLib.FRUIT_NAMES_HUMAN[i]);
-		for (int i = 0; i < StringLib.VEG_NAMES_HUMAN.length; i++)
-			LanguageRegistry.addName(new ItemStack(vegetable.itemID, 1, i), StringLib.VEG_NAMES_HUMAN[i]);
-		for (int i = 0; i < StringLib.SEASONING_NAMES_HUMAN.length; i++)
-			LanguageRegistry.addName(new ItemStack(seasoning.itemID, 1, i), StringLib.SEASONING_NAMES_HUMAN[i]);
+		for (int i = 0; i < StringLib.FISH_NAMES.length; i++)
+			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES[i]);
+		for (int i = 0; i < StringLib.FRUIT_NAMES.length; i++)
+			LanguageRegistry.addName(new ItemStack(fruit.itemID, 1, i), StringLib.FRUIT_NAMES[i]);
+		for (int i = 0; i < StringLib.VEG_NAMES.length; i++)
+			LanguageRegistry.addName(new ItemStack(vegetable.itemID, 1, i), StringLib.VEG_NAMES[i]);
+		for (int i = 0; i < StringLib.SEASONING_NAMES.length; i++)
+			LanguageRegistry.addName(new ItemStack(seasoning.itemID, 1, i), StringLib.SEASONING_NAMES[i]);
+		for (int i = 0; i < StringLib.SEED_NAMES.length; i++)
+			LanguageRegistry.addName(new ItemStack(seed, 1, i), StringLib.SEED_NAMES[i]);
 	}
 }

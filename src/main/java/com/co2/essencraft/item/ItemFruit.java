@@ -16,6 +16,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemFruit extends ItemFoodESC
 {
 	private static final int NUM_FRUIT = StringLib.FRUIT_NAMES.length;
+	
+	private static final String[] TEXTURES = { "FruitBanana", "FruitBlackberry", "FruitBlueberry", "FruitCoconut", "FruitGrapeFruit",
+		"FruitGrapes", "FruitKiwi", "FruitMango", "FruitOrange", "FruitPeach", "FruitPear", "FruitPineapple", "FruitPlum", "FruitPomegranate",
+		"FruitRaspberry", "FruitStrawberry" };
 	private static final Integer[] EATING_BLACKLIST = { 3, 11, 13 };
 	
 	@SideOnly(Side.CLIENT)
@@ -31,15 +35,17 @@ public class ItemFruit extends ItemFoodESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + "." +
-				StringLib.FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_FRUIT - 1)];
+		return "item." + StringLib.FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_FRUIT - 1)] + ".fruit";
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[MathHelper.clamp_int(damage, 0, NUM_FRUIT - 1)];
+		if (damage < 0 || damage >= NUM_FRUIT)
+			return null;
+		
+		return icons[damage];
 	}
 	
 	@Override
@@ -59,9 +65,6 @@ public class ItemFruit extends ItemFoodESC
 	{	
 		icons = new Icon[NUM_FRUIT];
 		for (int i = 0; i < icons.length; i++)
-		{
-			String file = StringLib.FRUIT_NAMES[i].toUpperCase().charAt(0) + StringLib.FRUIT_NAMES[i].substring(1);
-			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
-		}
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + TEXTURES[i]);
 	}
 }

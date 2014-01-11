@@ -1,16 +1,13 @@
 package com.co2.essencraft.item;
 
-import com.co2.essencraft.lib.StringLib;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.item.ItemStack;
 
 //Base class for all items in this mod
 public abstract class ItemESC extends Item
 {
-	public static final int ID_SHIFT_CORRECTION = 256;
+	public static final int ID_SHIFT_CORRECTION = 256; 
 	
 	public ItemESC(int id)
 	{
@@ -19,17 +16,18 @@ public abstract class ItemESC extends Item
 		//TODO set proper creative tab
 	}
 	
-	public String getSimpleName()
+	public String simpleName(int meta)
 	{
-		return this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf('.') + 1);
+		ItemStack st = new ItemStack(this.itemID, 1, meta);
+		String name = this.getUnlocalizedName(st).substring(this.getUnlocalizedName(st).indexOf(".") + 1);
+		name = name.substring(0, name.indexOf("."));
+		return name;
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public String simpleName()
 	{
-		//The name with a capital first letter
-		String file = this.getSimpleName().toUpperCase().charAt(0) + this.getSimpleName().substring(1);
-		this.itemIcon = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
+		String name = this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1);
+		name = name.substring(0, name.indexOf("."));
+		return name;
 	}
 }

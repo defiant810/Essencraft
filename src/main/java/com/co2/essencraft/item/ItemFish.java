@@ -14,6 +14,9 @@ public class ItemFish extends ItemFoodESC
 {
 	private static final int NUM_FISH = StringLib.FISH_NAMES.length;
 	
+	private static final String[] TEXTURES = { "FishCrab", "FishHalibut", 
+		"FishLobster", "FishSalmon", "FishShrimp", "FishSquid", "FishTrout", "FishRedHerring" };
+	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
 	
@@ -27,15 +30,17 @@ public class ItemFish extends ItemFoodESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + "." +
-				StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, StringLib.FISH_NAMES.length - 1)];
+		return "item." + StringLib.FISH_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_FISH - 1)].toLowerCase() + ".fish";
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[MathHelper.clamp_int(damage, 0, icons.length - 1)];
+		if (damage < 0 || damage >= NUM_FISH)
+			return null;
+		
+		return icons[damage];
 	}
 	
 	@Override
@@ -44,9 +49,6 @@ public class ItemFish extends ItemFoodESC
 	{
 		icons = new Icon[NUM_FISH];
 		for (int i = 0; i < icons.length; i++)
-		{
-			String file = StringLib.FISH_NAMES[i].toUpperCase().charAt(0) + StringLib.FISH_NAMES[i].substring(1);
-			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
-		}
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + TEXTURES[i]);
 	}
 }

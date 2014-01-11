@@ -56,10 +56,7 @@ public class ConfigHandler
 			ItemIds.FRUIT = con.getItem("fruit", ItemIds.FRUIT_DEFAULT).getInt(ItemIds.FRUIT_DEFAULT);
 			ItemIds.SEASONING = con.getItem("seasoning", ItemIds.SEASONING_DEFAULT).getInt(ItemIds.SEASONING_DEFAULT);
 			ItemIds.VEGETABLE = con.getItem("vegetable", ItemIds.VEGETABLE_DEFAULT).getInt(ItemIds.VEGETABLE_DEFAULT);
-			ItemIds.RYE_SEED = con.getItem("ryeSeed", ItemIds.RYE_SEED_DEFAULT).getInt(ItemIds.RYE_SEED_DEFAULT);
-			ItemIds.OAT_SEED = con.getItem("oatSeed", ItemIds.OAT_SEED_DEFAULT).getInt(ItemIds.OAT_SEED_DEFAULT);
-			ItemIds.BARLEY_SEED = con.getItem("barleySeed", ItemIds.BARLEY_SEED_DEFAULT).getInt(ItemIds.BARLEY_SEED_DEFAULT);
-			ItemIds.CORN_SEED = con.getItem("cornSeed", ItemIds.CORN_SEED_DEFAULT).getInt(ItemIds.CORN_SEED_DEFAULT);
+			ItemIds.SEED = con.getItem("seed", ItemIds.SEED_DEFAULT).getInt(ItemIds.SEED_DEFAULT);
 		}
 		catch (Exception e)
 		{

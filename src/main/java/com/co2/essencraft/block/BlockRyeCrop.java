@@ -46,7 +46,7 @@ public class BlockRyeCrop extends BlockCropESC
      */
 	public int getSeedItem()
 	{
-		return ItemIds.RYE_SEED;
+		return 0;//ItemIds.RYE_SEED;
 	}
 	
 	/**

@@ -14,16 +14,7 @@ public class ItemIds
 	//Seasoning
 	public static final int SEASONING_DEFAULT = 19503;
 	public static int SEASONING;
-	//Rye Seeds
-	public static final int RYE_SEED_DEFAULT = 19504;
-	public static int RYE_SEED;
-	//Oat Seeds
-	public static final int OAT_SEED_DEFAULT = 19505;
-	public static int OAT_SEED;
-	//Barley Seeds
-	public static final int BARLEY_SEED_DEFAULT = 19506;
-	public static int BARLEY_SEED;
-	//Corn Seeds
-	public static final int CORN_SEED_DEFAULT = 19507;
-	public static int CORN_SEED;
+	//Seeds
+	public static final int SEED_DEFAULT = 19504;
+	public static int SEED;
 }

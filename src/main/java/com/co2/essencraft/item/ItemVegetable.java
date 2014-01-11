@@ -16,6 +16,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemVegetable extends ItemFoodESC
 {
 	private static final int NUM_VEG = StringLib.VEG_NAMES.length;
+	
+	private static final String[] TEXTURES = { "VegGreenBean", "VegSoyBean", "VegBeet", "VegCabbage", "VegCelery", "VegCucumber", "VegEggPlant",
+		"VegLettuce", "VegOnion", "VegPeas", "VegBellPepperR", "VegGhostPepper", "VegJalapenoPepper", "VegRadish", "VegRhubarb",
+		"VegSpinach", "VegSquash", "VegTomato", "VegBellPepperY", "VegBellPepperO" };
 	private static final Integer[] EATING_BLACKLIST = { };
 	
 	@SideOnly(Side.CLIENT)
@@ -31,15 +35,17 @@ public class ItemVegetable extends ItemFoodESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + "." +
-				StringLib.VEG_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_VEG - 1)];
+		return "item." + StringLib.VEG_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_VEG - 1)] + ".vegetable";
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[MathHelper.clamp_int(damage, 0, NUM_VEG - 1)];
+		if (damage < 0 || damage >= NUM_VEG)
+			return null;
+		
+		return icons[damage];
 	}
 	
 	@Override
@@ -59,9 +65,6 @@ public class ItemVegetable extends ItemFoodESC
 	{	
 		icons = new Icon[NUM_VEG];
 		for (int i = 0; i < icons.length; i++)
-		{
-			String file = StringLib.VEG_NAMES[i].toUpperCase().charAt(0) + StringLib.VEG_NAMES[i].substring(1);
-			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
-		}
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + TEXTURES[i]);
 	}
 }

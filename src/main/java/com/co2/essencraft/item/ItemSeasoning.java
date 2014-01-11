@@ -14,6 +14,9 @@ public class ItemSeasoning extends ItemESC
 {
 	private static final int NUM_SEASONINGS = StringLib.SEASONING_NAMES.length;
 	
+	private static final String[] TEXTURES = { "HerbBasil", "HerbCilantro", "HerbGarlic", "HerbOregano", "HerbParsley", "HerbRawBlackPepper", 
+		"HerbRosemary", "HerbSage", "HerbSalt", "HerbThyme", "HerbVanillaBean" };
+	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
 	
@@ -27,15 +30,17 @@ public class ItemSeasoning extends ItemESC
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return super.getUnlocalizedName() + "." + 
-				StringLib.SEASONING_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_SEASONINGS - 1)];
+		return "item." + StringLib.SEASONING_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_SEASONINGS - 1)] + ".seasoning";
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		return icons[MathHelper.clamp_int(damage, 0, NUM_SEASONINGS - 1)];
+		if (damage < 0 || damage >= NUM_SEASONINGS)
+			return null;
+		
+		return icons[damage];
 	}
 	 
 	@Override
@@ -44,9 +49,6 @@ public class ItemSeasoning extends ItemESC
 	{	
 		icons = new Icon[NUM_SEASONINGS];
 		for (int i = 0; i < icons.length; i++)
-		{
-			String file = StringLib.SEASONING_NAMES[i].toUpperCase().charAt(0) + StringLib.SEASONING_NAMES[i].substring(1);
-			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + file);
-		}
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + TEXTURES[i]);
 	}
 }
