@@ -3,12 +3,11 @@ package com.co2.essencraft.config;
 import java.io.File;
 import java.util.logging.Level;
 
-import com.co2.essencraft.lib.BlockIds;
+import net.minecraftforge.common.Configuration;
+
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.Reference;
-import com.co2.essencraft.lib.StringLib;
 
-import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 
 public class ConfigHandler 
