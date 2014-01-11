@@ -11,7 +11,6 @@ import net.minecraftforge.common.IPlantable;
 public class ItemSeedESC extends ItemESC implements IPlantable{
 	
 	private int blockPlanted;
-	//private int soilBlockID;
 	
 	public ItemSeedESC(int id, int blockPlanted){
 		super(id);
