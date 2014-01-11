@@ -28,10 +28,10 @@ public class ConfigHandler
 			con.load();
 			
 			//Load ids here
-			BlockIds.RYE_CROP = con.getBlock("Rye Crop", BlockIds.RYE_CROP_DEFAULT).getInt(BlockIds.RYE_CROP_DEFAULT);
-			BlockIds.OAT_CROP = con.getBlock("Oat Crop", BlockIds.OAT_CROP_DEFAULT).getInt(BlockIds.OAT_CROP_DEFAULT);
-			BlockIds.BARLEY_CROP = con.getBlock("Barley Crop", BlockIds.BARLEY_CROP_DEFAULT).getInt(BlockIds.BARLEY_CROP_DEFAULT);
-			BlockIds.CORN_CROP = con.getBlock("Corn Crop", BlockIds.CORN_CROP_DEFAULT).getInt(BlockIds.CORN_CROP_DEFAULT);
+			BlockIds.RYE_CROP = con.getBlock("ryeCrop", BlockIds.RYE_CROP_DEFAULT).getInt(BlockIds.RYE_CROP_DEFAULT);
+			BlockIds.OAT_CROP = con.getBlock("oatCrop", BlockIds.OAT_CROP_DEFAULT).getInt(BlockIds.OAT_CROP_DEFAULT);
+			BlockIds.BARLEY_CROP = con.getBlock("barleyCrop", BlockIds.BARLEY_CROP_DEFAULT).getInt(BlockIds.BARLEY_CROP_DEFAULT);
+			BlockIds.CORN_CROP = con.getBlock("cornCrop", BlockIds.CORN_CROP_DEFAULT).getInt(BlockIds.CORN_CROP_DEFAULT);
 		}
 		catch (Exception e)
 		{

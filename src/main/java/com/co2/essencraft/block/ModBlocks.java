@@ -7,12 +7,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModBlocks 
 {
-	/*public static BlockESC ryeCrop;*/
+	public static BlockRyeCrop ryeCrop;
 	
 	public static void init()
 	{
-		/*ryeCrop = new BlockRyeCrop(BlockIds.RYE_CROP);
+		ryeCrop = new BlockRyeCrop(BlockIds.RYE_CROP, 1.0f);
 		
-		GameRegistry.registerBlock(ryeCrop, "tile." + StringLib.RYE_CROP_NAME);*/
+		GameRegistry.registerBlock(ryeCrop, "tile." + StringLib.RYE_CROP_NAME);
 	}
 }
