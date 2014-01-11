@@ -1,5 +1,6 @@
 package com.co2.essencraft.item;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.co2.essencraft.lib.ItemIds;
@@ -26,11 +27,10 @@ public class ModItems
 		fruit = new ItemFruit(ItemIds.FRUIT);
 		vegetable = new ItemVegetable(ItemIds.VEGETABLE);
 		seasoning = new ItemSeasoning(ItemIds.SEASONING);
-		ryeSeed = new ItemSeedESC(ItemIds.RYE_SEED, ItemIds.RYE_CROP);
-		oatSeed = new ItemSeedESC(ItemIds.OAT_SEED, ItemIds.OAT_CROP);
-		barleySeed = new ItemSeedESC(ItemIds.BARLEY_SEED, ItemIds.BARLEY_CROP);		
-		cornSeed = new ItemSeedESC(ItemIds.CORN_SEED, ItemIds.CORN_CROP);
-		
+		ryeSeed = new ItemSeedESC(ItemIds.RYE_SEED, Item.wheat.itemID);
+		oatSeed = new ItemSeedESC(ItemIds.OAT_SEED, Item.wheat.itemID);
+		barleySeed = new ItemSeedESC(ItemIds.BARLEY_SEED, Item.wheat.itemID);		
+		cornSeed = new ItemSeedESC(ItemIds.CORN_SEED, Item.wheat.itemID);
 		
 		//Register items
 		GameRegistry.registerItem(fish, "item.fish");
