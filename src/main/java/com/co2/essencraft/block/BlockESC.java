@@ -9,7 +9,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 //Base class for all blocks in this mod
-public class BlockESC extends Block
+public abstract class BlockESC extends Block
 {
 	public BlockESC(int id)
 	{

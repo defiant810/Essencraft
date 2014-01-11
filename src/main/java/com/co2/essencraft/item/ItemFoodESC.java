@@ -8,7 +8,8 @@ import com.co2.essencraft.lib.StringLib;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemFoodESC extends ItemFood
+//Base class for all food items in this mod
+public abstract class ItemFoodESC extends ItemFood
 {
 	public static final int ID_SHIFT_CORRECTION = 256;
 	

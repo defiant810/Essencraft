@@ -1,5 +1,6 @@
 package com.co2.essencraft.lib;
 
+//library of all the simple names and in game names for this mod
 public class StringLib 
 {
 	public static final String ASSET_PREFIX = Reference.MOD_ID.toLowerCase() + ":";

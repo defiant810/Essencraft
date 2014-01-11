@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 //Base class for all items in this mod
-public class ItemESC extends Item
+public abstract class ItemESC extends Item
 {
 	public static final int ID_SHIFT_CORRECTION = 256;
 	
