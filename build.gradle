@@ -13,9 +13,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+version = "0.0.1"
+group= "com.co2.essencraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "essencraft"
 
 minecraft {
 	version = "1.6.4-9.11.1.964"
