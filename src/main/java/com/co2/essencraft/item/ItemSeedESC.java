@@ -8,11 +8,12 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 
-public class ItemSeedESC extends ItemESC implements IPlantable{
-	
+public class ItemSeedESC extends ItemESC implements IPlantable
+{	
 	private int blockPlanted;
 	
-	public ItemSeedESC(int id, int blockPlanted){
+	public ItemSeedESC(int id, int blockPlanted)
+	{
 		super(id);
 		this.blockPlanted = blockPlanted;
 	}
@@ -58,7 +59,7 @@ public class ItemSeedESC extends ItemESC implements IPlantable{
     @Override
     public int getPlantID(World world, int x, int y, int z)
     {
-        return blockPlanted;
+    	return blockPlanted;  
     }
 
     @Override
