@@ -3,19 +3,21 @@ package com.co2.essencraft.block;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.co2.essencraft.lib.StringLib;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+
+import com.co2.essencraft.lib.StringLib;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockCropESC extends BlockFlower
+public class BlockCropESC extends BlockCrops
 {
 	protected static final int GROWTH_STAGES = 8;
 	
@@ -121,7 +123,7 @@ public class BlockCropESC extends BlockFlower
         return f * this.growthRate;
 	}
 	
-	@Override 
+	@Override
     public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
@@ -144,6 +146,21 @@ public class BlockCropESC extends BlockFlower
         }
 
         return ret;
+    }
+	
+    /**
+     * Apply bonemeal to the crops.
+     */
+	public void fertilize(World par1World, int par2, int par3, int par4)
+    {
+        int l = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 5);
+
+        if (l > 7)
+        {
+            l = 7;
+        }
+
+        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
     }
 	
 	@Override
