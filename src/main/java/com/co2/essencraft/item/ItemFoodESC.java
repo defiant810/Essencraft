@@ -1,13 +1,7 @@
 package com.co2.essencraft.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-
-import com.co2.essencraft.lib.StringLib;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 //Base class for all food items in this mod
 public abstract class ItemFoodESC extends ItemFood

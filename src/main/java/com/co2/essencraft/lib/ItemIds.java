@@ -17,4 +17,7 @@ public class ItemIds
 	//Seeds
 	public static final int SEED_DEFAULT = 19504;
 	public static int SEED;
+	//Grains
+	public static final int GRAIN_DEFAULT = 19505;
+	public static int GRAIN;
 }

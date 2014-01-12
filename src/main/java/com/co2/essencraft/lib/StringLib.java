@@ -6,14 +6,18 @@ public class StringLib
 	public static final String ASSET_PREFIX = Reference.MOD_ID.toLowerCase() + ":";
 	
 	/* Block name constants */
-	public static final String RYE_CROP_NAME = "ryeCrop";
-	public static final String OAT_CROP_NAME = "oatCrop";
 	public static final String BARLEY_CROP_NAME = "barleyCrop";
 	public static final String CORN_CROP_NAME = "cornCrop";
+	public static final String HOP_CROP_NAME = "hopCrop";
+	public static final String OAT_CROP_NAME = "oatCrop";
+	public static final String RYE_CROP_NAME = "ryeCrop";
+	public static final String RICE_CROP_NAME = "riceCrop";
 	
 	/* Item name constants */
 	public static final String RYE_NAME = "ryeStalk";
 	
+	//Grains
+	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};
 	//Seeds
 	public static final String[] SEED_NAMES = { "Barley Seeds", "Corn Seeds", "Hops Seeds", "Oat Seeds", "Rye Seeds", "Rice Seeds" };
 	//Fish

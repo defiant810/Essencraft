@@ -21,7 +21,7 @@ public class ItemSeedESC extends ItemSeeds
 	private static final int ID_SHIFT_CORRECTION = 256;
 	
 	private static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
-	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye" };
+	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "Rice Seeds" };
 	//The id of the block planted by each seed
 	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, Block.crops.blockID, Block.crops.blockID,
 		Block.crops.blockID, BlockIds.RYE_CROP };
