@@ -15,7 +15,7 @@ public class StringLib
 	public static final String RYE_NAME = "ryeStalk";
 	
 	//Seeds
-	public static final String[] SEED_NAMES = { "Barley Seeds", "Corn Seeds", "Hops Seeds", "Oat Seeds", "Rye Seeds" };
+	public static final String[] SEED_NAMES = { "Barley Seeds", "Corn Seeds", "Hops Seeds", "Oat Seeds", "Rye Seeds", "Rice Seeds" };
 	//Fish
 	public static final String[] FISH_NAMES = { "Crab", "Halibut", "Lobster", "Salmon", "Shrimp", "Squid", "Trout", "Red Herring" };
 	//Fruit

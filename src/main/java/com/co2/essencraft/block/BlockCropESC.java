@@ -22,7 +22,7 @@ public class BlockCropESC extends BlockFlower
 	@SideOnly(Side.CLIENT)
     public Icon[] icons;
 	
-	protected final float growthRate;
+	protected float growthRate;
 	protected final int seedId; //Id of the seed dropped
 	protected final int seedMeta; //Metadata of the seed dropped
 	protected final int dropId; //Id of the grain item dropped
@@ -50,7 +50,7 @@ public class BlockCropESC extends BlockFlower
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		super.updateTick(par1World, par2, par3, par4, par5Random);
-		
+		growthRate = this.getGrowthRate(par1World, par2, par3, par4);
 		if(par1World.getBlockLightValue(par2, par3 + 1, par4) >= 0)
 		{
 			int l = par1World.getBlockMetadata(par2, par3, par4);

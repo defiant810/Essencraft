@@ -14,4 +14,10 @@ public class BlockIds
 	//Corn Crop Block
 	public static final int CORN_CROP_DEFAULT = 3303;
 	public static int CORN_CROP;
+	//Rice Crop Block
+	public static final int RICE_CROP_DEFAULT = 3304;
+	public static int RICE_CROP;
+	//Hop Crop Block
+	public static final int HOP_CROP_DEFAULT = 3305;
+	public static int HOP_CROP;
 }
