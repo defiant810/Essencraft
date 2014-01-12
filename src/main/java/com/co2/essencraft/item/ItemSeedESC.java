@@ -23,7 +23,8 @@ public class ItemSeedESC extends ItemSeeds
 	private static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
 	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye" };
 	//The id of the block planted by each seed
-	private static final int[] PLANTED_TYPES = { Block.crops.blockID, Block.crops.blockID, Block.crops.blockID, Block.crops.blockID, BlockIds.RYE_CROP };
+	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, Block.crops.blockID, Block.crops.blockID,
+		Block.crops.blockID, BlockIds.RYE_CROP };
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
