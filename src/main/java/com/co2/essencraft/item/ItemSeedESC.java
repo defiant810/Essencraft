@@ -8,8 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.ForgeDirection;
 
 import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.StringLib;
@@ -22,14 +20,13 @@ public class ItemSeedESC extends ItemSeeds
 	private static final int ID_SHIFT_CORRECTION = 256;
 	
 	private static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
-	//name of texture file, must contain "tree" to be plantable on dirt and grass
+	//name of texture file
 	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "SeedRice", "SeedBanana", "SeedCoconut",
 		"SeedGrapefruit", "SeedMang", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate" };
 	//The id of the block planted by each seed
 	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, BlockIds.CORN_CROP, BlockIds.HOP_CROP, BlockIds.OAT_CROP,
 		BlockIds.RYE_CROP, BlockIds.RICE_CROP, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,
 		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,};
-	private EnumPlantType plantType;
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -107,10 +104,4 @@ public class ItemSeedESC extends ItemSeeds
 		name = name.substring(0, name.indexOf("."));
 		return name;
 	}
-	
-    @Override
-    public EnumPlantType getPlantType(World world, int x, int y, int z)
-    {	
-        return plantType;
-    }
 }
