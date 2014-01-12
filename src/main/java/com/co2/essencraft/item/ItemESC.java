@@ -1,6 +1,5 @@
 package com.co2.essencraft.item;
 
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

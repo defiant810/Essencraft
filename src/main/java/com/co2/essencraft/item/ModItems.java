@@ -13,6 +13,7 @@ public class ModItems
 	public static ItemFoodESC vegetable;
 	public static ItemESC seasoning;
 	public static ItemSeedESC seed;
+	public static ItemGrain grain;
 	
 	public static void init()
 	{
@@ -22,6 +23,7 @@ public class ModItems
 		vegetable = new ItemVegetable(ItemIds.VEGETABLE);
 		seasoning = new ItemSeasoning(ItemIds.SEASONING);
 		seed = new ItemSeedESC(ItemIds.SEED);
+		grain = new ItemGrain(ItemIds.GRAIN);
 		
 		//Register items
 		GameRegistry.registerItem(fish, "item.fish");
@@ -29,6 +31,7 @@ public class ModItems
 		GameRegistry.registerItem(vegetable, "item.vegetable");
 		GameRegistry.registerItem(seasoning, "item.seasoning");
 		GameRegistry.registerItem(seed, "item.seed");
+		GameRegistry.registerItem(grain, "item.grain");
 		
 		//Add names to language registry from items with metadata
 		for (int i = 0; i < StringLib.FISH_NAMES.length; i++)
@@ -41,5 +44,7 @@ public class ModItems
 			LanguageRegistry.addName(new ItemStack(seasoning.itemID, 1, i), StringLib.SEASONING_NAMES[i]);
 		for (int i = 0; i < StringLib.SEED_NAMES.length; i++)
 			LanguageRegistry.addName(new ItemStack(seed, 1, i), StringLib.SEED_NAMES[i]);
+		for (int i = 0; i < StringLib.GRAIN_NAMES.length; i++)
+			LanguageRegistry.addName(new ItemStack(grain.itemID,1, i), StringLib.GRAIN_NAMES[i]);
 	}
 }
