@@ -57,8 +57,8 @@ public class BlockCropESC extends BlockFlower
 			
 			if(l < 7)
 			{
-				//float f = this.getGrowthRate(par1World, par2, par3, par4); replaced with growthRate variable
-				if(par5Random.nextInt((int)(25.0F / growthRate) + 1) == 0)
+				float f = this.getGrowthRate(par1World, par2, par3, par4);
+				if(par5Random.nextFloat() <= (f / 8.0f))
 				{
 					++l;
 					par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
