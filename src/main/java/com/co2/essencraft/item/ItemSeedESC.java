@@ -51,15 +51,13 @@ public class ItemSeedESC extends ItemSeeds
 		else if (player.canPlayerEdit(xPos, yPos, zPos, side, stack) && player.canPlayerEdit(xPos, yPos + 1, zPos, side, stack))
 		{	
 			int index = MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS);
-			if(StringLib.SEED_NAMES[index].toLowerCase().contains("tree"))
-				plantType = EnumPlantType.Plains;
-			else
-				plantType = EnumPlantType.Crop;
+			boolean tree = StringLib.SEED_NAMES[index].toLowerCase().contains("tree");
 			
 			int i1 = world.getBlockId(xPos, yPos, zPos);
 			Block soil = Block.blocksList[i1];
 						
-			if (soil != null && soil.canSustainPlant(world, xPos, yPos, zPos, ForgeDirection.UP, this) && world.isAirBlock(xPos, yPos + 1, zPos))
+			if (soil != null && ((tree && (soil == Block.grass || soil == Block.dirt)) || (!tree && soil == Block.tilledField)) 
+					&& world.isAirBlock(xPos, yPos + 1, zPos))
 			{
 				world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
 				--stack.stackSize;
