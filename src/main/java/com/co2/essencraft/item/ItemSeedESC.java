@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 
 import com.co2.essencraft.lib.BlockIds;
@@ -21,10 +22,14 @@ public class ItemSeedESC extends ItemSeeds
 	private static final int ID_SHIFT_CORRECTION = 256;
 	
 	private static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
-	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "Rice Seeds" };
+	//name of texture file, must contain "tree" to be plantable on dirt and grass
+	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "SeedRice", "SeedBanana", "SeedCoconut",
+		"SeedGrapefruit", "SeedMang", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate" };
 	//The id of the block planted by each seed
-	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, Block.crops.blockID, Block.crops.blockID,
-		Block.crops.blockID, BlockIds.RYE_CROP };
+	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, BlockIds.CORN_CROP, BlockIds.HOP_CROP, BlockIds.OAT_CROP,
+		BlockIds.RYE_CROP, BlockIds.RICE_CROP, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,
+		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,};
+	private EnumPlantType plantType;
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -44,14 +49,19 @@ public class ItemSeedESC extends ItemSeeds
 		if (side != 1)
 			return false;
 		else if (player.canPlayerEdit(xPos, yPos, zPos, side, stack) && player.canPlayerEdit(xPos, yPos + 1, zPos, side, stack))
-		{
+		{	
+			int index = MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS);
+			if(StringLib.SEED_NAMES[index].toLowerCase().contains("tree"))
+				plantType = EnumPlantType.Plains;
+			else
+				plantType = EnumPlantType.Crop;
+			
 			int i1 = world.getBlockId(xPos, yPos, zPos);
 			Block soil = Block.blocksList[i1];
-
-			//We can change this later to allow different metadata to grow on different surfaces
+						
 			if (soil != null && soil.canSustainPlant(world, xPos, yPos, zPos, ForgeDirection.UP, this) && world.isAirBlock(xPos, yPos + 1, zPos))
 			{
-				world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS)], 0, 3);
+				world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
 				--stack.stackSize;
 				return true;
 			}
@@ -99,4 +109,10 @@ public class ItemSeedESC extends ItemSeeds
 		name = name.substring(0, name.indexOf("."));
 		return name;
 	}
+	
+    @Override
+    public EnumPlantType getPlantType(World world, int x, int y, int z)
+    {	
+        return plantType;
+    }
 }

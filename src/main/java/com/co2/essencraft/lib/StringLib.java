@@ -18,8 +18,11 @@ public class StringLib
 	
 	//Grains
 	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};
-	//Seeds
-	public static final String[] SEED_NAMES = { "Barley Seeds", "Corn Seeds", "Hops Seeds", "Oat Seeds", "Rye Seeds", "Rice Seeds" };
+	//Seeds - to be plantable on grass and dirt name must contain "tree" (any case) otherwise only plantable on tilled soil
+	public static final String[] SEED_NAMES = { "Barley Seed", "Corn Seed", "Hops Seed", "Oat Seed", "Rye Seed", "Rice Seed", "Banana Tree Seed",
+		"Coconut Tree Seed", "Grapefruit Tree Seed", "Mango Tree Seed", "Orange Tree Seed", "Peach Tree Seed", "Pear Tree Seed", "Pineapple Tree Seed",
+		"Plum Tree Seed", "Pomegranate Tree Seed"};
+	
 	//Fish
 	public static final String[] FISH_NAMES = { "Crab", "Halibut", "Lobster", "Salmon", "Shrimp", "Squid", "Trout", "Red Herring" };
 	//Fruit
