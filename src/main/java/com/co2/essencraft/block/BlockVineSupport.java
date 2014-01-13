@@ -108,15 +108,14 @@ public class BlockVineSupport extends BlockVine
     @Override
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
-    	if (par1World.getBlockTileEntity(par2, par3, par4) == null || par1World.getBlockTileEntity(par2, par3 + 1, par4) == null
-    			|| !(par1World.getBlockTileEntity(par2, par3, par4) instanceof TileEntityVineSupport))
+    	if (!par1World.isAirBlock(par2, par3, par4) && par1World.getBlockId(par2, par3 + 1, par4) == this.blockID)
     		return;
     	
 		TileEntityVineSupport t = (TileEntityVineSupport) par1World.getBlockTileEntity(par2, par3, par4);
 		TileEntityVineSupport t2 = (TileEntityVineSupport) par1World.getBlockTileEntity(par2, par3 + 1, par4);
 		int stage = t.growthStage;
 		
-		if ((par1World.getBlockId(par2, par3 + 1, par4) == this.blockID) && t2.growthStage == 0)
+		if (t2.growthStage == 0)
         {
             int l;
 

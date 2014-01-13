@@ -15,6 +15,7 @@ public class ModBlocks
 	public static BlockCropESC oatCrop;
 	public static BlockCropESC ryeCrop;
 	public static BlockCropESC riceCrop;
+	public static BlockVineSupport vineSupport;
 	
 	public static void init()
 	{
@@ -24,6 +25,7 @@ public class ModBlocks
 		oatCrop = (BlockCropESC) new BlockCropESC(BlockIds.OAT_CROP, 1.0f, ItemIds.SEED, 3, ItemIds.GRAIN, 3).setTextureName("GrainOat");
 		ryeCrop = (BlockCropESC) new BlockCropESC(BlockIds.RYE_CROP, 1.0f, ItemIds.SEED, 4, ItemIds.GRAIN, 4).setTextureName("GrainRye");
 		riceCrop = (BlockCropESC) new BlockCropESC(BlockIds.RICE_CROP, 1.0f, ItemIds.SEED, 5, ItemIds.GRAIN, 5).setTextureName("GrainRice");
+		vineSupport = new BlockVineSupport(BlockIds.VINE_SUPPORT);
 		
 		//GameRegistry
 		GameRegistry.registerBlock(barleyCrop, "tile." + StringLib.BARLEY_CROP_NAME);
@@ -32,9 +34,15 @@ public class ModBlocks
 		GameRegistry.registerBlock(oatCrop, "tile." + StringLib.OAT_CROP_NAME);
 		GameRegistry.registerBlock(ryeCrop, "tile." + StringLib.RYE_CROP_NAME);
 		GameRegistry.registerBlock(riceCrop, "tile." + StringLib.RICE_CROP_NAME);
+		GameRegistry.registerBlock(vineSupport, "tile." + StringLib.VINE_SUPPORT_NAME);
 		
 		//LanguageRegistry
-		LanguageRegistry.addName(ryeCrop, "Rye Crop");
 		LanguageRegistry.addName(barleyCrop, "Barley Crop");
+		LanguageRegistry.addName(cornCrop, "Corn Crop");
+		LanguageRegistry.addName(hopCrop, "Hop Crop");
+		LanguageRegistry.addName(oatCrop, "Oat Crop");
+		LanguageRegistry.addName(ryeCrop, "Rye Crop");
+		LanguageRegistry.addName(riceCrop, "Rice Crop");
+		LanguageRegistry.addName(vineSupport, "Vine Support");
 	}
 }
