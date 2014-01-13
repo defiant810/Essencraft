@@ -22,9 +22,10 @@ public class ItemSeedESC extends ItemSeeds
 	private static final int ID_SHIFT_CORRECTION = 256;
 	
 	private static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
-	//name of texture file
+	//name of texture file - if adding vineseeds 
 	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "SeedRice", "SeedBanana", "SeedCoconut",
-		"SeedGrapefruit", "SeedMang", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate" };
+		"SeedGrapefruit", "SeedMango", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate", "SeedGrape", "SeedKiwi", "SeedBlackPepper", "SeedGreenBean",
+		"SeedSoyBean", "SeedPea", "Seed Tomato", "SeedStrawberry", "SeedDecorative" };
 	//The id of the block planted by each seed
 	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, BlockIds.CORN_CROP, BlockIds.HOP_CROP, BlockIds.OAT_CROP,
 		BlockIds.RYE_CROP, BlockIds.RICE_CROP, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,
