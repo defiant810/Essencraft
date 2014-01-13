@@ -22,7 +22,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockVineSupport extends Block
 {
-	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape" };
+	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape", "VineKiwi", "vineBlackPepper", "VineGreenBean",
+		"VineSoyBean", "vinePea", "VineTomato", "VineStrawberry", "VineDecorative" };
 	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
 	private static final float[] PERCENT_CHANCE = { 0.25f, 0.1f, };
 	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato}
