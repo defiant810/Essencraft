@@ -25,10 +25,10 @@ public class BlockVineSupport extends Block
 	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape" };
 	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
 	private static final float[] PERCENT_CHANCE = { 0.25f, 0.1f, };
-	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato}
-	private static final int[] DROP_IDS = {19501, 19501, 19503, 19502, 19502, 19502, 19502};
-	private static final int[] DROP_METADATA = {5, 6, 5, 0, 1, 9, 17};
-	private static final int[] MAX_VINE_HEIGHT = {10, 4, 4, 3, 2, 3, 3}; 
+	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato, strawberry, decorative}
+	private static final int[] DROP_IDS = { 19501, 19501, 19503, 19502, 19502, 19502, 19502, 19501 };
+	private static final int[] DROP_METADATA = { 5, 6, 5, 0, 1, 9, 17, 16 };
+	private static final int[] MAX_VINE_HEIGHT = { 10, 4, 4, 3, 2, 3, 3, 1 }; 
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -43,17 +43,14 @@ public class BlockVineSupport extends Block
     @Override
     public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
-        if (world.isRemote)
+        if (world.isRemote || !(world.getBlockTileEntity(x, y, x) instanceof TileEntityVineSupport))
                 return false;
 
         TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
         
         if (t.growthStage == 3)
         {
-            if (world.isRemote)
-                return true;
-    
-            t.growthStage = 6;
+            t.growthStage = 2;
             EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(DROP_IDS[t.type], 1, DROP_METADATA[t.type]));
             world.spawnEntityInWorld(entityitem);
             if (!(player instanceof FakePlayer))
