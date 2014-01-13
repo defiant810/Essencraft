@@ -52,6 +52,9 @@ public class Essencraft
 		
 		//Initialize recipes and crafting handlers
 		CraftingHandler.init();
+		
+		//Map the TileEntities
+		proxy.registerTileEntities();
 	}
 	
 	@EventHandler

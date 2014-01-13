@@ -5,6 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityVineSupport extends TileEntity
 {
+	/* 0 = empty, 1 = growing, 2 = grown, 3 = flowered */
 	public int growthStage;
 	public int type;
 	
@@ -12,16 +13,6 @@ public class TileEntityVineSupport extends TileEntity
 	{
 		growthStage = 0;
 		type = 0;
-	}
-	
-	public int getGrowthStage()
-	{
-		return growthStage;
-	}
-	
-	public int getType()
-	{
-		return type;
 	}
 	
     @Override
