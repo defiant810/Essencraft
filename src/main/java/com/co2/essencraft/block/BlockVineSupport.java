@@ -3,7 +3,6 @@ package com.co2.essencraft.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
@@ -88,8 +87,8 @@ public class BlockVineSupport extends Block
     		if (random.nextFloat() < PERCENT_CHANCE[type - 2])
     			t.growthStage++;
     		
-    		//Sees if the vine here spreads to the one above it
-    		if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight < MAX_VINE_HEIGHT[t.type])
+    		//Sees if the vine can spread to the block above it
+    		if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight <= MAX_VINE_HEIGHT[t.type])
     		{
     			t2.growthStage = 1;
     			t2.type = t.type;
@@ -97,7 +96,7 @@ public class BlockVineSupport extends Block
     	}
     }
     
-    //Currently causes fatal crashes
+    //Currently causes fatal crashes - appears to be working for me without it can we just remove the method?
     /*@Override
     public void onNeighborBlockChange(World world, int x, int y, int z, int id)
     {    	
@@ -124,7 +123,7 @@ public class BlockVineSupport extends Block
     	return false;
     }
     
-    //Will eventually destroy unsupported blocks above it of the same type
+    //Will eventually destroy unsupported blocks above it of the same type.  why do you need to destroy unsupported blocks, just don't let the vine spread up to them?
     public void breakNeighbors(World world, int x, int y, int z)
     {
     	
@@ -171,8 +170,11 @@ public class BlockVineSupport extends Block
 			return null;
 		
 		TileEntityVineSupport entity = (TileEntityVineSupport) par1IBlockAccess.getBlockTileEntity(par2, par3, par4);
-		
-		return icons[entity.type];
+		int stage = entity.growthStage;
+		if(stage <= 2)
+			return icons[stage];
+		else 
+			return icons[entity.type];
     }
 	
 	@SideOnly(Side.CLIENT)
