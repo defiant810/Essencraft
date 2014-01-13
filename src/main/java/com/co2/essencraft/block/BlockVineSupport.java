@@ -4,25 +4,32 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.BlockVine;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
-import tileentity.TileEntityVineSupport;
 
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.StringLib;
+import com.co2.essencraft.tileentity.TileEntityVineSupport;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockVineSupportESC extends BlockVine
+public class BlockVineSupport extends BlockVine
 {
-
-	public BlockVineSupportESC(int id){
+	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape" };
+	
+	@SideOnly(Side.CLIENT)
+	private Icon[] icons;
+	
+	public BlockVineSupport(int id)
+	{
 		super(id);
 		//set creative tab
 	}
@@ -86,26 +93,25 @@ public class BlockVineSupportESC extends BlockVine
         return false;
     }
 	
+    @Override
     public boolean hasTileEntity(int metadat)
     {
     	return true;
     }
     
-    public TileEntityVineSupport createNewTileEntity(World par1World)
+    @Override
+    public TileEntity createTileEntity(World world, int meta)
     {
-    	try
-    	{
-    		return new TileEntityVineSupport();
-    	
-    	}
-    	catch (Exception var3) 
-    	{
-    		throw new RuntimeException(var3);
-    	}
+    	return new TileEntityVineSupport();
     }
     
+    @Override
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
+    	if (par1World.getBlockTileEntity(par2, par3, par4) == null || par1World.getBlockTileEntity(par2, par3 + 1, par4) == null
+    			|| !(par1World.getBlockTileEntity(par2, par3, par4) instanceof TileEntityVineSupport))
+    		return;
+    	
 		TileEntityVineSupport t = (TileEntityVineSupport) par1World.getBlockTileEntity(par2, par3, par4);
 		TileEntityVineSupport t2 = (TileEntityVineSupport) par1World.getBlockTileEntity(par2, par3 + 1, par4);
 		int stage = t.growthStage;
@@ -145,9 +151,20 @@ public class BlockVineSupportESC extends BlockVine
      */
     public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {	
-		String name = par1IBlockAccess.getBlockTileEntity(par2, par3, par4).getTexture();
-		String file = name.toUpperCase().charAt(0) + name.substring(1);
-		this.blockIcon = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "block" + file);
-		return this.blockIcon;
+		if (!(par1IBlockAccess.getBlockTileEntity(par2, par3, par4) instanceof TileEntityVineSupport))
+			return null;
+		
+		TileEntityVineSupport entity = (TileEntityVineSupport) par1IBlockAccess.getBlockTileEntity(par2, par3, par4);
+		
+		return icons[entity.getType()];
     }
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerIcons(IconRegister iconRegister)
+	{
+		icons = new Icon[TEXTURES.length];
+		for (int i = 0; i < icons.length; i++)
+			icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "block" + TEXTURES[i]);
+	}
 }

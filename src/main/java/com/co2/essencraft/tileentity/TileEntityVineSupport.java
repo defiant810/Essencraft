@@ -1,17 +1,27 @@
-package tileentity;
+package com.co2.essencraft.tileentity;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityVineSupport extends TileEntity{
-
-	public int growthStage = 0;
-	public int type = 0;
-	private static final String[] TEXTURE = {"VineSupport", "VineGrowing", "VineGrape"}; 
+public class TileEntityVineSupport extends TileEntity
+{
+	public int growthStage;
+	public int type;
 	
-	public String getTexture()
+	public TileEntityVineSupport()
 	{
-		return TEXTURE[type];
+		growthStage = 0;
+		type = 0;
+	}
+	
+	public int getGrowthStage()
+	{
+		return growthStage;
+	}
+	
+	public int getType()
+	{
+		return type;
 	}
 	
     @Override
