@@ -5,11 +5,14 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.FakePlayer;
 
 import com.co2.essencraft.lib.StringLib;
 import com.co2.essencraft.tileentity.TileEntityVineSupport;
@@ -22,16 +25,17 @@ public class BlockVineSupport extends Block
 	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape" };
 	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
 	private static final float[] PERCENT_CHANCE = { 0.25f, 0.1f, };
+	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato}
+	private static final int[] DROP_IDS = {19501, 19501, 19503, 19502, 19502, 19502, 19502};
+	private static final int[] DROP_METADATA = {5, 6, 5, 0, 1, 9, 17};
+	private static final int[] MAX_VINE_HEIGHT = {10, 4, 4, 3, 2, 3, 3}; 
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
-	
-	private float chance;
-	
+		
 	public BlockVineSupport(int id)
 	{
 		super(id, Material.wood);
-		chance = 0.5f;
 		//set creative tab
 	}
 	
@@ -39,25 +43,24 @@ public class BlockVineSupport extends Block
     @Override
     public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
-        /*if (world.isRemote)
+        if (world.isRemote)
                 return false;
 
         TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
         
-        if (t.growthStage >= 15)
+        if (t.growthStage == 3)
         {
             if (world.isRemote)
                 return true;
     
             t.growthStage = 6;
-            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(ItemIds.FRUIT, 1, t.type));
+            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(DROP_IDS[t.type], 1, DROP_METADATA[t.type]));
             world.spawnEntityInWorld(entityitem);
             if (!(player instanceof FakePlayer))
                 entityitem.onCollideWithPlayer(player);
             return true;
         }
-        return false;*/
-    	return true;
+        return false;
     }
     
     @Override
@@ -73,7 +76,11 @@ public class BlockVineSupport extends Block
     	
     	int stage = t.growthStage;
     	int type = t.type;
-    	
+    	int plantHeight;
+    	for (plantHeight = 1; world.getBlockId(x, y - plantHeight, z) == this.blockID; ++plantHeight)
+        {
+            ;
+        }
     	//Run updates on this block
     	if (stage == 1 && random.nextFloat() < PERCENT_CHANCE[0])
     		t.growthStage++;
@@ -83,7 +90,7 @@ public class BlockVineSupport extends Block
     			t.growthStage++;
     		
     		//Sees if the vine here spreads to the one above it
-    		if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25)
+    		if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight < MAX_VINE_HEIGHT[t.type])
     		{
     			t2.growthStage = 1;
     			t2.type = t.type;
