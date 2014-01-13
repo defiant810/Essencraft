@@ -9,8 +9,10 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import com.co2.essencraft.block.ModBlocks;
 import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.StringLib;
+import com.co2.essencraft.tileentity.TileEntityVineSupport;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -26,7 +28,7 @@ public class ItemSeedESC extends ItemSeeds
 	//The id of the block planted by each seed
 	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, BlockIds.CORN_CROP, BlockIds.HOP_CROP, BlockIds.OAT_CROP,
 		BlockIds.RYE_CROP, BlockIds.RICE_CROP, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,
-		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID };
+		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, 0, 0, 0, 0, 0, 0, 0, 0 };
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -43,22 +45,47 @@ public class ItemSeedESC extends ItemSeeds
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int xPos, int yPos, int zPos, int side, float xClick, float yClick, float zClick)
 	{
-		if (side != 1)
-			return false;
-		else if (player.canPlayerEdit(xPos, yPos, zPos, side, stack) && player.canPlayerEdit(xPos, yPos + 1, zPos, side, stack))
+		if (player.canPlayerEdit(xPos, yPos, zPos, side, stack) && player.canPlayerEdit(xPos, yPos + 1, zPos, side, stack))
 		{	
 			int index = MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS);
 			boolean tree = StringLib.SEED_NAMES[index].toLowerCase().contains("tree");
+			boolean vine = StringLib.SEED_NAMES[index].toLowerCase().contains("vine");
 			
 			int i1 = world.getBlockId(xPos, yPos, zPos);
 			Block soil = Block.blocksList[i1];
-						
-			if (soil != null && ((tree && (soil == Block.grass || soil == Block.dirt)) || (!tree && soil == Block.tilledField)) 
-					&& world.isAirBlock(xPos, yPos + 1, zPos))
+			
+			if (soil != null)
 			{
-				world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
-				--stack.stackSize;
-				return true;
+				if (tree && (soil == Block.grass || soil == Block.dirt) && world.isAirBlock(xPos, yPos, zPos) && side == 1)
+				{
+					world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
+					--stack.stackSize;
+					return true;
+				}
+				else if (vine && i1 == ModBlocks.vineSupport.blockID && world.getBlockId(xPos, yPos - 1, zPos) == Block.tilledField.blockID)
+				{
+					if (!(world.getBlockTileEntity(xPos, yPos, zPos) instanceof TileEntityVineSupport))
+						return false;
+					
+					TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(xPos, yPos, zPos);
+					if (t.growthStage == 0 && t.type == -1)
+					{
+						t.growthStage = 1;
+						t.type = stack.getItemDamage() - 16;
+						--stack.stackSize;
+						return true;
+					}			
+					
+					return false;
+				}
+				else if (!tree && !vine && soil == Block.tilledField && world.isAirBlock(xPos, yPos + 1, zPos) && side == 1)
+				{
+					world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
+					--stack.stackSize;
+					return true;
+				}
+				else
+					return false;
 			}
 			else
 				return false;

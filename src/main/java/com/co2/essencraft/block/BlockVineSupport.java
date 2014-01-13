@@ -43,7 +43,7 @@ public class BlockVineSupport extends Block
                 return false;
 
         TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
-        
+         
         if (t.growthStage >= 15)
         {
             if (world.isRemote)

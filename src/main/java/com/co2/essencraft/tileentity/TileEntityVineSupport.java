@@ -12,7 +12,7 @@ public class TileEntityVineSupport extends TileEntity
 	public TileEntityVineSupport()
 	{
 		growthStage = 0;
-		type = 0;
+		type = -1;
 	}
 	
     @Override
