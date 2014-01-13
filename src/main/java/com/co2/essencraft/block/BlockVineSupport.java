@@ -3,6 +3,7 @@ package com.co2.essencraft.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
@@ -36,7 +37,7 @@ public class BlockVineSupport extends Block
 		
 	public BlockVineSupport(int id)
 	{
-		super(id, Material.wood);
+		super(id, Material.plants);
 		//set creative tab
 	}
 	
@@ -94,6 +95,39 @@ public class BlockVineSupport extends Block
     			t2.type = t.type;
     		}		
     	}
+    }
+    
+    //Currently causes fatal crashes
+    /*@Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, int id)
+    {    	
+    	int n = world.getBlockId(x, y - 1, z);
+    	
+    	if (n == Block.dirt.blockID && id == Block.tilledField.blockID)
+    		world.setBlock(x, y - 1, z, Block.tilledField.blockID, 1, 3);
+    	else if (world.isAirBlock(x, y - 1, z))
+    		world.destroyBlock(x, y, z, true);
+    }*/
+    
+    @Override
+    public boolean canPlaceBlockAt(World world, int x, int y, int z)
+    {
+    	int b = world.getBlockId(x, y - 1, z);
+    	int m = world.getBlockMetadata(x, y - 1, z);
+    	
+    	if (b == this.blockID)
+    		return true;
+    	
+    	if (b == Block.tilledField.blockID && m > 0)
+    		return true;
+    	
+    	return false;
+    }
+    
+    //Will eventually destroy unsupported blocks above it of the same type
+    public void breakNeighbors(World world, int x, int y, int z)
+    {
+    	
     }
     
     @Override
