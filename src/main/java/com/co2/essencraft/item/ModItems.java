@@ -16,6 +16,7 @@ public class ModItems
 	public static ItemESC seasoning;
 	public static ItemSeedESC seed;
 	public static ItemGrain grain;
+	public static ItemToolESC knife;
 	
 	public static void init()
 	{
