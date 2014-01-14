@@ -15,6 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
 
+import com.co2.essencraft.lib.RenderIds;
 import com.co2.essencraft.lib.StringLib;
 import com.co2.essencraft.tileentity.TileEntityVineSupport;
 
@@ -26,7 +27,7 @@ public class BlockVineSupport extends BlockContainer
 	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape", "VineKiwi", "VineBlackPepper", "VineGreenBean",
 		"VineSoyBean", "VinePea", "VineTomato", "VineStrawberry", "VineDecorative" };
 	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
-	private static final float[] PERCENT_CHANCE = { 0.25f, 0.1f, };
+	private static final float[] PERCENT_CHANCE = { 1.0f, 0.1f, };
 	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato, strawberry, decorative}
 	private static final int[] DROP_IDS = { 19501, 19501, 19503, 19502, 19502, 19502, 19502, 19501 };
 	private static final int[] DROP_METADATA = { 5, 6, 5, 0, 1, 9, 17, 16 };
@@ -38,6 +39,7 @@ public class BlockVineSupport extends BlockContainer
 	public BlockVineSupport(int id)
 	{
 		super(id, Material.plants);
+		this.setTickRandomly(true);
 		//set creative tab
 	}
 
@@ -67,6 +69,8 @@ public class BlockVineSupport extends BlockContainer
 	{
 		if (!(world.getBlockTileEntity(x, y, z) instanceof TileEntityVineSupport))
 			return;
+		
+		System.out.println(String.format("Ticking at: %d, %d, %d", x, y, z));
 
 		TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
 		TileEntityVineSupport t2 = null;
@@ -87,7 +91,7 @@ public class BlockVineSupport extends BlockContainer
 			++t.growthStage;
 		else if (stage == 2)
 		{
-			if (random.nextFloat() < PERCENT_CHANCE[type - 2])
+			if (random.nextFloat() < PERCENT_CHANCE[type + 1])
 				++t.growthStage;
 
 			//Sees if the vine can spread to the block above it
@@ -143,6 +147,12 @@ public class BlockVineSupport extends BlockContainer
 	{
 		return false;
 	}
+	
+	@Override
+	public int getRenderType()
+	{
+		return RenderIds.VINE_SUPPORT_SIMPLE;
+	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -165,9 +175,6 @@ public class BlockVineSupport extends BlockContainer
 	public Icon getBlockTexture(IBlockAccess access, int x, int y, int z, int side)
 	{
 		if (!(access.getBlockTileEntity(x, y, z) instanceof TileEntityVineSupport))
-			return null;
-
-		if (side == 0 || side == 1)
 			return icons[0];
 
 		TileEntityVineSupport ent = (TileEntityVineSupport) access.getBlockTileEntity(x, y, z);
