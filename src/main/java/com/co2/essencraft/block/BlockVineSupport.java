@@ -90,8 +90,8 @@ public class BlockVineSupport extends Block
     		if (random.nextFloat() < PERCENT_CHANCE[type - 2])
     			t.growthStage++;
     		
-    		//Sees if the vine here spreads to the one above it
-    		if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight < MAX_VINE_HEIGHT[t.type])
+    		//Sees if the vine can spread to the block above it
+    		if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight <= MAX_VINE_HEIGHT[t.type])
     		{
     			t2.growthStage = 1;
     			t2.type = t.type;
@@ -114,7 +114,7 @@ public class BlockVineSupport extends Block
     	return false;
     }
     
-    //Will eventually destroy unsupported blocks above it of the same type
+    //Will eventually destroy unsupported blocks above it of the same type.  why do you need to destroy unsupported blocks, just don't let the vine spread up to them?
     public void breakNeighbors(World world, int x, int y, int z)
     {
     	

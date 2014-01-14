@@ -57,7 +57,7 @@ public class ItemSeedESC extends ItemSeeds
 			
 			if (soil != null)
 			{
-				if (tree && (soil == Block.grass || soil == Block.dirt) && world.isAirBlock(xPos, yPos, zPos) && side == 1)
+				if (tree && (soil == Block.grass || soil == Block.dirt) && world.isAirBlock(xPos, yPos + 1, zPos) && side == 1)
 				{
 					world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
 					--stack.stackSize;
