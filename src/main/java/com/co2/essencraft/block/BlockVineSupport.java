@@ -3,8 +3,9 @@ package com.co2.essencraft.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
 
+import com.co2.essencraft.lib.RenderIds;
 import com.co2.essencraft.lib.StringLib;
 import com.co2.essencraft.tileentity.TileEntityVineSupport;
 
@@ -23,8 +25,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockVineSupport extends Block
 {
-	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape", "VineKiwi", "vineBlackPepper", "VineGreenBean",
-		"VineSoyBean", "vinePea", "VineTomato", "VineStrawberry", "VineDecorative" };
+	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape", "VineKiwi", "VineBlackPepper", "VineGreenBean",
+		"VineSoyBean", "VinePea", "VineTomato", "VineStrawberry", "VineDecorative" };
 	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
 	private static final float[] PERCENT_CHANCE = { 0.25f, 0.1f, };
 	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato, strawberry, decorative}
@@ -97,18 +99,6 @@ public class BlockVineSupport extends Block
     	}
     }
     
-    //Currently causes fatal crashes
-    /*@Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, int id)
-    {    	
-    	int n = world.getBlockId(x, y - 1, z);
-    	
-    	if (n == Block.dirt.blockID && id == Block.tilledField.blockID)
-    		world.setBlock(x, y - 1, z, Block.tilledField.blockID, 1, 3);
-    	else if (world.isAirBlock(x, y - 1, z))
-    		world.destroyBlock(x, y, z, true);
-    }*/
-    
     @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
@@ -145,7 +135,7 @@ public class BlockVineSupport extends Block
     @Override
     public int getRenderType()
     {
-    	return 6;
+    	return RenderIds.VINE_SUPPORT;
     }
     
     @Override
@@ -161,19 +151,13 @@ public class BlockVineSupport extends Block
     }
 	
 	@SideOnly(Side.CLIENT)
-	@Override
-    /**
-     * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
-     */
-    public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {	
-		if (!(par1IBlockAccess.getBlockTileEntity(par2, par3, par4) instanceof TileEntityVineSupport))
-			return null;
+	public Icon getVineTexture(TileEntityVineSupport ent)
+	{	
+		if (ent.growthStage >= 0 && ent.growthStage <= 2)
+			return icons[ent.growthStage];
 		
-		TileEntityVineSupport entity = (TileEntityVineSupport) par1IBlockAccess.getBlockTileEntity(par2, par3, par4);
-		
-		return icons[entity.type];
-    }
+		return icons[ent.type + 3];
+	}
 	
 	@SideOnly(Side.CLIENT)
 	@Override
