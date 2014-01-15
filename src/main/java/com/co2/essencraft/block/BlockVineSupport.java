@@ -27,11 +27,11 @@ public class BlockVineSupport extends BlockContainer
 	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape", "VineKiwi", "VineBlackPepper", "VineGreenBean",
 		"VineSoyBean", "VinePea", "VineTomato", "VineStrawberry", "VineDecorative" };
 	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
-	private static final float[] PERCENT_CHANCE = { 1.0f, 0.1f, };
+	private static final float[] PERCENT_CHANCE = { 1.0f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f};
 	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato, strawberry, decorative}
-	private static final int[] DROP_IDS = { 19501, 19501, 19503, 19502, 19502, 19502, 19502, 19501 };
-	private static final int[] DROP_METADATA = { 5, 6, 5, 0, 1, 9, 17, 16 };
-	private static final int[] MAX_VINE_HEIGHT = { 10, 4, 4, 3, 2, 3, 3, 1 }; 
+	private static final int[] DROP_IDS = { 19501, 19501, 19503, 19502, 19502, 19502, 19502, 19501, 19504 };
+	private static final int[] DROP_METADATA = { 5, 6, 5, 0, 1, 9, 17, 16, 24 };
+	private static final int[] MAX_VINE_HEIGHT = { 10, 4, 4, 3, 2, 3, 3, 1, 10 }; 
 
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -66,11 +66,11 @@ public class BlockVineSupport extends BlockContainer
 
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random random)
-	{
+	{	
 		if (!(world.getBlockTileEntity(x, y, z) instanceof TileEntityVineSupport))
 			return;
 		
-		System.out.println(String.format("Ticking at: %d, %d, %d", x, y, z));
+		System.out.println(String.format("Ticking at: %d, %d, %d", x, y, z));//remove
 
 		TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
 		TileEntityVineSupport t2 = null;
@@ -88,19 +88,25 @@ public class BlockVineSupport extends BlockContainer
 		}
 		//Run updates on this block
 		if (stage == 1 && random.nextFloat() < PERCENT_CHANCE[0])
-			++t.growthStage;
+			t.growthStage++;
+		
 		else if (stage == 2)
 		{
 			if (random.nextFloat() < PERCENT_CHANCE[type + 1])
-				++t.growthStage;
-
+			{
+				t.growthStage++;
+			}
+			
 			//Sees if the vine can spread to the block above it
 			if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight <= MAX_VINE_HEIGHT[t.type])
-			{
+			{	
 				t2.growthStage = 1;
 				t2.type = t.type;
 			}		
 		}
+		//if the vine has grow forces render update on the client side 
+		if(t.growthStage - stage != 0)
+			world.markBlockForUpdate(x, y, z);
 	}
 
 	@Override
@@ -118,7 +124,7 @@ public class BlockVineSupport extends BlockContainer
 		return false;
 	}
 
-	//Will eventually destroy unsupported blocks above it of the same type.  why do you need to destroy unsupported blocks, just don't let the vine spread up to them?
+	//Will eventually destroy unsupported blocks above it of the same type.
 	public void breakNeighbors(World world, int x, int y, int z)
 	{
 
@@ -160,7 +166,7 @@ public class BlockVineSupport extends BlockContainer
 	{
 		return 1;
 	}
-
+	
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)
 	{	
