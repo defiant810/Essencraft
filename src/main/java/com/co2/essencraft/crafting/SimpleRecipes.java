@@ -24,6 +24,21 @@ public class SimpleRecipes
 				{
 					"X", "X", "x", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
+		//Butcher Knife
+		GameRegistry.addRecipe(new ItemStack(ModItems.butcherKnife), new Object[]
+				{
+					"XX ", "XX ", " x ", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+				});
+		//Filet Knife
+		GameRegistry.addRecipe(new ItemStack(ModItems.filetKnife), new Object[]
+				{
+					" XX", " X ", " x ", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+				});
+		//Paring Knife
+		GameRegistry.addRecipe(new ItemStack(ModItems.paringKnife), new Object[]
+				{
+					" ", "X", "x", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+				});
 		//Crosshatch
 		GameRegistry.addRecipe(new ItemStack(ItemIds.CROSSHATCH, 8, 0), new Object[]
 				{

@@ -62,6 +62,9 @@ public class ConfigHandler
 			
 			ItemIds.KNIFE_HANDLE = con.getItem("knifeHandle", ItemIds.KNIFE_HANDLE_DEFAULT).getInt(ItemIds.KNIFE_HANDLE_DEFAULT);
 			ItemIds.CHEF_KNIFE = con.getItem("chefKnife", ItemIds.CHEF_KNIFE_DEFAULT).getInt(ItemIds.CHEF_KNIFE_DEFAULT);
+			ItemIds.BUTCHER_KNIFE = con.getItem("butcherKnife", ItemIds.BUTCHER_KNIFE_DEFUALT).getInt(ItemIds.BUTCHER_KNIFE_DEFUALT);
+			ItemIds.FILET_KNIFE = con.getItem("filetKnife", ItemIds.FILET_KNIFE_DEFAULT).getInt(ItemIds.FILET_KNIFE_DEFAULT);
+			ItemIds.PARING_KNIFE = con.getItem("paringKnife", ItemIds.PARING_KNIFE_DEFAULT).getInt(ItemIds.PARING_KNIFE_DEFAULT);
 			
 			ItemIds.CROSSHATCH = con.getItem("crossHatch", ItemIds.CROSSHATCH_DEFAULT).getInt(ItemIds.CROSSHATCH_DEFAULT);
 		}

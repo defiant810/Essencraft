@@ -19,6 +19,9 @@ public class StringLib
 	public static final String CROSSHATCH_NAME = "crossHatch";
 	public static final String KNIFE_HANDLE_NAME = "knifeHandle";
 	public static final String CHEF_KNIFE_NAME = "chefKnife";
+	public static final String BUTCHER_KNIFE_NAME = "butcherKnife";
+	public static final String FILET_KNIFE_NAME = "filetKnife";
+	public static final String PARING_KNIFE_NAME = "paringKnife";
 	
 	//Grains
 	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};
