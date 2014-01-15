@@ -16,27 +16,27 @@ public class ModItems
 	public static ItemESC seasoning;
 	public static ItemSeedESC seed;
 	public static ItemGrain grain;
-	public static ItemToolESC knife;
+	public static ItemESC knifeHandle;
 	
 	public static void init()
 	{
-		//Init items
 		fish = new ItemFish(ItemIds.FISH);
 		fruit = new ItemFruit(ItemIds.FRUIT);
 		vegetable = new ItemVegetable(ItemIds.VEGETABLE);
 		seasoning = new ItemSeasoning(ItemIds.SEASONING);
 		seed = new ItemSeedESC(ItemIds.SEED);
 		grain = new ItemGrain(ItemIds.GRAIN);
+		knifeHandle = new ItemESC(ItemIds.KNIFE_HANDLE);
 		
-		//Register items
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");
 		GameRegistry.registerItem(vegetable, "item.vegetable");
 		GameRegistry.registerItem(seasoning, "item.seasoning");
 		GameRegistry.registerItem(seed, "item.seed");
 		GameRegistry.registerItem(grain, "item.grain");
+		GameRegistry.registerItem(knifeHandle, "item.knifeHandle");
 		
-		//Add names to language registry from items with metadata
+		LanguageRegistry.addName(knifeHandle, "Knife Handle");
 		for (int i = 0; i < StringLib.FISH_NAMES.length; i++)
 			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES[i]);
 		for (int i = 0; i < StringLib.FRUIT_NAMES.length; i++)

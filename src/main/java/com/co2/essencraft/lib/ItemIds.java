@@ -20,4 +20,10 @@ public class ItemIds
 	//Grains
 	public static final int GRAIN_DEFAULT = 19505;
 	public static int GRAIN;
+	
+	//Knifes
+	public static final int KNIFE_HANDLE_DEFAULT = 19510;
+	public static int KNIFE_HANDLE;
+	public static final int CHEF_KNIFE_DEFAULT = 19511;
+	public static int CHEF_KNIFE;
 }

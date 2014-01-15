@@ -27,7 +27,6 @@ public class ConfigHandler
 		{
 			con.load();
 			
-			//Load ids here
 			BlockIds.RYE_CROP = con.getBlock("ryeCrop", BlockIds.RYE_CROP_DEFAULT).getInt(BlockIds.RYE_CROP_DEFAULT);
 			BlockIds.OAT_CROP = con.getBlock("oatCrop", BlockIds.OAT_CROP_DEFAULT).getInt(BlockIds.OAT_CROP_DEFAULT);
 			BlockIds.BARLEY_CROP = con.getBlock("barleyCrop", BlockIds.BARLEY_CROP_DEFAULT).getInt(BlockIds.BARLEY_CROP_DEFAULT);
@@ -54,13 +53,15 @@ public class ConfigHandler
 		{
 			con.load();
 			
-			//Load ids here
 			ItemIds.FISH = con.getItem("fish", ItemIds.FISH_DEFAULT).getInt(ItemIds.FISH_DEFAULT);
 			ItemIds.FRUIT = con.getItem("fruit", ItemIds.FRUIT_DEFAULT).getInt(ItemIds.FRUIT_DEFAULT);
 			ItemIds.SEASONING = con.getItem("seasoning", ItemIds.SEASONING_DEFAULT).getInt(ItemIds.SEASONING_DEFAULT);
 			ItemIds.VEGETABLE = con.getItem("vegetable", ItemIds.VEGETABLE_DEFAULT).getInt(ItemIds.VEGETABLE_DEFAULT);
 			ItemIds.SEED = con.getItem("seed", ItemIds.SEED_DEFAULT).getInt(ItemIds.SEED_DEFAULT);
 			ItemIds.GRAIN = con.getItem("grain", ItemIds.GRAIN_DEFAULT).getInt(ItemIds.GRAIN_DEFAULT);
+			
+			ItemIds.KNIFE_HANDLE = con.getItem("knifeHandle", ItemIds.KNIFE_HANDLE_DEFAULT).getInt(ItemIds.KNIFE_HANDLE_DEFAULT);
+			ItemIds.CHEF_KNIFE = con.getItem("chefKnife", ItemIds.CHEF_KNIFE_DEFAULT).getInt(ItemIds.CHEF_KNIFE_DEFAULT);
 		}
 		catch (Exception e)
 		{

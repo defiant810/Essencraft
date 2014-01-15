@@ -1,10 +1,15 @@
 package com.co2.essencraft.item;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+
+import com.co2.essencraft.lib.StringLib;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 //Base class for all items in this mod
-public abstract class ItemESC extends Item
+public class ItemESC extends Item
 {
 	public static final int ID_SHIFT_CORRECTION = 256; 
 	
@@ -15,18 +20,10 @@ public abstract class ItemESC extends Item
 		//TODO set proper creative tab
 	}
 	
-	public String simpleName(int meta)
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerIcons(IconRegister iconRegister)
 	{
-		ItemStack st = new ItemStack(this.itemID, 1, meta);
-		String name = this.getUnlocalizedName(st).substring(this.getUnlocalizedName(st).indexOf(".") + 1);
-		name = name.substring(0, name.indexOf("."));
-		return name;
-	}
-	
-	public String simpleName()
-	{
-		String name = this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1);
-		name = name.substring(0, name.indexOf("."));
-		return name;
+		this.itemIcon = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "item" + this.iconString);
 	}
 }
