@@ -47,20 +47,21 @@ public class BlockVineSupport extends BlockContainer
 	@Override
 	public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	{
-		if (world.isRemote || !(world.getBlockTileEntity(x, y, x) instanceof TileEntityVineSupport))
-			return false;
-
-		TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
-
-		if (t.growthStage == 3)
+		TileEntityVineSupport entity = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
+		if (entity.growthStage == 3)
 		{
-			t.growthStage = 2;
-			EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(DROP_IDS[t.type], 1, DROP_METADATA[t.type]));
+			if(world.isRemote)
+				return true;
+			
+			entity.growthStage = 2;
+			EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(DROP_IDS[entity.type], 1, DROP_METADATA[entity.type]));
 			world.spawnEntityInWorld(entityitem);
 			if (!(player instanceof FakePlayer))
 				entityitem.onCollideWithPlayer(player);
+			world.markBlockForUpdate(x, y, z);
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -69,8 +70,6 @@ public class BlockVineSupport extends BlockContainer
 	{	
 		if (!(world.getBlockTileEntity(x, y, z) instanceof TileEntityVineSupport))
 			return;
-		
-		System.out.println(String.format("Ticking at: %d, %d, %d", x, y, z));//remove
 
 		TileEntityVineSupport t = (TileEntityVineSupport) world.getBlockTileEntity(x, y, z);
 		TileEntityVineSupport t2 = null;
@@ -104,7 +103,6 @@ public class BlockVineSupport extends BlockContainer
 				t2.type = t.type;
 			}		
 		}
-		//if the vine has grow forces render update on the client side 
 		if(t.growthStage - stage != 0)
 			world.markBlockForUpdate(x, y, z);
 	}
