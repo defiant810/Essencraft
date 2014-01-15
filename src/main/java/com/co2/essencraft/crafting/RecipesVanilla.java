@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.ItemIds;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,6 +16,5 @@ public class RecipesVanilla
 				{
 					"X", "x", "X", 'X', new ItemStack(Block.pressurePlatePlanks), 'x', new ItemStack(Item.ingotIron)
 				});
-		//GameRegistry.addShapelessRecipe(new ItemStack(ModItems.chefKnife), params);
 	}
 }
