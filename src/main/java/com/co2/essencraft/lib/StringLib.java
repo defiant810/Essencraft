@@ -16,6 +16,9 @@ public class StringLib
 	
 	/* Item name constants */
 	public static final String RYE_NAME = "ryeStalk";
+	public static final String CROSSHATCH_NAME = "crossHatch";
+	public static final String KNIFE_HANDLE_NAME = "knifeHandle";
+	public static final String CHEF_KNIFE_NAME = "chefKnife";
 	
 	//Grains
 	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};

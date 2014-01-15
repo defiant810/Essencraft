@@ -5,6 +5,6 @@ public class CraftingHandler
 	public static void init()
 	{
 		//Init vanilla style recipes
-		RecipesVanilla.init();
+		SimpleRecipes.init();
 	}
 }

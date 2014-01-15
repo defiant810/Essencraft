@@ -17,6 +17,7 @@ public class ItemESC extends Item
 	{
 		super(id - ID_SHIFT_CORRECTION);
 		this.setMaxStackSize(64);
+		this.setHasSubtypes(false);
 		//TODO set proper creative tab
 	}
 	

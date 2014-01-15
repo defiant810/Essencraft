@@ -26,4 +26,8 @@ public class ItemIds
 	public static int KNIFE_HANDLE;
 	public static final int CHEF_KNIFE_DEFAULT = 19511;
 	public static int CHEF_KNIFE;
+	
+	//Intermediate crafting things
+	public static final int CROSSHATCH_DEFAULT = 19515;
+	public static int CROSSHATCH;
 }
