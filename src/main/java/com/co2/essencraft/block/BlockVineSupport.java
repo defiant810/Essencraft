@@ -26,8 +26,8 @@ public class BlockVineSupport extends BlockContainer
 {
 	private static final String[] TEXTURES = { "VineSupport", "VineGrowing", "VineGrown", "VineGrape", "VineKiwi", "VineBlackPepper", "VineGreenBean",
 		"VineSoyBean", "VinePea", "VineTomato", "VineStrawberry", "VineDecorative" };
-	//0 = chance to grow from Growing -> Grown, 1+ = chances for growing for different things, starting with Grape 
-	private static final float[] PERCENT_CHANCE = { 1.0f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f};
+	//0 = chance to grow from Growing -> Grown and spread to other block, 1+ = chances for growing for different things, starting with Grape 
+	private static final float[] PERCENT_CHANCE = { 0.25f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f, 0.1f};
 	//{grape, kiwi, black pepper, green bean, soy bean, pea, tomato, strawberry, decorative}
 	private static final int[] DROP_IDS = { 19501, 19501, 19503, 19502, 19502, 19502, 19502, 19501, 19504 };
 	private static final int[] DROP_METADATA = { 5, 6, 5, 0, 1, 9, 17, 16, 24 };
@@ -97,7 +97,7 @@ public class BlockVineSupport extends BlockContainer
 			}
 			
 			//Sees if the vine can spread to the block above it
-			if (t2 != null && t2.growthStage == 0 && random.nextFloat() < 0.25 && plantHeight <= MAX_VINE_HEIGHT[t.type])
+			if (t2 != null && t2.growthStage == 0 && random.nextFloat() < PERCENT_CHANCE[0] && plantHeight <= MAX_VINE_HEIGHT[t.type])
 			{	
 				t2.growthStage = 1;
 				t2.type = t.type;
