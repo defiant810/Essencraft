@@ -1,8 +1,8 @@
 package com.co2.essencraft.item;
 
-public class ItemCraftToolESC extends ItemESC 
+public class ItemCraftTool extends ItemESC 
 {		
-	public ItemCraftToolESC(int id, int maxUses)
+	public ItemCraftTool(int id, int maxUses)
 	{
 		super(id);
 		this.setMaxDamage(maxUses);

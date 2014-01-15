@@ -26,7 +26,7 @@ public class ModItems
 		seasoning = new ItemSeasoning(ItemIds.SEASONING);
 		seed = new ItemSeedESC(ItemIds.SEED);
 		grain = new ItemGrain(ItemIds.GRAIN);
-		knifeHandle = new ItemESC(ItemIds.KNIFE_HANDLE);
+		knifeHandle = (ItemESC) new ItemESC(ItemIds.KNIFE_HANDLE).setTextureName("KnifeHandle");
 		
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");
