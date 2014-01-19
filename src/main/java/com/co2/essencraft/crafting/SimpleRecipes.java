@@ -17,37 +17,39 @@ public class SimpleRecipes
 		//Knife Handle
 		GameRegistry.addRecipe(new ItemStack(ItemIds.KNIFE_HANDLE, 4, 0), new Object[]
 				{
-					"X", "x", "X", 'X', new ItemStack(Block.pressurePlatePlanks), 'x', new ItemStack(Item.ingotIron)
+					"y", "x", "y", 'y', new ItemStack(Block.pressurePlatePlanks), 'x', new ItemStack(Item.ingotIron)
 				});
 		//Chef Knife
 		GameRegistry.addRecipe(new ItemStack(ModItems.chefKnife), new Object[]
 				{
-					"X", "X", "x", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+					"y", "y", "x", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
 		//Butcher Knife
 		GameRegistry.addRecipe(new ItemStack(ModItems.butcherKnife), new Object[]
 				{
-					"XX ", "XX ", " x ", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+					"yy ", "yy ", " x ", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
 		//Filet Knife
 		GameRegistry.addRecipe(new ItemStack(ModItems.filetKnife), new Object[]
 				{
-					" XX", " X ", " x ", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+					" yy", " y ", " x ", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
 		//Paring Knife
 		GameRegistry.addRecipe(new ItemStack(ModItems.paringKnife), new Object[]
 				{
-					" ", "X", "x", 'X', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
+					" ", "y", "x", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
 		//Crosshatch
 		GameRegistry.addRecipe(new ItemStack(ItemIds.CROSSHATCH, 8, 0), new Object[]
 				{
-					" X ", "XXX", " X ", 'X', new ItemStack(Item.stick)
+					" x ", "xxx", " x ", 'x', new ItemStack(Item.stick)
 				});
 		//Vine support
 		GameRegistry.addRecipe(new ItemStack(BlockIds.VINE_SUPPORT, 4, 0), new Object[]
 				{
-					"xXx", "xXx", "xXx", 'x', new ItemStack(Item.stick), 'X', new ItemStack(ModItems.crossHatch)
+					"xyx", "xyx", "xyx", 'x', new ItemStack(Item.stick), 'y', new ItemStack(ModItems.crossHatch)
 				});	
+		//Kitchen counter
+		GameRe
 	}
 }
