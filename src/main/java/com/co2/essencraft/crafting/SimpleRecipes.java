@@ -48,6 +48,11 @@ public class SimpleRecipes
 		GameRegistry.addRecipe(new ItemStack(BlockIds.VINE_SUPPORT, 4, 0), new Object[]
 				{
 					"xyx", "xyx", "xyx", 'x', new ItemStack(Item.stick), 'y', new ItemStack(ModItems.crossHatch)
-				});			
+				});	
+		//Cutting board
+		GameRegistry.addRecipe(new ItemStack(BlockIds.CUTTING_BOARD, 2, 0), new Object[]
+				{
+					"xx", 'x', new ItemStack(Block.pressurePlatePlanks)
+				});
 	}
 }
