@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.co2.essencraft.block.ModBlocks;
 import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.ItemIds;
@@ -49,7 +50,10 @@ public class SimpleRecipes
 				{
 					"xyx", "xyx", "xyx", 'x', new ItemStack(Item.stick), 'y', new ItemStack(ModItems.crossHatch)
 				});	
-		//Kitchen counter
-		GameRe
+		//Cutting board
+		GameRegistry.addRecipe(new ItemStack(BlockIds.CUTTING_BOARD, 2, 0), new Object[]
+				{
+					"xx", 'x', new ItemStack(Block.pressurePlatePlanks)
+				});
 	}
 }

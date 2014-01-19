@@ -14,7 +14,7 @@ import com.co2.essencraft.tileentity.TileEntityCuttingBoard;
 
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 
-public class BlockCuttingBoard extends Block implements ITileEntityProvider
+public class BlockCuttingBoard extends BlockESC implements ITileEntityProvider
 {
 	public BlockCuttingBoard(int id)
 	{
@@ -22,6 +22,11 @@ public class BlockCuttingBoard extends Block implements ITileEntityProvider
 		this.setUnlocalizedName("tile." + StringLib.CUTTING_BOARD_NAME);
 		this.setHardness(0.05f);
 		this.setResistance(0.05f);
+		this.maxY = 0.1;
+		this.minX = 0.15;
+		this.maxX = 0.85;
+		this.minZ = 0.15;
+		this.maxZ = 0.85;
 	}
 	
 	@Override
@@ -46,5 +51,17 @@ public class BlockCuttingBoard extends Block implements ITileEntityProvider
 	public TileEntity createNewTileEntity(World world)
 	{
 		return null;
+	}
+	
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
 	}
 }
