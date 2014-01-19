@@ -3,6 +3,7 @@ package com.co2.essencraft;
 import java.io.File;
 
 import com.co2.essencraft.block.ModBlocks;
+import com.co2.essencraft.client.gui.ECGuiHandler;
 import com.co2.essencraft.config.ConfigHandler;
 import com.co2.essencraft.crafting.CraftingHandler;
 import com.co2.essencraft.item.ModItems;
@@ -17,9 +18,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = { Reference.MOD_CHANNEL })
 public class Essencraft 
 {
 	@Instance(value = Reference.MOD_ID)
@@ -47,6 +49,9 @@ public class Essencraft
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{	
+		//Register the gui handler
+		NetworkRegistry.instance().registerGuiHandler(instance, new ECGuiHandler());
+		
 		//Initialize custom rendering (client only)
 		proxy.registerRenderers();
 		

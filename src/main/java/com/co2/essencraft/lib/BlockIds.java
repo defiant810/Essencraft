@@ -20,7 +20,10 @@ public class BlockIds
 	//Hop Crop Block
 	public static final int HOP_CROP_DEFAULT = 3305;
 	public static int HOP_CROP;
-	//Vine Support Bloock
+	//Vine Support Block
 	public static final int VINE_SUPPORT_DEFAULT = 3306;
 	public static int VINE_SUPPORT;
+	//Cutting board
+	public static final int CUTTING_BOARD_DEFAULT = 3307;
+	public static int CUTTING_BOARD;
 }
