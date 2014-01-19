@@ -1,6 +1,5 @@
 package com.co2.essencraft.item;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.co2.essencraft.lib.ItemIds;
