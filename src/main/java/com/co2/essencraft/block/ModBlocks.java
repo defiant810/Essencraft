@@ -27,7 +27,7 @@ public class ModBlocks
 		ryeCrop = (BlockCropESC) new BlockCropESC(BlockIds.RYE_CROP, 1.0f, ItemIds.SEED, 4, ItemIds.GRAIN, 4).setTextureName("GrainRye");
 		riceCrop = (BlockCropESC) new BlockCropESC(BlockIds.RICE_CROP, 1.0f, ItemIds.SEED, 5, ItemIds.GRAIN, 5).setTextureName("GrainRice");
 		vineSupport = new BlockVineSupport(BlockIds.VINE_SUPPORT);
-		cuttingBoard = new BlockCuttingBoard(BlockIds.CUTTING_BOARD);
+		cuttingBoard = (BlockCuttingBoard) new BlockCuttingBoard(BlockIds.CUTTING_BOARD).setTextureName("CuttingBoard");
 		
 		//GameRegistry
 		GameRegistry.registerBlock(barleyCrop, "tile." + StringLib.BARLEY_CROP_NAME);

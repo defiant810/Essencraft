@@ -1,6 +1,5 @@
 package com.co2.essencraft.client.gui;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -28,7 +27,7 @@ public class GuiCuttingBoard extends GuiContainer
 	{
 		GL11.glColor4f(1f, 1f, 1f, 1f);
 		
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+		this.mc.getTextureManager().bindTexture(texture);
 		
 		int xStart = (width - xSize) / 2;
 		int yStart = (height - ySize) / 2;
