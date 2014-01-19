@@ -48,8 +48,6 @@ public class SimpleRecipes
 		GameRegistry.addRecipe(new ItemStack(BlockIds.VINE_SUPPORT, 4, 0), new Object[]
 				{
 					"xyx", "xyx", "xyx", 'x', new ItemStack(Item.stick), 'y', new ItemStack(ModItems.crossHatch)
-				});	
-		//Kitchen counter
-		GameRe
+				});			
 	}
 }
