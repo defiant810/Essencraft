@@ -5,7 +5,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
-import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.recipe.CBCraftingManager;
 import com.co2.essencraft.recipe.CBCraftingManager.KnifeType;
@@ -32,7 +31,14 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 		if (getStackInSlot(0) == null)
 			return;
 		
-		System.out.println("Inv changed!");
+		if (getStackInSlot(2) == null && lastOutput != null)
+		{
+			inventory[2] = null;
+			if (inventory[1].stackSize <= 1)
+				inventory[1] = null;
+			else
+				inventory[1] = inventory[1].splitStack(inventory[1].stackSize - 1);
+		}
 		
 		KnifeType knife = getKnifeType(getStackInSlot(0));
 		ItemStack in = getStackInSlot(1);
@@ -42,11 +48,7 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 			out = CBCraftingManager.getOutput(in, knife);
 		
 		inventory[2] = out;
-	}
-	
-	private void doCrafting(ItemStack result)
-	{
-		
+		lastOutput = out != null ? out.copy() : null;
 	}
 	
 	public KnifeType getKnifeType(ItemStack stack)
@@ -102,7 +104,7 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemStack) 
-	{	
+	{			
 		inventory[i] = itemStack;
 		
 		if (itemStack != null && itemStack.stackSize > getInventoryStackLimit())
@@ -144,6 +146,6 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) 
 	{
-		return true;
+		return false; //This is for autoinjection of items to sides 
 	}
 }
