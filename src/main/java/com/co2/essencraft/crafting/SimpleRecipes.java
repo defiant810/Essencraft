@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.co2.essencraft.block.ModBlocks;
 import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.ItemIds;
@@ -30,8 +29,8 @@ public class SimpleRecipes
 				{
 					"yy ", "yy ", " x ", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
-		//Filet Knife
-		GameRegistry.addRecipe(new ItemStack(ModItems.filetKnife), new Object[]
+		//Fillet Knife
+		GameRegistry.addRecipe(new ItemStack(ModItems.filletKnife), new Object[]
 				{
 					" yy", " y ", " x ", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
