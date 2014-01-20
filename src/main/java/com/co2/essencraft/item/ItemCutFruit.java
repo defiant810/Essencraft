@@ -33,8 +33,8 @@ public class ItemCutFruit extends ItemFoodESC{
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		String name = StringLib.CUT_FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_FRUIT - 1)];
-		if(name.equals(null))
-			return null;
+		if(null == name)
+			return "UDunGoofed";
 		
 		return "item." + name + ".fruit";
 	}
@@ -65,7 +65,7 @@ public class ItemCutFruit extends ItemFoodESC{
 		for (int i = 0; i < icons.length; i++)
 		{
 			String name = TEXTURES[i];
-			if(name.equals(null))
+			if(null == name)
 				icons[i] = null;
 			else
 				icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemCut" + name);

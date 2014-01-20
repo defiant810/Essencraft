@@ -78,7 +78,7 @@ public class ModItems
 		for (int i = 0; i < StringLib.CUT_FRUIT_NAMES.length; i ++)
 		{
 			String name = StringLib.CUT_FRUIT_NAMES[i]; 
-			if(!name.equals(null))
+			if(null != name)
 				LanguageRegistry.addName(new ItemStack(cutFruit.itemID, 1, i), name);
 		}
 		for (int i = 0; i < StringLib.CUT_VEGETABLE_NAMES.length; i ++)
