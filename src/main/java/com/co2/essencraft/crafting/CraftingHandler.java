@@ -6,5 +6,8 @@ public class CraftingHandler
 	{
 		//Init vanilla style recipes
 		SimpleRecipes.init();
+		
+		//Init the recipes for the cutting board
+		CuttingBoardRecipes.init();
 	}
 }

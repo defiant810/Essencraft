@@ -5,15 +5,60 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
+import com.co2.essencraft.item.ModItems;
+import com.co2.essencraft.lib.ItemIds;
+import com.co2.essencraft.recipe.CBCraftingManager;
+import com.co2.essencraft.recipe.CBCraftingManager.KnifeType;
+
 public class TileEntityCuttingBoard extends TileEntity implements IInventory
 {
 	//Inventory slots
+	//0 = knife, 1 = input, 2 = output
 	private ItemStack[] inventory;
+	
+	private ItemStack lastOutput;
 	
 	public TileEntityCuttingBoard()
 	{
 		super();
 		inventory = new ItemStack[3];
+	}
+	
+	@Override
+	public void onInventoryChanged()
+	{
+		super.onInventoryChanged();
+		
+		if (getStackInSlot(0) == null)
+			return;
+		
+		System.out.println("Inv changed!");
+		
+		KnifeType knife = getKnifeType(getStackInSlot(0));
+		ItemStack in = getStackInSlot(1);
+		ItemStack out = null;
+		
+		if (in != null && getStackInSlot(0) != null)
+			out = CBCraftingManager.getOutput(in, knife);
+		
+		inventory[2] = out;
+	}
+	
+	private void doCrafting(ItemStack result)
+	{
+		
+	}
+	
+	public KnifeType getKnifeType(ItemStack stack)
+	{
+		if (stack.itemID == ItemIds.CHEF_KNIFE)
+			return KnifeType.CHEF;
+		else if (stack.itemID == ItemIds.BUTCHER_KNIFE)
+			return KnifeType.BUTCHER;
+		else if (stack.itemID == ItemIds.FILET_KNIFE)
+			return KnifeType.FILET;
+		else 
+			return KnifeType.PARING;
 	}
 	
 	@Override
