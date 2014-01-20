@@ -29,8 +29,8 @@ public class SimpleRecipes
 				{
 					"yy ", "yy ", " x ", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
-		//Filet Knife
-		GameRegistry.addRecipe(new ItemStack(ModItems.filetKnife), new Object[]
+		//Fillet Knife
+		GameRegistry.addRecipe(new ItemStack(ModItems.filletKnife), new Object[]
 				{
 					" yy", " y ", " x ", 'y', new ItemStack(Item.ingotIron), 'x', new ItemStack(ModItems.knifeHandle)
 				});
