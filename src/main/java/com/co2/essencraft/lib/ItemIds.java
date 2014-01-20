@@ -20,6 +20,9 @@ public class ItemIds
 	//Grains
 	public static final int GRAIN_DEFAULT = 19505;
 	public static int GRAIN;
+	//Cut Fruit
+	public static final int CUT_FRUIT_DEFAULT = 19506;
+	public static int CUT_FRUIT;
 	
 	//Knifes
 	public static final int KNIFE_HANDLE_DEFAULT = 19510;

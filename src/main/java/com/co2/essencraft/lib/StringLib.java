@@ -32,6 +32,9 @@ public class StringLib
 		"Plum Tree Seed", "Pomegranate Tree Seed", "Grape Vine Seed", "Kiwi Vine Seed", "Black Pepper Vine Seed", "Green Bean Vine Seed", "Soy Bean Vine Seed",
 		"Pea Vine Seed", "Tomatoe Vine Seed", "Strawberry Vine Seed", "Decorative Vine Seed" };
 	
+	//Cut Fruit
+	public static final String[] CUT_FRUIT_NAMES = { "Cut Banana", null, null, "Cut Coconut", "Cut Grapefruit", null, "Cut Kiwi",
+		"Cut Mango", "Cut Orange", "Cut Peach", "Cut Pear", "Cut Pineapple", "Cut Plum", null, null, "Cut Strawberry" };
 	//Fish
 	public static final String[] FISH_NAMES = { "Crab", "Halibut", "Lobster", "Salmon", "Shrimp", "Squid", "Trout", "Red Herring" };
 	//Fruit
