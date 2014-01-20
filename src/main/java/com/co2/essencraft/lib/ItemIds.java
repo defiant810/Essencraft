@@ -23,6 +23,9 @@ public class ItemIds
 	//Cut Fruit
 	public static final int CUT_FRUIT_DEFAULT = 19506;
 	public static int CUT_FRUIT;
+	//Cut Vegetable 
+	public static final int CUT_VEGETABLE_DEFAULT = 19507;
+	public static int CUT_VEGETABLE;
 	
 	//Knifes
 	public static final int KNIFE_HANDLE_DEFAULT = 19510;

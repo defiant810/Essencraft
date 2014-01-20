@@ -23,6 +23,7 @@ public class ModItems
 	public static ItemESC paringKnife;
 	public static ItemESC crossHatch;
 	public static ItemFoodESC cutFruit;
+	public static ItemFoodESC cutVegetable;
 	
 	public static void init()
 	{
@@ -39,6 +40,7 @@ public class ModItems
 		paringKnife = (ItemESC) new ItemESC(ItemIds.PARING_KNIFE).setUnlocalizedName(StringLib.PARING_KNIFE_NAME).setTextureName("ParingKnife");
 		crossHatch = (ItemESC) new ItemESC(ItemIds.CROSSHATCH).setUnlocalizedName(StringLib.KNIFE_HANDLE_NAME).setTextureName("CrossHatch");
 		cutFruit = new ItemCutFruit(ItemIds.CUT_FRUIT);
+		cutVegetable = new ItemCutVegetable(ItemIds.CUT_VEGETABLE);
 		
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");
@@ -53,6 +55,7 @@ public class ModItems
 		GameRegistry.registerItem(paringKnife, "item.paringKnife");
 		GameRegistry.registerItem(crossHatch, "item.crossHatch");
 		GameRegistry.registerItem(cutFruit, "item.cutFruit");
+		GameRegistry.registerItem(cutVegetable, "item.cutVegetable");
 		
 		LanguageRegistry.addName(knifeHandle, "Knife Handle");
 		LanguageRegistry.addName(chefKnife, "Chef's Knife");
@@ -77,6 +80,12 @@ public class ModItems
 			String name = StringLib.CUT_FRUIT_NAMES[i]; 
 			if(!name.equals(null))
 				LanguageRegistry.addName(new ItemStack(cutFruit.itemID, 1, i), name);
+		}
+		for (int i = 0; i < StringLib.CUT_VEGETABLE_NAMES.length; i ++)
+		{
+			String name = StringLib.CUT_VEGETABLE_NAMES[i]; 
+			if(name != null)
+				LanguageRegistry.addName(new ItemStack(cutVegetable.itemID, 1, i), name);
 		}
 	}
 }

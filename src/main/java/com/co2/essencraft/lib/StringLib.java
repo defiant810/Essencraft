@@ -35,6 +35,9 @@ public class StringLib
 	//Cut Fruit
 	public static final String[] CUT_FRUIT_NAMES = { "Cut Banana", null, null, "Cut Coconut", "Cut Grapefruit", null, "Cut Kiwi",
 		"Cut Mango", "Cut Orange", "Cut Peach", "Cut Pear", "Cut Pineapple", "Cut Plum", null, null, "Cut Strawberry" };
+	//Cut Vegetable
+	public static final String[] CUT_VEGETABLE_NAMES = { "Green Beans", null, "Beet", null, "Celery", "Cucumber", "Eggplant", null,
+		"Onion", null, "Red Bell Pepper", "Ghost Pepper", "Jalapeno Pepper", "Radish", "Rhubarb", null, "Squash", "Tomato", "Yellow Bell Pepper", "Orange Bell Pepper"};
 	//Fish
 	public static final String[] FISH_NAMES = { "Crab", "Halibut", "Lobster", "Salmon", "Shrimp", "Squid", "Trout", "Red Herring" };
 	//Fruit

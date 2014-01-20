@@ -10,19 +10,18 @@ import com.co2.essencraft.lib.StringLib;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemCutFruit extends ItemFoodESC{
+public class ItemCutVegetable extends ItemFoodESC{
 
-	private static final int NUM_FRUIT = StringLib.CUT_FRUIT_NAMES.length;
+	private static final int NUM_VEG = StringLib.VEG_NAMES.length;
 	
-	//index matches index of ItemFruit TEXTURES array, is null if it cannot be cut
-	private static final String[] TEXTURES = { "FruitBanana", null, null, "FruitCoconut", "FruitGrapeFruit",
-		null, "FruitKiwi", "FruitMango", "FruitOrange", "FruitPeach", "FruitPear", "FruitPineapple", "FruitPlum", null,
-		null, "FruitStrawberry" };
+	private static final String[] TEXTURES = { "VegGreenBean", null, "VegBeet", null, "VegCelery", "VegCucumber", "VegEggPlant",
+		null, "VegOnion", null, "VegBellPepperR", "VegGhostPepper", "VegJalapenoPepper", "VegRadish", "VegRhubarb",
+		null, "VegSquash", "VegTomato", "VegBellPepperY", "VegBellPepperO" };
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
 	
-	public ItemCutFruit(int id)
+	public ItemCutVegetable(int id)
 	{
 		super(id, 1, 0.1f, false);
 		this.setHasSubtypes(true);
@@ -32,9 +31,9 @@ public class ItemCutFruit extends ItemFoodESC{
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		String name = StringLib.CUT_FRUIT_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_FRUIT - 1)];
-		if(name.equals(null))
-			return null;
+		String name = StringLib.CUT_VEGETABLE_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_VEG - 1)];
+		if(name == null)
+			return "UDunGoofed";
 		
 		return "item." + name + ".fruit";
 	}
@@ -43,14 +42,15 @@ public class ItemCutFruit extends ItemFoodESC{
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int damage)
 	{
-		if (damage < 0 || damage >= NUM_FRUIT)
-			return icons[damage];
-		return null;
+		if (damage < 0 || damage >= NUM_VEG)
+			return null;
+		
+		return icons[damage];
 	}
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-	{		
+	{
 		if (par3EntityPlayer.canEat(false))
 			par3EntityPlayer.setItemInUse(par1ItemStack, par1ItemStack.getMaxItemUseDuration());
 		
@@ -60,12 +60,12 @@ public class ItemCutFruit extends ItemFoodESC{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
-	{	
-		icons = new Icon[NUM_FRUIT];
+	{		
+		icons = new Icon[NUM_VEG];
 		for (int i = 0; i < icons.length; i++)
 		{
 			String name = TEXTURES[i];
-			if(name.equals(null))
+			if(name == null)
 				icons[i] = null;
 			else
 				icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemCut" + name);

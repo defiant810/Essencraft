@@ -21,6 +21,11 @@ public class CuttingBoardRecipes
 				CBCraftingManager.addRecipe(new ItemStack(ItemIds.FRUIT, 1, i), KnifeType.CHEF, new ItemStack(ItemIds.CUT_FRUIT, 1, i));
 		}
 		
-		
+		//cut vegetables
+		for(int i = 0; i < StringLib.CUT_VEGETABLE_NAMES.length; i++)
+		{
+			if(StringLib.CUT_VEGETABLE_NAMES[i] != null)
+				CBCraftingManager.addRecipe(new ItemStack(ItemIds.FRUIT, 1, i), KnifeType.CHEF, new ItemStack(ItemIds.CUT_FRUIT, 1, i));
+		}
 	}
 }
