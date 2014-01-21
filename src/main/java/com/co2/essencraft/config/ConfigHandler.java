@@ -72,6 +72,8 @@ public class ConfigHandler
 			ItemIds.GRINDING_STONE = con.getItem("grindingStone", ItemIds.GRINDING_STONE_DEFAULT).getInt(ItemIds.GRINDING_STONE_DEFAULT);
 			
 			ItemIds.CROSSHATCH = con.getItem("crossHatch", ItemIds.CROSSHATCH_DEFAULT).getInt(ItemIds.CROSSHATCH_DEFAULT);
+			ItemIds.PLATE = con.getItem("plate", ItemIds.PLATE_DEFAULT).getInt(ItemIds.PLATE_DEFAULT);
+			ItemIds.PIE_PAN = con.getItem("piePan", ItemIds.PIE_PAN_DEFAULT).getInt(ItemIds.PIE_PAN_DEFAULT);
 		}
 		catch (Exception e)
 		{
