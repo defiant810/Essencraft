@@ -59,6 +59,8 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 			return KnifeType.BUTCHER;
 		else if (stack.itemID == ItemIds.FILET_KNIFE)
 			return KnifeType.FILET;
+		else if (stack.itemID == ItemIds.GRINDING_STONE)
+			return KnifeType.GRINDING_STONE;
 		else 
 			return KnifeType.PARING;
 	}
