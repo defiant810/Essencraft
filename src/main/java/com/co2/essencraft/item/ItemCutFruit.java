@@ -45,6 +45,7 @@ public class ItemCutFruit extends ItemFoodESC{
 	{
 		if (damage < 0 || damage >= NUM_FRUIT)
 			return icons[damage];
+		
 		return null;
 	}
 	

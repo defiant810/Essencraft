@@ -23,6 +23,7 @@ public class StringLib
 	public static final String BUTCHER_KNIFE_NAME = "butcherKnife";
 	public static final String FILET_KNIFE_NAME = "filetKnife";
 	public static final String PARING_KNIFE_NAME = "paringKnife";
+	public static final String GRINDING_STONE_NAME = "grindingStone";
 	
 	//Grains
 	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};
@@ -49,4 +50,6 @@ public class StringLib
 	//Seasoning
 	public static final String[] SEASONING_NAMES = { "Basil", "Cilantro", "Garlic", "Oregano", "Parsley", "Black Pepper", "Rosemary", "Sage",
 		"Salt", "Thyme", "Vanilla"};
+	//Flour
+	public static final String[] FLOUR_NAMES = { "Barley Flour", "Corn Flour", null, "Oat Flour", "Rye Flour", "Rice Flour" }; 
 }

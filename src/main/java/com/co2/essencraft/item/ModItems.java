@@ -24,6 +24,8 @@ public class ModItems
 	public static ItemESC crossHatch;
 	public static ItemFoodESC cutFruit;
 	public static ItemFoodESC cutVegetable;
+	public static ItemESC grindingStone;
+	public static ItemFlour flour;
 	
 	public static void init()
 	{
@@ -41,6 +43,8 @@ public class ModItems
 		crossHatch = (ItemESC) new ItemESC(ItemIds.CROSSHATCH).setUnlocalizedName(StringLib.KNIFE_HANDLE_NAME).setTextureName("CrossHatch");
 		cutFruit = new ItemCutFruit(ItemIds.CUT_FRUIT);
 		cutVegetable = new ItemCutVegetable(ItemIds.CUT_VEGETABLE);
+		grindingStone = (ItemESC) new ItemESC(ItemIds.GRINDING_STONE).setUnlocalizedName(StringLib.GRINDING_STONE_NAME).setTextureName("Grindingstone");
+		flour = new ItemFlour(ItemIds.FLOUR);
 		
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");
@@ -56,6 +60,8 @@ public class ModItems
 		GameRegistry.registerItem(crossHatch, "item.crossHatch");
 		GameRegistry.registerItem(cutFruit, "item.cutFruit");
 		GameRegistry.registerItem(cutVegetable, "item.cutVegetable");
+		GameRegistry.registerItem(grindingStone, "item.grindingStone");
+		GameRegistry.registerItem(flour, "item.flour");
 		
 		LanguageRegistry.addName(knifeHandle, "Knife Handle");
 		LanguageRegistry.addName(chefKnife, "Chef's Knife");
@@ -63,6 +69,8 @@ public class ModItems
 		LanguageRegistry.addName(filletKnife, "Filet Knife");
 		LanguageRegistry.addName(paringKnife, "Paring Knife");
 		LanguageRegistry.addName(crossHatch, "Crosshatching");
+		LanguageRegistry.addName(grindingStone, "Grinding Stone");
+		
 		for (int i = 0; i < StringLib.FISH_NAMES.length; i++)
 			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES[i]);
 		for (int i = 0; i < StringLib.FRUIT_NAMES.length; i++)
@@ -75,17 +83,23 @@ public class ModItems
 			LanguageRegistry.addName(new ItemStack(seed, 1, i), StringLib.SEED_NAMES[i]);
 		for (int i = 0; i < StringLib.GRAIN_NAMES.length; i++)
 			LanguageRegistry.addName(new ItemStack(grain.itemID,1, i), StringLib.GRAIN_NAMES[i]);
-		for (int i = 0; i < StringLib.CUT_FRUIT_NAMES.length; i ++)
+		for (int i = 0; i < StringLib.CUT_FRUIT_NAMES.length; i++)
 		{
 			String name = StringLib.CUT_FRUIT_NAMES[i]; 
 			if(null != name)
 				LanguageRegistry.addName(new ItemStack(cutFruit.itemID, 1, i), name);
 		}
-		for (int i = 0; i < StringLib.CUT_VEGETABLE_NAMES.length; i ++)
+		for (int i = 0; i < StringLib.CUT_VEGETABLE_NAMES.length; i++)
 		{
 			String name = StringLib.CUT_VEGETABLE_NAMES[i]; 
 			if(name != null)
 				LanguageRegistry.addName(new ItemStack(cutVegetable.itemID, 1, i), name);
 		}
+		for ( int i = 0; i < StringLib.FLOUR_NAMES.length; i++)
+		{
+			String name = StringLib.FLOUR_NAMES[i]; 
+			if(name != null)
+				LanguageRegistry.addName(new ItemStack(flour.itemID, 1, i), name);
+		}	
 	}
 }

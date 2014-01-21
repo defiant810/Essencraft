@@ -61,12 +61,15 @@ public class ConfigHandler
 			ItemIds.SEED = con.getItem("seed", ItemIds.SEED_DEFAULT).getInt(ItemIds.SEED_DEFAULT);
 			ItemIds.GRAIN = con.getItem("grain", ItemIds.GRAIN_DEFAULT).getInt(ItemIds.GRAIN_DEFAULT);
 			ItemIds.CUT_FRUIT = con.getItem("cutFruit", ItemIds.CUT_FRUIT_DEFAULT).getInt(ItemIds.CUT_FRUIT_DEFAULT);
+			ItemIds.CUT_VEGETABLE = con.getItem("cutVegetable", ItemIds.CUT_VEGETABLE_DEFAULT).getInt(ItemIds.CUT_VEGETABLE_DEFAULT);
+			ItemIds.FLOUR = con.getItem("flour", ItemIds.FLOUR_DEFAULT).getInt(ItemIds.FLOUR_DEFAULT);
 			
 			ItemIds.KNIFE_HANDLE = con.getItem("knifeHandle", ItemIds.KNIFE_HANDLE_DEFAULT).getInt(ItemIds.KNIFE_HANDLE_DEFAULT);
 			ItemIds.CHEF_KNIFE = con.getItem("chefKnife", ItemIds.CHEF_KNIFE_DEFAULT).getInt(ItemIds.CHEF_KNIFE_DEFAULT);
 			ItemIds.BUTCHER_KNIFE = con.getItem("butcherKnife", ItemIds.BUTCHER_KNIFE_DEFUALT).getInt(ItemIds.BUTCHER_KNIFE_DEFUALT);
 			ItemIds.FILET_KNIFE = con.getItem("filetKnife", ItemIds.FILET_KNIFE_DEFAULT).getInt(ItemIds.FILET_KNIFE_DEFAULT);
 			ItemIds.PARING_KNIFE = con.getItem("paringKnife", ItemIds.PARING_KNIFE_DEFAULT).getInt(ItemIds.PARING_KNIFE_DEFAULT);
+			ItemIds.GRINDING_STONE = con.getItem("grindingStone", ItemIds.GRINDING_STONE_DEFAULT).getInt(ItemIds.GRINDING_STONE_DEFAULT);
 			
 			ItemIds.CROSSHATCH = con.getItem("crossHatch", ItemIds.CROSSHATCH_DEFAULT).getInt(ItemIds.CROSSHATCH_DEFAULT);
 		}

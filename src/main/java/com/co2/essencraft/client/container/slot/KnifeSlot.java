@@ -22,6 +22,7 @@ public class KnifeSlot extends Slot
 		int id = stack.itemID;
 		
 		return (id == ItemIds.BUTCHER_KNIFE || id == ItemIds.CHEF_KNIFE
-				|| id == ItemIds.FILET_KNIFE || id == ItemIds.PARING_KNIFE);
+				|| id == ItemIds.FILET_KNIFE || id == ItemIds.PARING_KNIFE
+				|| id == ItemIds.GRINDING_STONE);
 	}
 }

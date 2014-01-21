@@ -21,6 +21,6 @@ public class CuttableSlot extends Slot
 		
 		int id = stack.itemID;
 		
-		return (id == ItemIds.FISH || id == ItemIds.FRUIT || id == ItemIds.VEGETABLE);
+		return (id == ItemIds.FISH || id == ItemIds.FRUIT || id == ItemIds.VEGETABLE || id == ItemIds.GRAIN);
 	}
 }

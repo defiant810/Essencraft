@@ -26,6 +26,9 @@ public class ItemIds
 	//Cut Vegetable 
 	public static final int CUT_VEGETABLE_DEFAULT = 19507;
 	public static int CUT_VEGETABLE;
+	//Flour
+	public static final int FLOUR_DEFAULT = 19508;
+	public static int FLOUR;
 	
 	//Knifes
 	public static final int KNIFE_HANDLE_DEFAULT = 19510;
@@ -39,7 +42,11 @@ public class ItemIds
 	public static final int PARING_KNIFE_DEFAULT = 19514;
 	public static int PARING_KNIFE;
 	
+	//Other tools
+	public static final int GRINDING_STONE_DEFAULT = 19520;
+	public static int GRINDING_STONE;
+	
 	//Intermediate crafting things
-	public static final int CROSSHATCH_DEFAULT = 19515;
+	public static final int CROSSHATCH_DEFAULT = 19530;
 	public static int CROSSHATCH;
 }

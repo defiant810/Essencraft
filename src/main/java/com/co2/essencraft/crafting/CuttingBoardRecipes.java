@@ -11,6 +11,7 @@ public class CuttingBoardRecipes
 {
 	public static void init()
 	{
+		// input, tool, output
 		//cut fruits
 		for(int i = 0; i < StringLib.CUT_FRUIT_NAMES.length; i++)
 		{
@@ -23,6 +24,13 @@ public class CuttingBoardRecipes
 		{
 			if(StringLib.CUT_VEGETABLE_NAMES[i] != null)
 				CBCraftingManager.addRecipe(new ItemStack(ItemIds.VEGETABLE, 1, i), KnifeType.CHEF, new ItemStack(ItemIds.CUT_VEGETABLE, 1, i));
+		}
+		
+		//flour
+		for(int i = 0; i < StringLib.FLOUR_NAMES.length; i++)
+		{
+			if(StringLib.FLOUR_NAMES[i] != null)
+				CBCraftingManager.addRecipe(new ItemStack(ItemIds.GRAIN, 1, i), KnifeType.GRINDING_STONE, new ItemStack(ItemIds.FLOUR, 1, i));
 		}
 	}
 }

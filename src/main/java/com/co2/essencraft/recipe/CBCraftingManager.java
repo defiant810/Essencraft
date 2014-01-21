@@ -60,7 +60,8 @@ public class CBCraftingManager
 		CHEF,
 		BUTCHER,
 		FILET,
-		PARING
+		PARING,
+		GRINDING_STONE,
 	}
 }
 
