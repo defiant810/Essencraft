@@ -26,6 +26,8 @@ public class ModItems
 	public static ItemFoodESC cutVegetable;
 	public static ItemESC grindingStone;
 	public static ItemFlour flour;
+	public static ItemESC plate;
+	public static ItemESC piePan;
 	
 	public static void init()
 	{
@@ -36,15 +38,17 @@ public class ModItems
 		seed = new ItemSeedESC(ItemIds.SEED);
 		grain = new ItemGrain(ItemIds.GRAIN);
 		knifeHandle = (ItemESC) new ItemESC(ItemIds.KNIFE_HANDLE).setUnlocalizedName(StringLib.CROSSHATCH_NAME).setTextureName("KnifeHandle");
-		chefKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.CHEF_KNIFE, 256).setUnlocalizedName(StringLib.CHEF_KNIFE_NAME).setTextureName("ChefKnife");
-		butcherKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.BUTCHER_KNIFE, 256).setUnlocalizedName(StringLib.BUTCHER_KNIFE_NAME).setTextureName("ButcherKnife");
-		filletKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.FILET_KNIFE, 256).setUnlocalizedName(StringLib.FILET_KNIFE_NAME).setTextureName("FiletKnife");
-		paringKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.PARING_KNIFE, 256).setUnlocalizedName(StringLib.PARING_KNIFE_NAME).setTextureName("ParingKnife");
+		chefKnife = (ItemCraftTool) new ItemCraftTool(ItemIds.CHEF_KNIFE, 256).setUnlocalizedName(StringLib.CHEF_KNIFE_NAME).setTextureName("ChefKnife");
+		butcherKnife = (ItemCraftTool) new ItemCraftTool(ItemIds.BUTCHER_KNIFE, 256).setUnlocalizedName(StringLib.BUTCHER_KNIFE_NAME).setTextureName("ButcherKnife");
+		filletKnife = (ItemCraftTool) new ItemCraftTool(ItemIds.FILET_KNIFE, 256).setUnlocalizedName(StringLib.FILET_KNIFE_NAME).setTextureName("FiletKnife");
+		paringKnife = (ItemCraftTool) new ItemCraftTool(ItemIds.PARING_KNIFE, 256).setUnlocalizedName(StringLib.PARING_KNIFE_NAME).setTextureName("ParingKnife");
 		crossHatch = (ItemESC) new ItemESC(ItemIds.CROSSHATCH).setUnlocalizedName(StringLib.KNIFE_HANDLE_NAME).setTextureName("CrossHatch");
 		cutFruit = new ItemCutFruit(ItemIds.CUT_FRUIT);
 		cutVegetable = new ItemCutVegetable(ItemIds.CUT_VEGETABLE);
-		grindingStone = (ItemCraftingTool) new ItemCraftingTool(ItemIds.GRINDING_STONE, 256).setUnlocalizedName(StringLib.GRINDING_STONE_NAME).setTextureName("Grindingstone");
+		grindingStone = (ItemCraftTool) new ItemCraftTool(ItemIds.GRINDING_STONE, 256).setUnlocalizedName(StringLib.GRINDING_STONE_NAME).setTextureName("Grindingstone");
 		flour = new ItemFlour(ItemIds.FLOUR);
+		plate = (ItemESC) new ItemESC(ItemIds.PLATE).setUnlocalizedName(StringLib.PLATE_NAME).setTextureName("PLate");
+		piePan = (ItemESC) new ItemESC(ItemIds.PIE_PAN).setUnlocalizedName(StringLib.PIE_PAN_NAME).setTextureName("PiePan");
 		
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");

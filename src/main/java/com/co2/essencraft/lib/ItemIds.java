@@ -42,9 +42,13 @@ public class ItemIds
 	public static final int PARING_KNIFE_DEFAULT = 19514;
 	public static int PARING_KNIFE;
 	
-	//Other tools
+	//Other items
 	public static final int GRINDING_STONE_DEFAULT = 19520;
 	public static int GRINDING_STONE;
+	public static final int PLATE_DEFAULT = 19521;
+	public static int PLATE;
+	public static final int PIE_PAN_DEFAULT = 19522;
+	public static int PIE_PAN;
 	
 	//Intermediate crafting things
 	public static final int CROSSHATCH_DEFAULT = 19530;

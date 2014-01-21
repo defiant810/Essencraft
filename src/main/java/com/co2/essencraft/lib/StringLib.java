@@ -25,6 +25,8 @@ public class StringLib
 	public static final String FILET_KNIFE_NAME = "filetKnife";
 	public static final String PARING_KNIFE_NAME = "paringKnife";
 	public static final String GRINDING_STONE_NAME = "grindingStone";
+	public static final String PLATE_NAME = "plate";
+	public static final String PIE_PAN_NAME = "piePan";
 	
 	//Grains
 	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};
