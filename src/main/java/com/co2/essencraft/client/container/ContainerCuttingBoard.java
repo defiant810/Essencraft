@@ -4,11 +4,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 
 import com.co2.essencraft.client.container.slot.CuttableSlot;
 import com.co2.essencraft.client.container.slot.KnifeSlot;
 import com.co2.essencraft.client.container.slot.OutputSlot;
+import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.tileentity.TileEntityCuttingBoard;
+import com.co2.essencraft.util.IdUtils;
 
 public class ContainerCuttingBoard extends Container
 {
@@ -37,5 +40,44 @@ public class ContainerCuttingBoard extends Container
 	public boolean canInteractWith(EntityPlayer player)
 	{
 		return boardEntity.isUseableByPlayer(player);
+	}
+	
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slot)
+	{
+		ItemStack stack = null;
+		Slot invSlot = (Slot) this.inventorySlots.get(slot);
+		
+		if (invSlot != null && invSlot.getHasStack())
+		{
+			ItemStack slotStack = invSlot.getStack();
+			stack = slotStack.copy();
+			
+			//If the origin slot is in the player inventory
+			if (slot < 36)
+			{
+				if (IdUtils.isCraftingTool(slotStack))
+				{
+					if (!this.mergeItemStack(slotStack, 36, 37, false))
+						return null;
+				}
+				else if (IdUtils.hasCuttingBoardRecipe(slotStack))
+				{
+					if (!this.mergeItemStack(slotStack, 37, 38, false))
+						return null;
+				}
+				else
+					return null;
+			}
+			else if (!this.mergeItemStack(slotStack, 0, 36, false))
+				return null;
+			
+			if (slotStack.stackSize == 0)
+				invSlot.putStack(null);
+			else
+				invSlot.onSlotChanged();
+		}
+		
+		return stack;
 	}
 }

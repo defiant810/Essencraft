@@ -60,7 +60,7 @@ public class TileEntityVineSupport extends TileEntity
 		
 		//If minecraft has finished loading the world and there is a difference in data
 		if (Minecraft.getMinecraft().theWorld != null && ((lastGS != growthStage) || (lastT != type)))
-			Minecraft.getMinecraft().renderGlobal.markBlockForRenderUpdate(xCoord, yCoord, zCoord);
+			Minecraft.getMinecraft().renderGlobal.markBlockForUpdate(xCoord, yCoord, zCoord);
 		
 		lastGS = growthStage;
 		lastT = type;

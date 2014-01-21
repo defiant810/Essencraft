@@ -36,14 +36,14 @@ public class ModItems
 		seed = new ItemSeedESC(ItemIds.SEED);
 		grain = new ItemGrain(ItemIds.GRAIN);
 		knifeHandle = (ItemESC) new ItemESC(ItemIds.KNIFE_HANDLE).setUnlocalizedName(StringLib.CROSSHATCH_NAME).setTextureName("KnifeHandle");
-		chefKnife = (ItemESC) new ItemESC(ItemIds.CHEF_KNIFE).setUnlocalizedName(StringLib.CHEF_KNIFE_NAME).setTextureName("ChefKnife");
-		butcherKnife = (ItemESC) new ItemESC(ItemIds.BUTCHER_KNIFE).setUnlocalizedName(StringLib.BUTCHER_KNIFE_NAME).setTextureName("ButcherKnife");
-		filletKnife = (ItemESC) new ItemESC(ItemIds.FILET_KNIFE).setUnlocalizedName(StringLib.FILET_KNIFE_NAME).setTextureName("FiletKnife");
-		paringKnife = (ItemESC) new ItemESC(ItemIds.PARING_KNIFE).setUnlocalizedName(StringLib.PARING_KNIFE_NAME).setTextureName("ParingKnife");
+		chefKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.CHEF_KNIFE, 256).setUnlocalizedName(StringLib.CHEF_KNIFE_NAME).setTextureName("ChefKnife");
+		butcherKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.BUTCHER_KNIFE, 256).setUnlocalizedName(StringLib.BUTCHER_KNIFE_NAME).setTextureName("ButcherKnife");
+		filletKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.FILET_KNIFE, 256).setUnlocalizedName(StringLib.FILET_KNIFE_NAME).setTextureName("FiletKnife");
+		paringKnife = (ItemCraftingTool) new ItemCraftingTool(ItemIds.PARING_KNIFE, 256).setUnlocalizedName(StringLib.PARING_KNIFE_NAME).setTextureName("ParingKnife");
 		crossHatch = (ItemESC) new ItemESC(ItemIds.CROSSHATCH).setUnlocalizedName(StringLib.KNIFE_HANDLE_NAME).setTextureName("CrossHatch");
 		cutFruit = new ItemCutFruit(ItemIds.CUT_FRUIT);
 		cutVegetable = new ItemCutVegetable(ItemIds.CUT_VEGETABLE);
-		grindingStone = (ItemESC) new ItemESC(ItemIds.GRINDING_STONE).setUnlocalizedName(StringLib.GRINDING_STONE_NAME).setTextureName("Grindingstone");
+		grindingStone = (ItemCraftingTool) new ItemCraftingTool(ItemIds.GRINDING_STONE, 256).setUnlocalizedName(StringLib.GRINDING_STONE_NAME).setTextureName("Grindingstone");
 		flour = new ItemFlour(ItemIds.FLOUR);
 		
 		GameRegistry.registerItem(fish, "item.fish");
