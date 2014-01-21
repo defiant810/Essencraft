@@ -5,8 +5,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.co2.essencraft.client.container.ContainerCuttingBoard;
+import com.co2.essencraft.client.container.ContainerKitchenCounter;
 import com.co2.essencraft.lib.GuiIds;
 import com.co2.essencraft.tileentity.TileEntityCuttingBoard;
+import com.co2.essencraft.tileentity.TileEntityKitchenCounter;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -24,6 +26,11 @@ public class ECGuiHandler implements IGuiHandler
 				return new ContainerCuttingBoard(player.inventory, (TileEntityCuttingBoard) entity);
 			else
 				return null;
+		case GuiIds.KITCHEN_COUNTER:
+			if (entity instanceof TileEntityKitchenCounter)
+				return new ContainerKitchenCounter(player.inventory, (TileEntityKitchenCounter) entity);
+			else
+				return null;
 		default:
 			return null;
 		}
@@ -39,6 +46,11 @@ public class ECGuiHandler implements IGuiHandler
 		case GuiIds.CUTTING_BOARD:
 			if (entity instanceof TileEntityCuttingBoard)
 				return new GuiCuttingBoard(player.inventory, (TileEntityCuttingBoard) entity);
+			else
+				return null;
+		case GuiIds.KITCHEN_COUNTER:
+			if (entity instanceof TileEntityKitchenCounter)
+				return new GuiKitchenCounter(player.inventory, (TileEntityKitchenCounter) entity);
 			else
 				return null;
 		default:

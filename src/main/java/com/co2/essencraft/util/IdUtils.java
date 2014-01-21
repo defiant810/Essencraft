@@ -29,4 +29,9 @@ public class IdUtils
 		int id = stack.itemID;
 		return (id == ItemIds.FRUIT || id == ItemIds.VEGETABLE || id == ItemIds.GRAIN);
 	}
+	
+	public static boolean isFoodContainer(ItemStack stack)
+	{
+		return true;
+	}
 }

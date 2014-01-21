@@ -14,6 +14,7 @@ public class StringLib
 	public static final String RICE_CROP_NAME = "riceCrop";
 	public static final String VINE_SUPPORT_NAME = "vineSupport";
 	public static final String CUTTING_BOARD_NAME = "cuttingBoard";
+	public static final String KITCHEN_COUNTER_NAME = "kitchenCounter";
 	
 	/* Item name constants */
 	public static final String RYE_NAME = "ryeStalk";

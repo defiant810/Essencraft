@@ -13,7 +13,7 @@ import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.tileentity.TileEntityCuttingBoard;
 import com.co2.essencraft.util.IdUtils;
 
-public class ContainerCuttingBoard extends Container
+public class ContainerCuttingBoard extends ContainerESC
 {
 	private TileEntityCuttingBoard boardEntity;
 	
@@ -21,14 +21,7 @@ public class ContainerCuttingBoard extends Container
 	{
 		this.boardEntity = entity;
 		
-		//Add the hotbar
-		for (int i = 0; i < 9; ++i)
-			this.addSlotToContainer(new Slot(player, i, 8 + (i * 18), 142));
-		
-		//Add the rest of the player inventory
-		for (int y = 0; y < 3; ++y)
-			for (int x = 0; x < 9; ++x)
-				this.addSlotToContainer(new Slot(player, 9 + x + (y * 9), 8 + (x * 18), 84 + (y * 18)));
+		this.bindPlayerInventory(player);
 		
 		//Add the three custom gui slots
 		this.addSlotToContainer(new KnifeSlot(boardEntity, 0, 62, 26));
@@ -54,7 +47,7 @@ public class ContainerCuttingBoard extends Container
 			stack = slotStack.copy();
 			
 			//If the origin slot is in the player inventory
-			if (slot < 36)
+			if (slot < INVENTORY_OFFSET)
 			{
 				if (IdUtils.isCraftingTool(slotStack))
 				{
@@ -69,7 +62,7 @@ public class ContainerCuttingBoard extends Container
 				else
 					return null;
 			}
-			else if (!this.mergeItemStack(slotStack, 0, 36, false))
+			else if (!this.mergeItemStack(slotStack, 0, INVENTORY_OFFSET, false))
 				return null;
 			
 			if (slotStack.stackSize == 0)
