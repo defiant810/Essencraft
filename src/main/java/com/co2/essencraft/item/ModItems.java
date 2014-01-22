@@ -66,7 +66,9 @@ public class ModItems
 		GameRegistry.registerItem(cutVegetable, "item.cutVegetable");
 		GameRegistry.registerItem(grindingStone, "item.grindingStone");
 		GameRegistry.registerItem(flour, "item.flour");
-		
+		GameRegistry.registerItem(plate, "item.plate");
+		GameRegistry.registerItem(piePan, "item.piePan");
+				
 		LanguageRegistry.addName(knifeHandle, "Knife Handle");
 		LanguageRegistry.addName(chefKnife, "Chef's Knife");
 		LanguageRegistry.addName(butcherKnife, "Butcher Knife");
@@ -74,6 +76,8 @@ public class ModItems
 		LanguageRegistry.addName(paringKnife, "Paring Knife");
 		LanguageRegistry.addName(crossHatch, "Crosshatching");
 		LanguageRegistry.addName(grindingStone, "Grinding Stone");
+		LanguageRegistry.addName(plate, "Plate");
+		LanguageRegistry.addName(piePan, "Pie Pan");
 		
 		for (int i = 0; i < StringLib.FISH_NAMES.length; i++)
 			LanguageRegistry.addName(new ItemStack(fish.itemID, 1, i), StringLib.FISH_NAMES[i]);

@@ -57,7 +57,7 @@ public class BlockCropESC extends BlockCrops
 		{
 			int l = par1World.getBlockMetadata(par2, par3, par4);
 			
-			if(l < 7)
+			if(l < (GROWTH_STAGES - 1))
 			{
 				float f = this.getGrowthRate(par1World, par2, par3, par4);
 				if(par5Random.nextFloat() <= (f / 8.0f))
