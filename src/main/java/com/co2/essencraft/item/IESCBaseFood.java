@@ -3,9 +3,9 @@ package com.co2.essencraft.item;
 import net.minecraft.potion.PotionEffect;
 
 /**
- * The interface that tells the mod that the item can be used in the kitchen counter recipe as an added item.
+ * The interface that tells the mod that this item can be used as a base ingredient in the Kitchen Counter.
  */
-public interface IESCIngredient 
+public interface IESCBaseFood 
 {
 	/**
 	 * Gets the food value to add to the final recipe.

@@ -12,6 +12,7 @@ import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 
+import com.co2.essencraft.item.IESCBaseFood;
 import com.co2.essencraft.item.IESCIngredient;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.recipe.KCCraftingManager;
@@ -45,7 +46,7 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 		if (inventory[10] == null && lastOutput != null)
 		{
 			for (int i = 0; i < 10; ++i)
-				if (inventory[i] != null)
+				if (inventory[i] != null && !KCCraftingManager.isBlackListed(inventory[9], getContainerType(inventory[8]), inventory[i]))
 					--inventory[i].stackSize;
 			
 			for (int i = 0; i < 10; ++i)
@@ -238,6 +239,9 @@ class KCCrafter
 			if (in == null)
 				continue;
 			
+			if (KCCraftingManager.isBlackListed(base, TileEntityKitchenCounter.getContainerType(container), input[i]))
+				continue;
+			
 			PotionEffect[] effects = in.getEffects(input[i].getItemDamage());
 			
 			NBTTagCompound tag = new NBTTagCompound();
@@ -259,6 +263,26 @@ class KCCrafter
 			
 			list.appendTag(tag);
 		}
+		
+		IESCBaseFood bf = (IESCBaseFood) Item.itemsList[input[9].itemID];
+		PotionEffect[] effects = bf.getEffects(input[9].getItemDamage());
+		NBTTagCompound baseTag = new NBTTagCompound();
+		baseTag.setString("iname", bf.getIngredientName(input[9].getItemDamage()));
+		baseTag.setFloat("saturation", bf.getSaturation(input[9].getItemDamage()));
+		baseTag.setByte("heal", (byte)bf.getFoodValue(input[9].getItemDamage()));
+		baseTag.setByte("numEffects", effects != null ? (byte)effects.length : (byte)0);
+		if (effects != null && effects.length > 0)
+		{
+			NBTTagList effectList = new NBTTagList();
+			for (PotionEffect eff : bf.getEffects(input[9].getItemDamage()))
+			{
+				NBTTagCompound effectTag = new NBTTagCompound();
+				eff.writeCustomPotionEffectToNBT(effectTag);
+				effectList.appendTag(effectTag);
+			}
+			baseTag.setTag("EffectList", effectList);
+		}
+		list.appendTag(baseTag);
 		
 		output.stackTagCompound.setTag("RecipeData", list);
 		

@@ -2,8 +2,10 @@ package com.co2.essencraft.recipe;
 
 import java.util.ArrayList;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.co2.essencraft.item.IESCBaseFood;
 import com.co2.essencraft.recipe.KCCraftingManager.ContainerType;
 
 public class KCCraftingManager 
@@ -17,6 +19,9 @@ public class KCCraftingManager
 	
 	public static boolean addRecipe(ItemStack base, ContainerType type, ItemStack out, ItemStack... blacklist)
 	{
+		if (!(Item.itemsList[base.itemID] instanceof IESCBaseFood))
+			return false;
+		
 		if (hasRecipeWithInput(base, type))
 		{
 			//TODO: add logging output to inform user of failure
@@ -50,6 +55,25 @@ public class KCCraftingManager
 		for (KCRecipe rec : instance.recipes)
 			if (rec.equalsInputs(new KCRecipe(in, type, null)))
 				return rec.getOutput().copy();
+		
+		return null;
+	}
+	
+	public static boolean isBlackListed(ItemStack in, ContainerType type, ItemStack check)
+	{
+		KCRecipe rec = getRecipeWithInputs(in, type);
+		
+		if (rec == null)
+			return false;
+		
+		return rec.itemBlackListed(check);
+	}
+	
+	private static KCRecipe getRecipeWithInputs(ItemStack in, ContainerType type)
+	{
+		for (KCRecipe rec : instance.recipes)
+			if (rec.equalsInputs(new KCRecipe(in, type, null)))
+				return rec;
 		
 		return null;
 	}

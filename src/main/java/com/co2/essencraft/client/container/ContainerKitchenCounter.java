@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
+import com.co2.essencraft.client.container.slot.ESCBaseFoodSlot;
 import com.co2.essencraft.client.container.slot.ESCIngredientSlot;
 import com.co2.essencraft.client.container.slot.FoodContainerSlot;
 import com.co2.essencraft.client.container.slot.OutputSlot;
@@ -31,7 +32,7 @@ public class ContainerKitchenCounter extends ContainerESC
 		
 		//Other slots
 		this.addSlotToContainer(new FoodContainerSlot(counterEntity, 8, 44, 59));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 9, 80, 59)); //TODO make more specific slot
+		this.addSlotToContainer(new ESCBaseFoodSlot(counterEntity, 9, 80, 59)); //TODO make more specific slot
 		this.addSlotToContainer(new OutputSlot(counterEntity, 10, 134, 34));
 	}
 
