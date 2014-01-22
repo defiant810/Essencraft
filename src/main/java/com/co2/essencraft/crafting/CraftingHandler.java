@@ -8,6 +8,6 @@ public class CraftingHandler
 		SimpleRecipes.init();
 		
 		//Init the recipes for the cutting board
-		CuttingBoardRecipes.init();
+		CustomCraftingRecipes.init();
 	}
 }

@@ -27,4 +27,11 @@ public interface IESCIngredient
 	 * @return The float value to add the the saturation amount before it is averaged of the recipe.
 	 */
 	public float getSaturation(int damage);
+	
+	/**
+	 * Gets the name of the ingredient.
+	 * @param damage The damage of the itemstack in the crafting grid
+	 * @return The String of the name of the ingredient.
+	 */
+	public String getIngredientName(int damage);
 }

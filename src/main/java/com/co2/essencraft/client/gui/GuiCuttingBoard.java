@@ -38,6 +38,6 @@ public class GuiCuttingBoard extends GuiContainer
 	@Override
 	public void drawGuiContainerForegroundLayer(int i, int j)
 	{
-		fontRenderer.drawString("Cutting Board", 8, 6, 4210752);
+		fontRenderer.drawString("Cutting Board", 5, 4, 4210752);
 	}
 }

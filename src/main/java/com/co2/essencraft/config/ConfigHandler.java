@@ -35,6 +35,7 @@ public class ConfigHandler
 			BlockIds.HOP_CROP = con.getBlock("hopCrop", BlockIds.HOP_CROP_DEFAULT).getInt(BlockIds.HOP_CROP_DEFAULT);
 			BlockIds.VINE_SUPPORT = con.getBlock("vineSupport", BlockIds.VINE_SUPPORT_DEFAULT).getInt(BlockIds.VINE_SUPPORT_DEFAULT);
 			BlockIds.CUTTING_BOARD = con.getBlock("cuttingBoard", BlockIds.CUTTING_BOARD_DEFAULT).getInt(BlockIds.CUTTING_BOARD_DEFAULT);
+			BlockIds.KITCHEN_COUNTER = con.getBlock("kitchenCounter", BlockIds.KITCHEN_COUNTER_DEFAULT).getInt(BlockIds.KITCHEN_COUNTER_DEFAULT);
 		}
 		catch (Exception e)
 		{

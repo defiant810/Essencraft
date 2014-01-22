@@ -38,6 +38,6 @@ public class GuiKitchenCounter extends GuiContainer
 	@Override
 	public void drawGuiContainerForegroundLayer(int i, int j)
 	{
-		fontRenderer.drawString("Kitchen Counter", 8, 6, 4210752);
+		fontRenderer.drawString("Kitchen Counter", 5, 4, 4210752);
 	}
 }

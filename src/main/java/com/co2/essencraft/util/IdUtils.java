@@ -2,6 +2,7 @@ package com.co2.essencraft.util;
 
 import com.co2.essencraft.lib.ItemIds;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class IdUtils 
@@ -32,6 +33,7 @@ public class IdUtils
 	
 	public static boolean isFoodContainer(ItemStack stack)
 	{
-		return true;
+		int id = stack.itemID;
+		return (id == ItemIds.PLATE || id == ItemIds.PIE_PAN || id == Item.bowlEmpty.itemID);
 	}
 }

@@ -2,14 +2,12 @@ package com.co2.essencraft.client.container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 import com.co2.essencraft.client.container.slot.CuttableSlot;
 import com.co2.essencraft.client.container.slot.KnifeSlot;
 import com.co2.essencraft.client.container.slot.OutputSlot;
-import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.tileentity.TileEntityCuttingBoard;
 import com.co2.essencraft.util.IdUtils;
 

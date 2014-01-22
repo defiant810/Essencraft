@@ -17,6 +17,7 @@ public class ModBlocks
 	public static BlockCropESC riceCrop;
 	public static BlockVineSupport vineSupport;
 	public static BlockCuttingBoard cuttingBoard;
+	public static BlockKitchenCounter kitchenCounter;
 	
 	public static void init()
 	{
@@ -28,6 +29,7 @@ public class ModBlocks
 		riceCrop = (BlockCropESC) new BlockCropESC(BlockIds.RICE_CROP, 1.0f, ItemIds.SEED, 5, ItemIds.GRAIN, 5).setTextureName("GrainRice");
 		vineSupport = new BlockVineSupport(BlockIds.VINE_SUPPORT);
 		cuttingBoard = (BlockCuttingBoard) new BlockCuttingBoard(BlockIds.CUTTING_BOARD).setTextureName("CuttingBoard");
+		kitchenCounter = (BlockKitchenCounter) new BlockKitchenCounter(BlockIds.KITCHEN_COUNTER).setTextureName("KitchenCounter");
 		
 		//GameRegistry
 		GameRegistry.registerBlock(barleyCrop, "tile." + StringLib.BARLEY_CROP_NAME);
@@ -38,6 +40,7 @@ public class ModBlocks
 		GameRegistry.registerBlock(riceCrop, "tile." + StringLib.RICE_CROP_NAME);
 		GameRegistry.registerBlock(vineSupport, "tile." + StringLib.VINE_SUPPORT_NAME);
 		GameRegistry.registerBlock(cuttingBoard, "tile." + StringLib.CUTTING_BOARD_NAME);
+		GameRegistry.registerBlock(kitchenCounter, "tile." + StringLib.KITCHEN_COUNTER_NAME);
 		
 		//LanguageRegistry
 		LanguageRegistry.addName(barleyCrop, "Barley Crop");
@@ -48,5 +51,6 @@ public class ModBlocks
 		LanguageRegistry.addName(riceCrop, "Rice Crop");
 		LanguageRegistry.addName(vineSupport, "Vine Support");
 		LanguageRegistry.addName(cuttingBoard, "Cutting Board");
+		LanguageRegistry.addName(kitchenCounter, "Kitchen Counter");
 	}
 }

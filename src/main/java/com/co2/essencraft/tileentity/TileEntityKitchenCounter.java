@@ -2,13 +2,21 @@ package com.co2.essencraft.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.Packet132TileEntityData;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
+
+import com.co2.essencraft.item.IESCIngredient;
+import com.co2.essencraft.lib.ItemIds;
+import com.co2.essencraft.recipe.KCCraftingManager;
+import com.co2.essencraft.recipe.KCCraftingManager.ContainerType;
+import com.co2.essencraft.util.ArrayUtils;
 
 public class TileEntityKitchenCounter extends TileEntity implements IInventory
 {
@@ -28,7 +36,41 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 	@Override
 	public void onInventoryChanged()
 	{
-		//TODO
+		super.onInventoryChanged();
+		
+		if (inventory[8] == null || inventory[9] == null)
+			return;
+		
+		//If something got crafted
+		if (inventory[10] == null && lastOutput != null)
+		{
+			for (int i = 0; i < 10; ++i)
+				if (inventory[i] != null)
+					--inventory[i].stackSize;
+			
+			for (int i = 0; i < 10; ++i)
+				if (inventory[i] != null && inventory[i].stackSize < 1)
+					inventory[i] = null;
+		}
+		
+		ItemStack out = null;
+		if (getStackInSlot(9) != null && getStackInSlot(8) != null)
+			out = KCCrafter.getCraftResult((ItemStack[]) ArrayUtils.subArray(inventory, 0, 10));
+		
+		inventory[10] = out;
+		lastOutput = out != null ? out.copy() : null;
+	}
+	
+	public static ContainerType getContainerType(ItemStack stack)
+	{
+		int id = stack.itemID;
+		
+		if (id == ItemIds.PLATE)
+			return ContainerType.PLATE;
+		else if (id == ItemIds.PIE_PAN)
+			return ContainerType.PIEPAN;
+		else
+			return ContainerType.BOWL;
 	}
 	
 	@Override
@@ -129,7 +171,7 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 			NBTTagCompound stack = (NBTTagCompound) tagList.tagAt(i);
 			byte index = stack.getByte("Slot");
 			if (index >= 0 && index < inventory.length)
-				inventory[i] = ItemStack.loadItemStackFromNBT(stack);
+				inventory[index] = ItemStack.loadItemStackFromNBT(stack);
 		}
 	}
 	
@@ -164,5 +206,62 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 	public void onDataPacket(INetworkManager net, Packet132TileEntityData packet)
 	{
 		this.readFromNBT(packet.data);
+	}
+}
+
+//Class that actually handles all of the crafting
+class KCCrafter
+{
+	public static ItemStack getCraftResult(ItemStack[] input)
+	{
+		ItemStack container = input[8];
+		ItemStack base = input[9];
+		ItemStack output = KCCraftingManager.getOutput(base, TileEntityKitchenCounter.getContainerType(container));
+		if (output == null)
+			return null;
+		
+		NBTTagList list = new NBTTagList();
+		for (int i = 0; i < 8; ++i)
+		{
+			if (input[i] == null)
+				continue;
+			
+			IESCIngredient in = null;
+			try
+			{
+				in = (IESCIngredient) Item.itemsList[input[i].itemID];
+			}
+			catch (Exception e)
+			{
+				continue;
+			}
+			if (in == null)
+				continue;
+			
+			PotionEffect[] effects = in.getEffects(input[i].getItemDamage());
+			
+			NBTTagCompound tag = new NBTTagCompound();
+			tag.setString("iname", in.getIngredientName(input[i].getItemDamage()));
+			tag.setFloat("saturation", in.getSaturation(input[i].getItemDamage()));
+			tag.setByte("heal", (byte)in.getFoodValue(input[i].getItemDamage()));
+			tag.setByte("numEffects", effects != null ? (byte)effects.length : (byte)0);
+			if (effects != null && effects.length > 0)
+			{
+				NBTTagList effectList = new NBTTagList();
+				for (PotionEffect eff : in.getEffects(input[i].getItemDamage()))
+				{
+					NBTTagCompound effectTag = new NBTTagCompound();
+					eff.writeCustomPotionEffectToNBT(effectTag);
+					effectList.appendTag(effectTag);
+				}
+				tag.setTag("EffectList", effectList);
+			}
+			
+			list.appendTag(tag);
+		}
+		
+		output.stackTagCompound.setTag("RecipeData", list);
+		
+		return output;
 	}
 }

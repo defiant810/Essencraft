@@ -20,19 +20,19 @@ public class ContainerKitchenCounter extends ContainerESC
 		this.bindPlayerInventory(player);
 		
 		//Ingredient slots
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 0, 43, 15));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 1, 61, 15));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 2, 79, 15));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 3, 25, 33));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 4, 43, 33));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 5, 61, 33));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 6, 79, 33));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 7, 97, 33));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 0, 44, 16));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 1, 62, 16));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 2, 80, 16));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 3, 26, 34));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 4, 44, 34));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 5, 62, 34));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 6, 80, 34));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 7, 98, 34));
 		
 		//Other slots
-		this.addSlotToContainer(new FoodContainerSlot(counterEntity, 8, 43, 58));
-		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 9, 79, 58)); //TODO make more specific slot
-		this.addSlotToContainer(new OutputSlot(counterEntity, 10, 133, 33));
+		this.addSlotToContainer(new FoodContainerSlot(counterEntity, 8, 44, 59));
+		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 9, 80, 59)); //TODO make more specific slot
+		this.addSlotToContainer(new OutputSlot(counterEntity, 10, 134, 34));
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class ItemVegetable extends ItemFoodESC
 	{
 		int meta = par1ItemStack.getItemDamage();
 		
-		if (!ArrayUtils.ArrayContains(EATING_BLACKLIST, meta) && par3EntityPlayer.canEat(false))
+		if (!ArrayUtils.arrayContains(EATING_BLACKLIST, meta) && par3EntityPlayer.canEat(false))
 			par3EntityPlayer.setItemInUse(par1ItemStack, par1ItemStack.getMaxItemUseDuration());
 		
 		return par1ItemStack;

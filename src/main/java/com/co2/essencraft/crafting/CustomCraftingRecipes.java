@@ -7,9 +7,20 @@ import com.co2.essencraft.lib.StringLib;
 import com.co2.essencraft.recipe.CBCraftingManager;
 import com.co2.essencraft.recipe.CBCraftingManager.KnifeType;
 
-public class CuttingBoardRecipes 
+public class CustomCraftingRecipes 
 {
 	public static void init()
+	{
+		initCuttingBoard();
+		initKitchenCounter();
+	}
+	
+	private static void initKitchenCounter()
+	{
+		
+	}
+	
+	private static void initCuttingBoard()
 	{
 		// input, tool, output
 		//cut fruits

@@ -36,6 +36,7 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 		if (getStackInSlot(0) == null)
 			return;
 		
+		//If something got crafted
 		if (getStackInSlot(2) == null && lastOutput != null)
 		{
 			if (inventory[1].stackSize <= 1)
@@ -187,7 +188,7 @@ public class TileEntityCuttingBoard extends TileEntity implements IInventory
 			NBTTagCompound stack = (NBTTagCompound) tagList.tagAt(i);
 			byte index = stack.getByte("Slot");
 			if (index >= 0 && index < inventory.length)
-				inventory[i] = ItemStack.loadItemStackFromNBT(stack);
+				inventory[index] = ItemStack.loadItemStackFromNBT(stack);
 		}
 	}
 	

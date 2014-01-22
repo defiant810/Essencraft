@@ -26,4 +26,7 @@ public class BlockIds
 	//Cutting board
 	public static final int CUTTING_BOARD_DEFAULT = 3307;
 	public static int CUTTING_BOARD;
+	//Kitchen Counter
+	public static final int KITCHEN_COUNTER_DEFAULT = 3308;
+	public static int KITCHEN_COUNTER;
 }
