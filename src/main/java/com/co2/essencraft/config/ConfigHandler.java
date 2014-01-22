@@ -75,6 +75,8 @@ public class ConfigHandler
 			ItemIds.CROSSHATCH = con.getItem("crossHatch", ItemIds.CROSSHATCH_DEFAULT).getInt(ItemIds.CROSSHATCH_DEFAULT);
 			ItemIds.PLATE = con.getItem("plate", ItemIds.PLATE_DEFAULT).getInt(ItemIds.PLATE_DEFAULT);
 			ItemIds.PIE_PAN = con.getItem("piePan", ItemIds.PIE_PAN_DEFAULT).getInt(ItemIds.PIE_PAN_DEFAULT);
+			
+			ItemIds.CF_FRUIT_SALAD = con.getItem("cffruitSalad", ItemIds.CF_FRUIT_SALAD_DEFAULT).getInt(ItemIds.CF_FRUIT_SALAD_DEFAULT);
 		}
 		catch (Exception e)
 		{

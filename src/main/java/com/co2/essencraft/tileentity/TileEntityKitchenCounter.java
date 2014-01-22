@@ -56,7 +56,7 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 		
 		ItemStack out = null;
 		if (getStackInSlot(9) != null && getStackInSlot(8) != null)
-			out = KCCrafter.getCraftResult((ItemStack[]) ArrayUtils.subArray(inventory, 0, 10));
+			out = KCCrafter.getCraftResult(ArrayUtils.itemStackSubArray(inventory, 0, 10));
 		
 		inventory[10] = out;
 		lastOutput = out != null ? out.copy() : null;
@@ -284,6 +284,9 @@ class KCCrafter
 		}
 		list.appendTag(baseTag);
 		
+		if (output.stackTagCompound == null)
+			output.stackTagCompound = new NBTTagCompound();
+			
 		output.stackTagCompound.setTag("RecipeData", list);
 		
 		return output;

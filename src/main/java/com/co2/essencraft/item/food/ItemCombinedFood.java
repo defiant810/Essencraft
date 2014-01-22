@@ -61,13 +61,13 @@ public class ItemCombinedFood extends ItemFoodESC
 		list.add("Saturation: " + info.saturation);
 		list.add("Ingredients: ");
 		for (String s : info.ingredients)
-			list.add("\t" + s);
+			list.add("  " + s);
 		
 		if (info.effects.length > 0)
 		{
 			list.add("Effects: ");
 			for (PotionEffect p : info.effects)
-				list.add("\t" + p.getEffectName().substring(7) + "x" + (p.getAmplifier() + 1));
+				list.add("  " + p.getEffectName().substring(7) + "x" + (p.getAmplifier() + 1));
 		}
 	}
 	
@@ -99,8 +99,8 @@ public class ItemCombinedFood extends ItemFoodESC
 		}
 		
 		int count = names.size();
-		totalSaturation /= count;
+		totalSaturation /= (count / 2f);
 		
-		return new FoodInfo(healed, totalSaturation, (String[]) names.toArray(), (PotionEffect[]) effects.toArray());
+		return new FoodInfo(healed, totalSaturation, names.toArray(new String[names.size()]), effects.toArray(new PotionEffect[effects.size()]));
 	}
 }

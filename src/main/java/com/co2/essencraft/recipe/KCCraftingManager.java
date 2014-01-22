@@ -92,14 +92,24 @@ class KCRecipe
 	private final ItemStack base;
 	private final ContainerType container;
 	private final ItemStack output;
-	private final ItemStack[] blackList;
+	private final ArrayList<ItemStack> blackList;
+	private final ArrayList<Integer> gBlackList; //The blacklists that cover entire ids
 	
 	public KCRecipe(ItemStack in, ContainerType ct, ItemStack out, ItemStack... blacklist)
 	{
 		this.base = in.copy();
 		this.container = ct;
-		this.output = out.copy();
-		this.blackList = blacklist;
+		this.output = out != null ? out.copy() : null;
+		this.blackList = new ArrayList<ItemStack>();
+		this.gBlackList = new ArrayList<Integer>();
+		
+		for (ItemStack stack : blacklist)
+		{
+			if (stack.stackSize == -1)
+				gBlackList.add(stack.itemID);
+			else
+				blackList.add(stack.copy());
+		}
 	}
 	
 	public ItemStack getBase()
@@ -117,15 +127,14 @@ class KCRecipe
 		return this.container;
 	}
 	
-	public ItemStack[] getBlacklist()
-	{
-		return this.blackList;
-	}
-	
 	public boolean itemBlackListed(ItemStack stack)
 	{
 		for (ItemStack s : this.blackList)
 			if (s.itemID == stack.itemID && s.getItemDamage() == stack.getItemDamage())
+				return true;
+		
+		for (Integer i : this.gBlackList)
+			if (stack.itemID == i)
 				return true;
 		
 		return false;

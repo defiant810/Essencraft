@@ -28,6 +28,9 @@ public class StringLib
 	public static final String PLATE_NAME = "plate";
 	public static final String PIE_PAN_NAME = "piePan";
 	
+	/* Custom Foods */
+	public static final String CF_FRUIT_SALAD = "fruitSalad";
+	
 	//Grains
 	public static final String[] GRAIN_NAMES = {"Barley", "Corn", "Hops", "Oat", "Rye", "Rice"};
 	//Seeds - to be plantable on grass and dirt name must contain "tree" (any case) otherwise only plantable on tilled soil

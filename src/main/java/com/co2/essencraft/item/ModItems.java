@@ -2,6 +2,7 @@ package com.co2.essencraft.item;
 
 import net.minecraft.item.ItemStack;
 
+import com.co2.essencraft.item.food.ItemCombinedFood;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.StringLib;
 
@@ -29,6 +30,8 @@ public class ModItems
 	public static ItemESC plate;
 	public static ItemESC piePan;
 	
+	public static ItemCombinedFood cfFruitSalad;
+	
 	public static void init()
 	{
 		fish = new ItemFish(ItemIds.FISH);
@@ -47,8 +50,9 @@ public class ModItems
 		cutVegetable = new ItemCutVegetable(ItemIds.CUT_VEGETABLE);
 		grindingStone = (ItemCraftTool) new ItemCraftTool(ItemIds.GRINDING_STONE, 256).setUnlocalizedName(StringLib.GRINDING_STONE_NAME).setTextureName("Grindingstone");
 		flour = new ItemFlour(ItemIds.FLOUR);
-		plate = (ItemESC) new ItemESC(ItemIds.PLATE).setUnlocalizedName(StringLib.PLATE_NAME).setTextureName("PLate");
+		plate = (ItemESC) new ItemESC(ItemIds.PLATE).setUnlocalizedName(StringLib.PLATE_NAME).setTextureName("Plate");
 		piePan = (ItemESC) new ItemESC(ItemIds.PIE_PAN).setUnlocalizedName(StringLib.PIE_PAN_NAME).setTextureName("PiePan");
+		cfFruitSalad = (ItemCombinedFood) new ItemCombinedFood(ItemIds.CF_FRUIT_SALAD).setUnlocalizedName(StringLib.CF_FRUIT_SALAD).setTextureName("CFFruitSalad");
 		
 		GameRegistry.registerItem(fish, "item.fish");
 		GameRegistry.registerItem(fruit, "item.fruit");
@@ -68,6 +72,7 @@ public class ModItems
 		GameRegistry.registerItem(flour, "item.flour");
 		GameRegistry.registerItem(plate, "item.plate");
 		GameRegistry.registerItem(piePan, "item.piePan");
+		GameRegistry.registerItem(cfFruitSalad, "item.salad");
 				
 		LanguageRegistry.addName(knifeHandle, "Knife Handle");
 		LanguageRegistry.addName(chefKnife, "Chef's Knife");

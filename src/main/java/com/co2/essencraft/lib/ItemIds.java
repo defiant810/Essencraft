@@ -30,6 +30,10 @@ public class ItemIds
 	public static final int FLOUR_DEFAULT = 19508;
 	public static int FLOUR;
 	
+	//Custom foods
+	public static final int CF_FRUIT_SALAD_DEFAULT = 19550;
+	public static int CF_FRUIT_SALAD;
+	
 	//Knifes
 	public static final int KNIFE_HANDLE_DEFAULT = 19510;
 	public static int KNIFE_HANDLE;

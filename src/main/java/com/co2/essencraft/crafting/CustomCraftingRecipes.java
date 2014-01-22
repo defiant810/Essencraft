@@ -2,10 +2,13 @@ package com.co2.essencraft.crafting;
 
 import net.minecraft.item.ItemStack;
 
+import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.StringLib;
 import com.co2.essencraft.recipe.CBCraftingManager;
 import com.co2.essencraft.recipe.CBCraftingManager.KnifeType;
+import com.co2.essencraft.recipe.KCCraftingManager.ContainerType;
+import com.co2.essencraft.recipe.KCCraftingManager;
 
 public class CustomCraftingRecipes 
 {
@@ -17,7 +20,8 @@ public class CustomCraftingRecipes
 	
 	private static void initKitchenCounter()
 	{
-		
+		//Fruit salad
+		KCCraftingManager.addRecipe(new ItemStack(ModItems.cutFruit), ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), new ItemStack(ModItems.cutVegetable, -1, 0));
 	}
 	
 	private static void initCuttingBoard()

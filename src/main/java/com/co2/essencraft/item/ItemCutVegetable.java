@@ -3,15 +3,18 @@ package com.co2.essencraft.item;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
 import com.co2.essencraft.lib.StringLib;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemCutVegetable extends ItemFoodESC{
-
+public class ItemCutVegetable extends ItemFoodESC implements IESCIngredient
+{
 	private static final int NUM_VEG = StringLib.VEG_NAMES.length;
 	
 	private static final String[] TEXTURES = { "VegGreenBean", null, "VegBeet", null, "VegCelery", "VegCucumber", "VegEggPlant",
@@ -70,5 +73,29 @@ public class ItemCutVegetable extends ItemFoodESC{
 			else
 				icons[i] = iconRegister.registerIcon(StringLib.ASSET_PREFIX + "itemCut" + name);
 		}
+	}
+
+	@Override
+	public int getFoodValue(int damage)
+	{
+		return 1;
+	}
+
+	@Override
+	public PotionEffect[] getEffects(int damage) 
+	{
+		return null;
+	}
+
+	@Override
+	public float getSaturation(int damage)
+	{
+		return 0.1f;
+	}
+
+	@Override
+	public String getIngredientName(int damage) 
+	{
+		return "Dat Veggie";
 	}
 }
