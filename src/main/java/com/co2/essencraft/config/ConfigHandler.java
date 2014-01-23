@@ -8,6 +8,7 @@ import net.minecraftforge.common.Configuration;
 import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.Reference;
+import com.co2.essencraft.lib.VillagerIds;
 
 import cpw.mods.fml.common.FMLLog;
 
@@ -17,6 +18,29 @@ public class ConfigHandler
 	{
 		blockInit(new File(path + "block.properties"));
 		itemInit(new File(path + "item.properties"));
+		otherInit(new File(path + "core.properties"));
+	}
+	
+	private static void otherInit(File f)
+	{
+		Configuration con = new Configuration(f);
+		
+		try
+		{
+			con.load();
+			
+			VillagerIds.FRUIT_VENDOR = con.get("Village", "idFruitVendorVillager", VillagerIds.FRUIT_VENDOR_DEFAULT).getInt(VillagerIds.FRUIT_VENDOR_DEFAULT);
+			VillagerIds.VEGETABLE_VENDOR = con.get("Village", "idVegetableVendorVillager", VillagerIds.VEGETABLE_VENDOR_DEFAULT).getInt(VillagerIds.VEGETABLE_VENDOR_DEFAULT);
+			VillagerIds.SEED_VENDOR = con.get("Village", "idSeedVendorVillager", VillagerIds.SEED_VENDOR_DEFAULT).getInt(VillagerIds.SEED_VENDOR_DEFAULT);
+		}
+		catch (Exception e)
+		{
+			FMLLog.log(Level.SEVERE, e, Reference.MOD_NAME + " cannot load its core properties configuration file.");
+		}
+		finally
+		{
+			con.save();
+		}
 	}
 	
 	private static void blockInit(File f)

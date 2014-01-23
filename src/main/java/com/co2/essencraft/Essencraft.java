@@ -9,6 +9,7 @@ import com.co2.essencraft.crafting.CraftingHandler;
 import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.Reference;
 import com.co2.essencraft.proxy.IProxy;
+import com.co2.essencraft.villager.VillageManager;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -60,6 +61,9 @@ public class Essencraft
 		
 		//Map the TileEntities
 		proxy.registerTileEntities();
+		
+		//Register the villagers
+		VillageManager.init();
 	}
 	
 	@EventHandler

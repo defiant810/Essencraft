@@ -21,7 +21,7 @@ public class ItemSeedESC extends ItemSeeds
 {	
 	private static final int ID_SHIFT_CORRECTION = 256;
 	
-	private static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
+	public static final int NUM_SEEDS = StringLib.SEED_NAMES.length;
 	//name of texture file - if adding vineseeds 
 	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "SeedRice", "SeedBanana", "SeedCoconut",
 		"SeedGrapefruit", "SeedMango", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate", "SeedGrape", "SeedKiwi", "SeedBlackPepper", "SeedGreenBean",
@@ -48,7 +48,7 @@ public class ItemSeedESC extends ItemSeeds
 	{
 		if (player.canPlayerEdit(xPos, yPos, zPos, side, stack) && player.canPlayerEdit(xPos, yPos + 1, zPos, side, stack))
 		{	
-			int index = MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS);
+			int index = MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS - 1);
 			boolean tree = StringLib.SEED_NAMES[index].toLowerCase().contains("tree");
 			boolean vine = StringLib.SEED_NAMES[index].toLowerCase().contains("vine");
 			boolean bush = StringLib.SEED_NAMES[index].toLowerCase().contains("bush");
@@ -99,7 +99,7 @@ public class ItemSeedESC extends ItemSeeds
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return "item." + StringLib.SEED_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_SEEDS - 1)].toLowerCase() + ".seed";
+		return StringLib.SEED_NAMES[MathHelper.clamp_int(itemStack.getItemDamage(), 0, NUM_SEEDS - 1)].toLowerCase();
 	}
 	
 	@Override

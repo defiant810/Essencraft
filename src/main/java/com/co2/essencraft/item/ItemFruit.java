@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemFruit extends ItemFoodESC
 {
-	private static final int NUM_FRUIT = StringLib.FRUIT_NAMES.length;
+	public static final int NUM_FRUIT = StringLib.FRUIT_NAMES.length;
 	
 	private static final String[] TEXTURES = { "FruitBanana", "FruitBlackberry", "FruitBlueberry", "FruitCoconut", "FruitGrapeFruit",
 		"FruitGrapes", "FruitKiwi", "FruitMango", "FruitOrange", "FruitPeach", "FruitPear", "FruitPineapple", "FruitPlum", "FruitPomegranate",

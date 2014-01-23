@@ -25,14 +25,6 @@ public class CustomCraftingRecipes
 		//into/ on top of. The third parameter is the output from the recipe. The fourth parameter is all of the items that are allowed to be extra ingredients in the recipe,
 		//and similar to the first parameter, a stack size of -1 allows all items of the same id to be used.
 		
-		//Example recipe (only use cut bananas as the base for fruit salad, but allow any type of cut fruit to be an extra ingredient
-		//KCCraftingManager.addRecipe(new ItemStack[][] { { new ItemStack(ModItems.cutFruit, 0, 0) } , null, null }, ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), 
-				//new ItemStack(ModItems.cutFruit, -1, 0));
-		
-		//Example recipe (use any cut fruit as the base for fruit salad, and any cut fruit for extra ingredients
-		//KCCraftingManager.addRecipe(new ItemStack[][] { { new ItemStack(ModItems.cutFruit, -1, 0) } , null, null }, ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), 
-				//new ItemStack(ModItems.cutFruit, -1, 0));
-		
 		//Fruit salad
 		KCCraftingManager.addRecipe(new ItemStack[][] { { new ItemStack(ModItems.cutFruit, -1, 0) } , null, null }, ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), 
 				new ItemStack(ModItems.cutFruit, -1, 0));

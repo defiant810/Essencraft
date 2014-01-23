@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemVegetable extends ItemFoodESC
 {
-	private static final int NUM_VEG = StringLib.VEG_NAMES.length;
+	public static final int NUM_VEG = StringLib.VEG_NAMES.length;
 	
 	private static final String[] TEXTURES = { "VegGreenBean", "VegSoyBean", "VegBeet", "VegCabbage", "VegCelery", "VegCucumber", "VegEggPlant",
 		"VegLettuce", "VegOnion", "VegPeas", "VegBellPepperR", "VegGhostPepper", "VegJalapenoPepper", "VegRadish", "VegRhubarb",
