@@ -72,7 +72,7 @@ public class ModItems
 		GameRegistry.registerItem(flour, "item.flour");
 		GameRegistry.registerItem(plate, "item.plate");
 		GameRegistry.registerItem(piePan, "item.piePan");
-		GameRegistry.registerItem(cfFruitSalad, "item.salad");
+		GameRegistry.registerItem(cfFruitSalad, "item.fruitSalad");
 				
 		LanguageRegistry.addName(knifeHandle, "Knife Handle");
 		LanguageRegistry.addName(chefKnife, "Chef's Knife");

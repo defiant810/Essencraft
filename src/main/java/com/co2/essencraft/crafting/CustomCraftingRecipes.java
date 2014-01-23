@@ -20,8 +20,22 @@ public class CustomCraftingRecipes
 	
 	private static void initKitchenCounter()
 	{
+		//The first parameter is the array of itemstack arrays. Each array holds all of the ItemStacks in the group allowed in one slot. An itemstack of size -1 allows all
+		//items of the same id in. Passing null means the base must be empty for the recipe to match. The second parameter is the container type that the recipe must go
+		//into/ on top of. The third parameter is the output from the recipe. The fourth parameter is all of the items that are allowed to be extra ingredients in the recipe,
+		//and similar to the first parameter, a stack size of -1 allows all items of the same id to be used.
+		
+		//Example recipe (only use cut bananas as the base for fruit salad, but allow any type of cut fruit to be an extra ingredient
+		//KCCraftingManager.addRecipe(new ItemStack[][] { { new ItemStack(ModItems.cutFruit, 0, 0) } , null, null }, ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), 
+				//new ItemStack(ModItems.cutFruit, -1, 0));
+		
+		//Example recipe (use any cut fruit as the base for fruit salad, and any cut fruit for extra ingredients
+		//KCCraftingManager.addRecipe(new ItemStack[][] { { new ItemStack(ModItems.cutFruit, -1, 0) } , null, null }, ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), 
+				//new ItemStack(ModItems.cutFruit, -1, 0));
+		
 		//Fruit salad
-		KCCraftingManager.addRecipe(new ItemStack(ModItems.cutFruit), ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), new ItemStack(ModItems.cutVegetable, -1, 0));
+		KCCraftingManager.addRecipe(new ItemStack[][] { { new ItemStack(ModItems.cutFruit, -1, 0) } , null, null }, ContainerType.BOWL, new ItemStack(ModItems.cfFruitSalad), 
+				new ItemStack(ModItems.cutFruit, -1, 0));
 	}
 	
 	private static void initCuttingBoard()
