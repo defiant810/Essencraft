@@ -25,11 +25,11 @@ public class ItemSeedESC extends ItemSeeds
 	//name of texture file - if adding vineseeds 
 	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "SeedRice", "SeedBanana", "SeedCoconut",
 		"SeedGrapefruit", "SeedMango", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate", "SeedGrape", "SeedKiwi", "SeedBlackPepper", "SeedGreenBean",
-		"SeedSoyBean", "SeedPea", "Seed Tomato", "SeedStrawberry", "SeedDecorative" };
+		"SeedSoyBean", "SeedPea", "SeedTomato", "SeedStrawberry", "SeedDecorative", "SeedBlueberry" };
 	//The id of the block planted by each seed
 	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, BlockIds.CORN_CROP, BlockIds.HOP_CROP, BlockIds.OAT_CROP,
 		BlockIds.RYE_CROP, BlockIds.RICE_CROP, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,
-		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, 0, 0, 0, 0, 0, 0, 0, 0 };
+		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, 0, 0, 0, 0, 0, 0, 0, 0, 0, BlockIds.BLUEBERRY_BUSH };
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -51,13 +51,14 @@ public class ItemSeedESC extends ItemSeeds
 			int index = MathHelper.clamp_int(stack.getItemDamage(), 0, NUM_SEEDS);
 			boolean tree = StringLib.SEED_NAMES[index].toLowerCase().contains("tree");
 			boolean vine = StringLib.SEED_NAMES[index].toLowerCase().contains("vine");
+			boolean bush = StringLib.SEED_NAMES[index].toLowerCase().contains("bush");
 			
 			int i1 = world.getBlockId(xPos, yPos, zPos);
 			Block soil = Block.blocksList[i1];
 			
 			if (soil != null)
 			{
-				if (tree && (soil == Block.grass || soil == Block.dirt) && world.isAirBlock(xPos, yPos + 1, zPos) && side == 1)
+				if ((tree || bush) && (soil == Block.grass || soil == Block.dirt) && world.isAirBlock(xPos, yPos + 1, zPos) && side == 1)
 				{
 					world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
 					--stack.stackSize;

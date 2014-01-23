@@ -29,4 +29,8 @@ public class BlockIds
 	//Kitchen Counter
 	public static final int KITCHEN_COUNTER_DEFAULT = 3308;
 	public static int KITCHEN_COUNTER;
+	//Blueberry Bush
+	public static final int BLUEBERRY_BUSH_DEFAULT = 3309;
+	public static int BLUEBERRY_BUSH;
+	
 }

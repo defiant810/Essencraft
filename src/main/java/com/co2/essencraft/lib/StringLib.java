@@ -15,6 +15,7 @@ public class StringLib
 	public static final String VINE_SUPPORT_NAME = "vineSupport";
 	public static final String CUTTING_BOARD_NAME = "cuttingBoard";
 	public static final String KITCHEN_COUNTER_NAME = "kitchenCounter";
+	public static final String BLUEBERRY_BUSH_NAME = "blueberryBush";
 	
 	/* Item name constants */
 	public static final String RYE_NAME = "ryeStalk";
@@ -37,7 +38,7 @@ public class StringLib
 	public static final String[] SEED_NAMES = { "Barley Seed", "Corn Seed", "Hops Seed", "Oat Seed", "Rye Seed", "Rice Seed", "Banana Tree Seed",
 		"Coconut Tree Seed", "Grapefruit Tree Seed", "Mango Tree Seed", "Orange Tree Seed", "Peach Tree Seed", "Pear Tree Seed", "Pineapple Tree Seed",
 		"Plum Tree Seed", "Pomegranate Tree Seed", "Grape Vine Seed", "Kiwi Vine Seed", "Black Pepper Vine Seed", "Green Bean Vine Seed", "Soy Bean Vine Seed",
-		"Pea Vine Seed", "Tomatoe Vine Seed", "Strawberry Vine Seed", "Decorative Vine Seed" };
+		"Pea Vine Seed", "Tomatoe Vine Seed", "Strawberry Vine Seed", "Decorative Vine Seed", "Blueberry Bush Seed" };
 	
 	//Cut Fruit
 	public static final String[] CUT_FRUIT_NAMES = { "Cut Banana", null, null, "Cut Coconut", "Cut Grapefruit", null, "Cut Kiwi",
