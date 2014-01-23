@@ -32,5 +32,11 @@ public class BlockIds
 	//Blueberry Bush
 	public static final int BLUEBERRY_BUSH_DEFAULT = 3309;
 	public static int BLUEBERRY_BUSH;
+	//Raspberry Bush
+	public static final int RASPBERRY_BUSH_DEFAULT = 3310;
+	public static int RASPBERRY_BUSH;
+	//Blackberry Bush
+	public static final int BLACKBERRY_BUSH_DEFAULT = 3311;
+	public static int BLACKBERRY_BUSH;
 	
 }

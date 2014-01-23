@@ -59,7 +59,7 @@ public class BlockCropESC extends BlockCrops
 			
 			if(l < (GROWTH_STAGES - 1))
 			{
-				float f = this.getGrowthRate(par1World, par2, par3, par4);
+				float f = growthRate;
 				if(par5Random.nextFloat() <= (f / 8.0f))
 				{
 					++l;
@@ -74,8 +74,8 @@ public class BlockCropESC extends BlockCrops
      * different sides that aren't opposing, and by adding growth for every crop next to this one (and for crop below
      * this one). Args: x, y, z
      */
-	private float getGrowthRate(World par1World, int par2, int par3, int par4)
-	{
+	protected float getGrowthRate(World par1World, int par2, int par3, int par4)
+	{	
 		float f = 1.0f;
         int l = par1World.getBlockId(par2, par3, par4 - 1);
         int i1 = par1World.getBlockId(par2, par3, par4 + 1);

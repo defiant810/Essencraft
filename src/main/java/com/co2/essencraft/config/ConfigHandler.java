@@ -37,6 +37,8 @@ public class ConfigHandler
 			BlockIds.CUTTING_BOARD = con.getBlock("cuttingBoard", BlockIds.CUTTING_BOARD_DEFAULT).getInt(BlockIds.CUTTING_BOARD_DEFAULT);
 			BlockIds.KITCHEN_COUNTER = con.getBlock("kitchenCounter", BlockIds.KITCHEN_COUNTER_DEFAULT).getInt(BlockIds.KITCHEN_COUNTER_DEFAULT);
 			BlockIds.BLUEBERRY_BUSH = con.getBlock("blueberryBush", BlockIds.BLUEBERRY_BUSH_DEFAULT).getInt(BlockIds.BLUEBERRY_BUSH_DEFAULT);
+			BlockIds.RASPBERRY_BUSH = con.getBlock("raspberryBush", BlockIds.RASPBERRY_BUSH_DEFAULT).getInt(BlockIds.RASPBERRY_BUSH_DEFAULT);
+			BlockIds.BLACKBERRY_BUSH = con.getBlock("blackberryBush", BlockIds.BLACKBERRY_BUSH_DEFAULT).getInt(BlockIds.BLACKBERRY_BUSH_DEFAULT);
 		}
 		catch (Exception e)
 		{

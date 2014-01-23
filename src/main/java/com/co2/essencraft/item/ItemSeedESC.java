@@ -25,11 +25,12 @@ public class ItemSeedESC extends ItemSeeds
 	//name of texture file - if adding vineseeds 
 	private static final String[] TEXTURES = { "SeedBarley", "SeedCorn", "SeedHop", "SeedOat", "SeedRye", "SeedRice", "SeedBanana", "SeedCoconut",
 		"SeedGrapefruit", "SeedMango", "SeedOrange", "SeedPeach", "SeedPear", "SeedPineapple", "SeedPlum", "SeedPomegranate", "SeedGrape", "SeedKiwi", "SeedBlackPepper", "SeedGreenBean",
-		"SeedSoyBean", "SeedPea", "SeedTomato", "SeedStrawberry", "SeedDecorative", "SeedBlueberry" };
+		"SeedSoyBean", "SeedPea", "SeedTomato", "SeedStrawberry", "SeedDecorative", "SeedBlueberry", "SeedRaspberry", "SeedBlackberry" };
 	//The id of the block planted by each seed
 	private static final int[] PLANTED_TYPES = { BlockIds.BARLEY_CROP, BlockIds.CORN_CROP, BlockIds.HOP_CROP, BlockIds.OAT_CROP,
 		BlockIds.RYE_CROP, BlockIds.RICE_CROP, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID,
-		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, 0, 0, 0, 0, 0, 0, 0, 0, 0, BlockIds.BLUEBERRY_BUSH };
+		Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, Block.sapling.blockID, 0, 0, 0, 0, 0, 0, 0, 0, 0, BlockIds.BLUEBERRY_BUSH,
+		BlockIds.RASPBERRY_BUSH, BlockIds.BLACKBERRY_BUSH };
 	
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
@@ -80,7 +81,7 @@ public class ItemSeedESC extends ItemSeeds
 					
 					return false;
 				}
-				else if (!tree && !vine && soil == Block.tilledField && world.isAirBlock(xPos, yPos + 1, zPos) && side == 1)
+				else if (!tree && !vine && !bush && soil == Block.tilledField && world.isAirBlock(xPos, yPos + 1, zPos) && side == 1)
 				{
 					world.setBlock(xPos, yPos + 1, zPos, PLANTED_TYPES[index], 0, 3);
 					--stack.stackSize;

@@ -19,6 +19,8 @@ public class ModBlocks
 	public static BlockCuttingBoard cuttingBoard;
 	public static BlockKitchenCounter kitchenCounter;
 	public static BlockBush blueberryBush;
+	public static BlockBush raspberryBush;
+	public static BlockBush	blackberryBush;
 	
 	public static void init()
 	{
@@ -31,7 +33,9 @@ public class ModBlocks
 		vineSupport = new BlockVineSupport(BlockIds.VINE_SUPPORT);
 		cuttingBoard = (BlockCuttingBoard) new BlockCuttingBoard(BlockIds.CUTTING_BOARD).setTextureName("CuttingBoard");
 		kitchenCounter = (BlockKitchenCounter) new BlockKitchenCounter(BlockIds.KITCHEN_COUNTER).setTextureName("KitchenCounter");
-		blueberryBush = (BlockBush) new BlockBush(BlockIds.BLUEBERRY_BUSH, 1.0f, ItemIds.SEED, 25, ItemIds.FRUIT, 2).setTextureName("BlueberryBush");
+		blueberryBush = (BlockBush) new BlockBush(BlockIds.BLUEBERRY_BUSH, 1.0f, ItemIds.SEED, 25, ItemIds.FRUIT, 2).setTextureName("BushBlueberry");
+		raspberryBush = (BlockBush) new BlockBush(BlockIds.RASPBERRY_BUSH, 1.0f, ItemIds.SEED, 26, ItemIds.FRUIT, 14).setTextureName("BushRaspberry");
+		blackberryBush = (BlockBush) new BlockBush(BlockIds.BLACKBERRY_BUSH, 1.0f, ItemIds.SEED, 27, ItemIds.FRUIT, 1).setTextureName("BushBlackberry");
 		
 		//GameRegistry
 		GameRegistry.registerBlock(barleyCrop, "tile." + StringLib.BARLEY_CROP_NAME);
@@ -44,6 +48,8 @@ public class ModBlocks
 		GameRegistry.registerBlock(cuttingBoard, "tile." + StringLib.CUTTING_BOARD_NAME);
 		GameRegistry.registerBlock(kitchenCounter, "tile." + StringLib.KITCHEN_COUNTER_NAME);
 		GameRegistry.registerBlock(blueberryBush, "tile." + StringLib.BLUEBERRY_BUSH_NAME);
+		GameRegistry.registerBlock(raspberryBush,"tile." + StringLib.RASPBERRY_BUSH_NAME);
+		GameRegistry.registerBlock(blackberryBush, "tile." + StringLib.BLACKBERRY_BUSH_NAME);
 		
 		//LanguageRegistry
 		LanguageRegistry.addName(barleyCrop, "Barley Crop");
@@ -56,5 +62,7 @@ public class ModBlocks
 		LanguageRegistry.addName(cuttingBoard, "Cutting Board");
 		LanguageRegistry.addName(kitchenCounter, "Kitchen Counter");
 		LanguageRegistry.addName(blueberryBush, "Blueberry Bush");
+		LanguageRegistry.addName(raspberryBush, "Raspberry Bush");
+		LanguageRegistry.addName(blackberryBush, "Blackberry Bush");
 	}
 }
