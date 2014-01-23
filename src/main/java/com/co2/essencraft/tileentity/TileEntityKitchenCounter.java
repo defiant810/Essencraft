@@ -22,7 +22,7 @@ import com.co2.essencraft.util.ArrayUtils;
 public class TileEntityKitchenCounter extends TileEntity implements IInventory
 {
 	//Inventory Slots
-	//0-7 ingredients, 8 utensil, 9 meal base, 10 output
+	//0-7 ingredients, 8 utensil, 9-11 meal base, 12 output
 	//See: https://drive.google.com/file/d/0B_QTwbv36vr6OTk2V2VCWXhoTVE/edit?usp=sharing
 	private ItemStack[] inventory;
 	
@@ -39,26 +39,26 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 	{
 		super.onInventoryChanged();
 		
-		if (inventory[8] == null || inventory[9] == null)
-			return;
-		
 		//If something got crafted
-		if (inventory[10] == null && lastOutput != null)
+		if (inventory[12] == null && lastOutput != null)
 		{
-			for (int i = 0; i < 10; ++i)
-				if (inventory[i] != null && !KCCraftingManager.isBlackListed(inventory[9], getContainerType(inventory[8]), inventory[i]))
+			for (int i = 0; i < 12; ++i)
+				if (inventory[i] != null && KCCraftingManager.isWhiteListed(new ItemStack[][] { { inventory[9] }, { inventory[10] }, { inventory[11] } }, 
+						getContainerType(inventory[8]), inventory[i]))
 					--inventory[i].stackSize;
 			
-			for (int i = 0; i < 10; ++i)
+			
+				--inventory[8].stackSize; //Catches the skipped decrement in the loop above 
+			
+			for (int i = 0; i < 12; ++i)
 				if (inventory[i] != null && inventory[i].stackSize < 1)
 					inventory[i] = null;
 		}
 		
 		ItemStack out = null;
-		if (getStackInSlot(9) != null && getStackInSlot(8) != null)
-			out = KCCrafter.getCraftResult(ArrayUtils.itemStackSubArray(inventory, 0, 10));
+		out = KCCrafter.getCraftResult(ArrayUtils.itemStackSubArray(inventory, 0, 12));
 		
-		inventory[10] = out;
+		inventory[12] = out;
 		lastOutput = out != null ? out.copy() : null;
 	}
 	
@@ -77,7 +77,7 @@ public class TileEntityKitchenCounter extends TileEntity implements IInventory
 	@Override
 	public int getSizeInventory()
 	{
-		return 11;
+		return 13;
 	}
 
 	@Override
@@ -215,8 +215,13 @@ class KCCrafter
 {
 	public static ItemStack getCraftResult(ItemStack[] input)
 	{
+		if (input[8] == null || (input[9] == null && input[10] == null && input[11] == null))
+			return null;
+		
+		System.out.println("9 null: " + (input[9] == null) + " 10 null: " + (input[10] == null) + " 11 null: " + (input[11] == null));
+		
 		ItemStack container = input[8];
-		ItemStack base = input[9];
+		ItemStack[][] base = new ItemStack[][] { { input[9] } , { input[10] } , { input[11] } };
 		ItemStack output = KCCraftingManager.getOutput(base, TileEntityKitchenCounter.getContainerType(container));
 		if (output == null)
 			return null;
@@ -239,7 +244,7 @@ class KCCrafter
 			if (in == null)
 				continue;
 			
-			if (KCCraftingManager.isBlackListed(base, TileEntityKitchenCounter.getContainerType(container), input[i]))
+			if (!KCCraftingManager.isWhiteListed(base, TileEntityKitchenCounter.getContainerType(container), input[i]))
 				continue;
 			
 			PotionEffect[] effects = in.getEffects(input[i].getItemDamage());
@@ -264,25 +269,31 @@ class KCCrafter
 			list.appendTag(tag);
 		}
 		
-		IESCBaseFood bf = (IESCBaseFood) Item.itemsList[input[9].itemID];
-		PotionEffect[] effects = bf.getEffects(input[9].getItemDamage());
-		NBTTagCompound baseTag = new NBTTagCompound();
-		baseTag.setString("iname", bf.getIngredientName(input[9].getItemDamage()));
-		baseTag.setFloat("saturation", bf.getSaturation(input[9].getItemDamage()));
-		baseTag.setByte("heal", (byte)bf.getFoodValue(input[9].getItemDamage()));
-		baseTag.setByte("numEffects", effects != null ? (byte)effects.length : (byte)0);
-		if (effects != null && effects.length > 0)
+		for (int i = 9; i < 12; ++i)
 		{
-			NBTTagList effectList = new NBTTagList();
-			for (PotionEffect eff : bf.getEffects(input[9].getItemDamage()))
+			if (input[i] == null)
+				continue;
+			
+			IESCBaseFood bf = (IESCBaseFood) Item.itemsList[input[i].itemID];
+			PotionEffect[] effects = bf.getEffects(input[i].getItemDamage());
+			NBTTagCompound baseTag = new NBTTagCompound();
+			baseTag.setString("iname", bf.getIngredientName(input[i].getItemDamage()));
+			baseTag.setFloat("saturation", bf.getSaturation(input[i].getItemDamage()));
+			baseTag.setByte("heal", (byte)bf.getFoodValue(input[i].getItemDamage()));
+			baseTag.setByte("numEffects", effects != null ? (byte)effects.length : (byte)0);
+			if (effects != null && effects.length > 0)
 			{
-				NBTTagCompound effectTag = new NBTTagCompound();
-				eff.writeCustomPotionEffectToNBT(effectTag);
-				effectList.appendTag(effectTag);
+				NBTTagList effectList = new NBTTagList();
+				for (PotionEffect eff : bf.getEffects(input[i].getItemDamage()))
+				{
+					NBTTagCompound effectTag = new NBTTagCompound();
+					eff.writeCustomPotionEffectToNBT(effectTag);
+					effectList.appendTag(effectTag);
+				}
+				baseTag.setTag("EffectList", effectList);
 			}
-			baseTag.setTag("EffectList", effectList);
+			list.appendTag(baseTag);
 		}
-		list.appendTag(baseTag);
 		
 		if (output.stackTagCompound == null)
 			output.stackTagCompound = new NBTTagCompound();

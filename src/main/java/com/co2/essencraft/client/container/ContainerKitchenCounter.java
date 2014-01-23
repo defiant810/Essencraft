@@ -31,9 +31,11 @@ public class ContainerKitchenCounter extends ContainerESC
 		this.addSlotToContainer(new ESCIngredientSlot(counterEntity, 7, 98, 34));
 		
 		//Other slots
-		this.addSlotToContainer(new FoodContainerSlot(counterEntity, 8, 44, 59));
-		this.addSlotToContainer(new ESCBaseFoodSlot(counterEntity, 9, 80, 59)); //TODO make more specific slot
-		this.addSlotToContainer(new OutputSlot(counterEntity, 10, 134, 34));
+		this.addSlotToContainer(new FoodContainerSlot(counterEntity, 8, 26, 59));
+		this.addSlotToContainer(new ESCBaseFoodSlot(counterEntity, 9, 62, 59));
+		this.addSlotToContainer(new ESCBaseFoodSlot(counterEntity, 10, 80, 59));
+		this.addSlotToContainer(new ESCBaseFoodSlot(counterEntity, 11, 98, 59));
+		this.addSlotToContainer(new OutputSlot(counterEntity, 12, 134, 34));
 	}
 
 	@Override
