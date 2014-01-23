@@ -132,7 +132,7 @@ public class BlockCropESC extends BlockCrops
         ret.add(new ItemStack(this.seedId, 1, this.seedMeta));
 
         //If the plant is fully grown
-        if (metadata >= 7)
+        if (metadata >= (GROWTH_STAGES - 1))
         {
         	//Force it to drop a grain item
         	ret.add(new ItemStack(this.dropId, this.dropAmt, this.dropMeta));
@@ -155,9 +155,9 @@ public class BlockCropESC extends BlockCrops
     {
         int l = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 5);
 
-        if (l > 7)
+        if (l > (GROWTH_STAGES - 1))
         {
-            l = 7;
+            l = GROWTH_STAGES - 1;
         }
 
         par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
@@ -173,8 +173,8 @@ public class BlockCropESC extends BlockCrops
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int meta)
 	{
-		if(meta < 0 || meta > 7)
-			meta = 7;
+		if(meta < 0 || meta > (GROWTH_STAGES - 1))
+			meta = GROWTH_STAGES - 1;
 		
 		return icons[meta];
 	}
