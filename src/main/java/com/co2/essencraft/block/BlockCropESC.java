@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockCropESC extends BlockCrops
 {
-	protected static final int GROWTH_STAGES = 8;
+	private static final int GROWTH_STAGES = 8;
 	
 	@SideOnly(Side.CLIENT)
     public Icon[] icons;
@@ -29,7 +29,7 @@ public class BlockCropESC extends BlockCrops
 	protected final int seedMeta; //Metadata of the seed dropped
 	protected final int dropId; //Id of the grain item dropped
 	protected final int dropMeta; //Meta of the grain item dropped
-	protected int dropAmt = 1; //The amount of grain item dropped
+	protected int dropAmt; //The amount of grain item dropped
 	
 	public BlockCropESC(int id, float growthRate, int seedId, int seedMeta, int dropId, int dropMeta)
 	{
@@ -39,6 +39,7 @@ public class BlockCropESC extends BlockCrops
 		this.seedMeta = seedMeta;
 		this.dropId = dropId;
 		this.dropMeta = dropMeta;
+		this.dropAmt = 1;
 		setTickRandomly(true);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}

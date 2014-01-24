@@ -1,7 +1,6 @@
 package com.co2.essencraft.block;
 
 import java.util.ArrayList;
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,22 +12,13 @@ import com.co2.essencraft.lib.StringLib;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBush extends BlockCropESC{
+public class BlockPlant extends BlockCropESC{
 
 	private static final int GROWTH_STAGES = 7;
 	
-	public BlockBush(int id, float growthRate, int seedId, int seedMeta, int dropId, int dropMeta)
-	{
+	public BlockPlant (int id, float growthRate, int seedId, int seedMeta, int dropId, int dropMeta, int dropAmt){
 		super(id, growthRate, seedId, seedMeta, dropId, dropMeta);
-		this.dropAmt = 1; // amount dropped when harvested grown
-	}
-	
-	@Override
-	protected boolean canThisPlantGrowThisBlockID(int id)
-	{	
-		int dirt = Block.dirt.blockID;
-		int grass = Block.grass.blockID;
-		return id == dirt || id == grass;
+		this.dropAmt = dropAmt; // amount dropped when harvested grown
 	}
 	
 	@Override
