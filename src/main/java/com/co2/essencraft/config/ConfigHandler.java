@@ -9,6 +9,7 @@ import com.co2.essencraft.lib.BlockIds;
 import com.co2.essencraft.lib.ItemIds;
 import com.co2.essencraft.lib.Reference;
 import com.co2.essencraft.lib.VillagerIds;
+import com.co2.essencraft.lib.WorldGenSettings;
 
 import cpw.mods.fml.common.FMLLog;
 
@@ -32,6 +33,16 @@ public class ConfigHandler
 			VillagerIds.FRUIT_VENDOR = con.get("Village", "idFruitVendorVillager", VillagerIds.FRUIT_VENDOR_DEFAULT).getInt(VillagerIds.FRUIT_VENDOR_DEFAULT);
 			VillagerIds.VEGETABLE_VENDOR = con.get("Village", "idVegetableVendorVillager", VillagerIds.VEGETABLE_VENDOR_DEFAULT).getInt(VillagerIds.VEGETABLE_VENDOR_DEFAULT);
 			VillagerIds.SEED_VENDOR = con.get("Village", "idSeedVendorVillager", VillagerIds.SEED_VENDOR_DEFAULT).getInt(VillagerIds.SEED_VENDOR_DEFAULT);
+			
+			con.addCustomCategoryComment("WorldGen", "For gen chances, bushes are 0.0-1.0 for chances to grow in each chunk.");
+			
+			WorldGenSettings.genBlackberryBushes = con.get("WorldGen", "genBlackberryBushes", true, "").getBoolean(true);
+			WorldGenSettings.genBlueberryBushes = con.get("WorldGen", "genBlueberryBushes", true, "").getBoolean(true);
+			WorldGenSettings.genRaspberryBushes = con.get("WorldGen", "genRaspberryBushes", true, "").getBoolean(true);
+			
+			WorldGenSettings.genChanceBlackberryBushes = (float) con.get("WorldGen", "chanceBlackberryBushes", 0.03).getDouble(0.03);
+			WorldGenSettings.genChanceBlueberryBushes = (float) con.get("WorldGen", "chanceBlueberryBushes", 0.03).getDouble(0.03);
+			WorldGenSettings.genChanceRaspberryBushes = (float) con.get("WorldGen", "chanceRaspberryBushes", 0.03).getDouble(0.03);
 		}
 		catch (Exception e)
 		{

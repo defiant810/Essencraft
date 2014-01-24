@@ -10,6 +10,7 @@ import com.co2.essencraft.item.ModItems;
 import com.co2.essencraft.lib.Reference;
 import com.co2.essencraft.proxy.IProxy;
 import com.co2.essencraft.villager.VillageManager;
+import com.co2.essencraft.world.ESCNatureGen;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -20,6 +21,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = { Reference.MOD_CHANNEL })
@@ -64,6 +66,9 @@ public class Essencraft
 		
 		//Register the villagers
 		VillageManager.init();
+		
+		//Register custom world genertors
+		GameRegistry.registerWorldGenerator(new ESCNatureGen());
 	}
 	
 	@EventHandler
